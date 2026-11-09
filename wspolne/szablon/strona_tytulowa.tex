@@ -1,0 +1,58 @@
+% =====================================================================
+%  STRONA TYTUŁOWA I STRESZCZENIA wg wzoru WEFiM „inz_pl_w12n.docx”
+%  (wefim.pwr.edu.pl → Dyplomowanie → Zasady edytowania pracy, p. C)
+%  Strona 1: uczelnia, wydział, kierunek, PRACA DYPLOMOWA INŻYNIERSKA,
+%            tytuł (identyczny z USOS-APD), autor, opiekun, Wrocław rok.
+%  Strona 2: Streszczenie + Słowa kluczowe, Abstract + Keywords
+%            (tożsame z tekstem w USOS-APD).
+%  Dane wpisuje się w frontmatter/dane_pracy.tex — tu nic nie zmieniać.
+% =====================================================================
+
+\newcommand{\stronaTytulowa}{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \setstretch{1.0}
+    \centering
+    {\Large\bfseries Politechnika Wrocławska\par}
+    \vspace{2mm}
+    {\large Wydział Elektroniki, Fotoniki i~Mikrosystemów\par}
+    \vspace{12mm}
+    {\large Kierunek studiów: \pracaKierunek\par}
+    \ifdefempty{\pracaSpecjalnosc}{}{%
+      {\large Specjalność: \pracaSpecjalnosc\par}}
+    \vfill
+    {\huge\bfseries PRACA DYPLOMOWA\\[2mm] INŻYNIERSKA\par}
+    \vspace{14mm}
+    {\setstretch{1.15}\LARGE\bfseries \pracaTytul\par}
+    \vspace{8mm}
+    {\setstretch{1.15}\large\itshape \pracaTytulEN\par}
+    \vfill
+    \begin{flushright}
+      \large
+      \begin{tabular}{@{}l@{}}
+        Autor:\\[1mm]
+        \textbf{\pracaAutor}\\[8mm]
+        Opiekun:\\[1mm]
+        \textbf{\pracaOpiekun}
+      \end{tabular}
+    \end{flushright}
+    \vfill
+    {\large Wrocław \pracaRok\par}
+  \end{titlepage}
+  % Strona 2 (odwrocie): streszczenia
+  \thispagestyle{plain}
+  \noindent{\large\bfseries Streszczenie\par}
+  \vspace{2mm}
+  \pracaStreszczenie\par
+  \vspace{3mm}
+  \noindent\textbf{Słowa kluczowe:} \pracaSlowaKluczowe\par
+  \vspace{10mm}
+  \begin{otherlanguage}{english}
+  \noindent{\large\bfseries Abstract\par}
+  \vspace{2mm}
+  \pracaAbstract\par
+  \vspace{3mm}
+  \noindent\textbf{Keywords:} \pracaKeywords\par
+  \end{otherlanguage}
+  \cleardoublepage
+}

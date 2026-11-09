@@ -1,0 +1,111 @@
+% =====================================================================
+%  Wstęp pracy inżynierskiej — dwie propozycje zagajenia (szkic, 26.10.2026)
+%  Każdą opcję można wkleić w miejsce \section{Wstęp} / \chapter{Wstęp}.
+%  \cite{TODO-...} = miejsca, gdzie trzeba podpiąć źródło z bibliografii.
+%  Oryginał (opis_tematu_v2.tex) pozostaje bez zmian.
+% =====================================================================
+
+% =====================================================================
+%  OPCJA A — „Skąd wiemy, z czego zbudowany jest Księżyc?”
+%  (zagajenie od pytania badawczego i historii misji kosmicznych)
+% =====================================================================
+\chapter{Wstęp}
+
+Skąd wiemy, z~czego zbudowany jest Księżyc? Najpełniejszą odpowiedź dały
+próbki przywiezione na~Ziemię w~ramach programu Apollo -- łącznie
+ok.~382~kg skał i~regolitu, których analiza trwa do~dziś~\cite{TODO-apollo}.
+Sprowadzanie materiału z~powierzchni innych ciał niebieskich jest jednak
+niezwykle kosztowne i~możliwe tylko w~nielicznych misjach. Dlatego
+od~kilkudziesięciu lat coraz większą rolę odgrywają przyrządy, które
+badają skład chemiczny skał i~gruntu bezpośrednio na~miejscu,
+na~pokładzie lądownika lub łazika.
+
+Przykładami takich przyrządów są spektrometry APXS montowane na~łazikach
+marsjańskich, od~Sojournera po~Curiosity, oraz spektrometr fluorescencji
+rentgenowskiej PIXL łazika Perseverance~\cite{TODO-apxs,TODO-pixl}.
+Wszystkie one wykorzystują to samo zjawisko: atom pobudzony
+wysokoenergetycznym promieniowaniem lub cząstką emituje promieniowanie X
+o~energii właściwej tylko dla danego pierwiastka. Każdy z~nich musi
+przy tym zmieścić się w~ścisłym budżecie masy, wymiarów i~poboru mocy,
+który w~technice kosmicznej decyduje o~tym, czy przyrząd w~ogóle
+poleci w~misję.
+
+Na~Ziemi tę samą zasadę wykorzystuje spektroskopia EDS
+(ang.~\textit{Energy Dispersive Spectroscopy}), stosowana najczęściej
+w~elektronowych mikroskopach skaningowych. Wiązka elektronów pada tam
+bezpośrednio na~próbkę, a~spektrometr mierzy energie emitowanych fotonów
+i~na~tej podstawie ustala skład pierwiastkowy. Klasyczne działo
+elektronowe z~żarzoną katodą, kolumną elektronooptyczną i~układem
+próżniowym waży jednak dziesiątki kilogramów i~pobiera znaczną moc,
+co wyklucza jego użycie na~łaziku.
+
+Rozwiązaniem może być technologia MEMS
+(ang.~\textit{Micro-Electro-Mechanical Systems}), pozwalająca wytwarzać
+struktury elektromechaniczne o~wymiarach od~mikrometrów do~milimetrów.
+W~Katedrze ... Politechniki Wrocławskiej opracowano miniaturowe źródło
+promieniowania rentgenowskiego w~tej technologii, z~zimną katodą
+z~nanorurek węglowych (CNT)~\cite{TODO-urbanski}. Niniejsza praca
+podejmuje kolejny krok: wykorzystuje tę koncepcję do~budowy
+miniaturowego analizatora EDS, w~którym wiązka elektronów trafia
+bezpośrednio w~badaną próbkę. Na~powierzchni ciał pozbawionych
+atmosfery, takich jak Księżyc czy planetoidy, naturalna próżnia
+umożliwia propagację wiązki bez dodatkowej komory, a~źródło elektronów
+o~wymiarach rzędu centymetrów i~masie rzędu gramów mogłoby stać się
+częścią przyszłych przyrządów planetarnych.
+
+Tematyka pracy wpisuje się w~dyscyplinę automatyka, elektronika,
+elektrotechnika i~technologie kosmiczne, ponieważ łączy elektronikę
+układów zasilania źródła elektronów i~akwizycji widm, elektrotechnikę
+wysokich napięć przyspieszających i~ogniskowania wiązki oraz
+projektowanie przyrządu przeznaczonego do~misji kosmicznych.
+
+
+% =====================================================================
+%  OPCJA B — „Laboratorium, które mieści się w dłoni”
+%  (zagajenie od idei miniaturyzacji w elektronice)
+% =====================================================================
+\chapter{Wstęp}
+
+Historia elektroniki jest w~dużej mierze historią miniaturyzacji.
+Pierwsze komputery zajmowały całe sale, a~dziś układ o~wielokrotnie
+większej mocy obliczeniowej mieści się w~telefonie. Ten sam kierunek
+obrała technologia MEMS (ang.~\textit{Micro-Electro-Mechanical Systems}),
+która przeniosła techniki mikroelektroniczne -- fotolitografię, trawienie
+krzemu i~łączenie płytek -- na~wytwarzanie struktur
+elektromechanicznych o~wymiarach od~mikrometrów do~milimetrów.
+Akcelerometry, mikrofony czy czujniki ciśnienia wykonane w~tej
+technologii są dziś w~każdym smartfonie~\cite{TODO-mems}.
+
+Znacznie wolniej miniaturyzacja postępuje w~aparaturze analitycznej.
+Spektroskopia EDS (ang.~\textit{Energy Dispersive Spectroscopy}),
+jedna z~podstawowych metod badania składu pierwiastkowego materiałów,
+wciąż kojarzy się z~elektronowym mikroskopem skaningowym ustawionym
+w~laboratorium. Zasada pomiaru jest przy tym prosta: wiązka elektronów
+pada na~próbkę, każdy zawarty w~niej pierwiastek emituje promieniowanie X
+o~właściwej sobie energii, a~spektrometr mierzy te energie i~ustala
+skład próbki. O~rozmiarach przyrządu decyduje przede wszystkim
+działo elektronowe -- żarzona katoda, kolumna elektronooptyczna
+i~układ próżniowy.
+
+Zmniejszenie tego działa do~wymiarów rzędu centymetrów otwiera
+zastosowania, w~których masa, wymiary i~pobór energii są kluczowe.
+Najbardziej wymagającym z~nich jest technika kosmiczna. Analiza skał
+i~gruntu bezpośrednio na~powierzchni Księżyca czy planetoid pozwoliłaby
+poznać ich skład bez kosztownego sprowadzania próbek na~Ziemię,
+a~brak atmosfery na~tych ciałach zapewnia naturalną próżnię,
+w~której wiązka elektronów może się swobodnie rozchodzić.
+
+Krokiem w~tym kierunku jest miniaturowe źródło promieniowania
+rentgenowskiego w~technologii MEMS z~zimną katodą z~nanorurek węglowych
+(CNT), opracowane na~Politechnice Wrocławskiej~\cite{TODO-urbanski}.
+Zimna emisja polowa nie wymaga elementu grzejnego, co ogranicza pobór
+mocy, a~cała struktura krzemowo-szklana waży kilka gramów. Niniejsza
+praca wykorzystuje tę koncepcję do~budowy miniaturowego analizatora EDS,
+w~którym wiązka elektronów, ogniskowana polem magnetycznym, trafia
+bezpośrednio w~badaną próbkę.
+
+Tematyka pracy wpisuje się w~dyscyplinę automatyka, elektronika,
+elektrotechnika i~technologie kosmiczne, ponieważ łączy elektronikę
+układów zasilania źródła elektronów i~akwizycji widm, elektrotechnikę
+wysokich napięć przyspieszających i~ogniskowania wiązki oraz
+projektowanie przyrządu przeznaczonego do~misji kosmicznych.

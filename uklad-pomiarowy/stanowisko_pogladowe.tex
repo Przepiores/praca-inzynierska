@@ -1,0 +1,102 @@
+% Rysunek poglądowy stanowiska pomiarowego (przekrój komory próżniowej)
+% Kompilacja samodzielna: pdflatex stanowisko_pogladowe.tex
+% Do pracy: \input{figures/uklad_pomiarowy/stanowisko_pogladowe_body.tex}
+% (wymaga \usetikzlibrary{decorations.pathmorphing,patterns,arrows.meta,calc})
+\documentclass[border=4mm]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathmorphing,patterns,arrows.meta,calc}
+\begin{document}
+%%% START
+\begin{tikzpicture}[
+    font=\small,
+    lbl/.style={font=\small, align=left},
+    lead/.style={thin, gray!70!black},
+    wire/.style={thick, orange!70!black},
+    xray/.style={thick, violet, decorate,
+      decoration={snake, amplitude=1.2pt, segment length=5pt, post length=2.5mm},
+      -{Stealth[length=2.5mm]}},
+    ebeam/.style={thick, blue!70!black, dashed, -{Stealth[length=2.5mm]}},
+  ]
+  % ---------------- komora próżniowa ----------------
+  \fill[gray!35] (-0.35,-0.35) rectangle (12.35,8.35);
+  \fill[white] (0,0) rectangle (12,8);
+  \draw[thick] (-0.35,-0.35) rectangle (12.35,8.35);
+  \draw (0,0) rectangle (12,8);
+  \node[font=\small\itshape, anchor=south east] at (11.9,0.1) {próżnia};
+
+  % ---------------- spektrometr (góra) ----------------
+  \fill[white] (8.4,7.9) rectangle (9.6,8.4);           % otwór w pokrywie
+  \draw (8.4,8) -- (8.4,8.35) (9.6,8) -- (9.6,8.35);
+  \draw[thick, fill=gray!15] (8.4,8.35) rectangle (9.6,9.3); % króciec
+  \draw[thick, fill=gray!30] (7.6,9.3) rectangle (10.4,11.2); % głowica
+  \draw[very thick, blue!50!black] (8.6,8.05) -- (9.4,8.05);  % okienko detektora
+  \node[align=center] at (9,10.25) {spektrometr\\rentgenowski};
+
+  % ---------------- doprowadzenia elektryczne (lewa ściana) ----------------
+  \draw[thick, fill=gray!55] (-0.9,3.6) rectangle (-0.35,6.4);   % kołnierz przepustu
+  \foreach \y/\n in {5.8/E, 5.0/B, 4.2/T} {
+    \draw[thick] (-1.6,\y) -- (0.25,\y);
+    \fill (0.25,\y) circle (1.6pt);
+    \node[left, font=\footnotesize] at (-1.6,\y) {\n};
+  }
+  \node[align=center, font=\footnotesize] at (-1.95,6.9) {do zasilaczy\\i mierników};
+
+  % ---------------- uchwyt (druk 3D) z regulowanym kątem ----------------
+  \coordinate (P) at (1.8,2.3);            % oś obrotu (pokrętło)
+  \def\alf{35}                              % kąt ramienia
+  % podstawa uchwytu (płyta z oknem)
+  \draw[thick, fill=gray!10] (0.9,0) rectangle (8.0,0.25);
+  % wspornik
+  \draw[thick, fill=gray!10] (1.45,0.25) -- (2.15,0.25) -- (2.15,2.3) -- (1.45,2.3) -- cycle;
+  % ramię
+  \begin{scope}[rotate around={\alf:(P)}]
+    \draw[thick, fill=gray!10] ($(P)+(0,-0.18)$) rectangle ($(P)+(3.2,0.18)$);
+    % gniazdo struktury na końcu ramienia
+    \draw[thick, fill=gray!45] ($(P)+(2.5,-0.18)$) rectangle ($(P)+(3.5,-0.45)$);
+    % struktura MEMS
+    \draw[thick, fill=green!15] ($(P)+(2.6,-0.45)$) rectangle ($(P)+(3.4,-0.68)$);
+    \coordinate (S) at ($(P)+(3.0,-0.68)$);
+    \coordinate (Sw) at ($(P)+(2.5,0.18)$);
+  \end{scope}
+  % pokrętło (oś obrotu)
+  \draw[thick, fill=white] (P) circle (0.32);
+  \foreach \k in {0,30,...,330} \draw (P) ++(\k:0.32) -- ++(\k:0.08);
+  \fill (P) circle (1.5pt);
+  % kąt alfa
+  \draw[dashed, gray] (P) -- ++(2.0,0);
+  \draw[->, thick] ($(P)+(1.8,0)$) arc[start angle=0, end angle=\alf, radius=1.8];
+  \node[font=\footnotesize] at ($(P)+(17:2.05)$) {$\alpha$};
+
+  % ---------------- target na podstawie, pod strukturą ----------------
+  \path (S) -- ++(-55:3.19) coordinate (Tc);
+  \draw[thick, fill=gray!30] ($(Tc)+(-0.75,-0.6)$) -- ($(Tc)+(0.75,-0.6)$) -- ($(Tc)+(0.75,0.05)$) -- cycle; % podkładka klinowa
+  \begin{scope}[rotate around={20:(Tc)}]
+    \draw[thick, fill=yellow!40] ($(Tc)+(-0.85,-0.12)$) rectangle ($(Tc)+(0.85,0.0)$);
+    \draw[dashed, gray] (Tc) -- ++(1.5,0);
+  \end{scope}
+  \draw[dashed, gray] (Tc) -- ++(1.5,0);
+  \draw[->, thick] ($(Tc)+(1.35,0)$) arc[start angle=0, end angle=20, radius=1.35];
+  \node[font=\footnotesize] at ($(Tc)+(10:1.6)$) {$\beta$};
+
+  % ---------------- wiązki ----------------
+  \draw[ebeam] (S) -- node[left=2pt, font=\footnotesize, text=blue!70!black] {$e^-$} (Tc);
+  \draw[xray] (Tc) -- node[pos=0.55, sloped, below=3pt, font=\footnotesize, text=violet] {promieniowanie X} (9,8.0);
+
+  % ---------------- przewody wewnątrz komory ----------------
+  \draw[wire] (0.25,5.8) .. controls (2.0,6.3) and (3.4,5.6) .. (Sw);
+  \draw[wire] (0.25,5.0) .. controls (1.8,5.3) and (3.2,5.0) .. (Sw);
+  \draw[wire] (0.25,4.2) .. controls (1.0,3.6) and (2.8,1.4) .. ($(Tc)+(-0.8,-0.25)$);
+
+  % ---------------- opisy ----------------
+  \draw[lead] ($(S)+(0.1,0.3)$) -- (5.6,6.6) node[above left, lbl, align=right] {struktura MEMS\\(emiter E, bramka B)};
+  \draw[lead] ($(Tc)+(0.6,0.25)$) -- (9.2,2.4) node[right, lbl] {target T (próbka)};
+  \draw[lead] (1.8,0.12) -- (1.8,-1.0) node[below, lbl] {uchwyt z regulacją kąta (druk 3D)};
+  \draw[lead] (-0.62,3.6) -- (-0.62,2.6) node[below, lbl, align=center] {przepust\\elektryczny};
+  \node[font=\small\bfseries, anchor=north west] at (0.15,7.85) {komora próżniowa};
+\end{tikzpicture}
+%%% KONIEC
+\end{document}

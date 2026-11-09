@@ -1,0 +1,19 @@
+% Samodzielny podgląd fragmentu -- kompilacja: lualatex emisja_porownanie.tex
+\documentclass[a4paper,12pt]{article}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{polish}
+\IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{TeX Gyre Termes}}
+\usepackage[margin=25mm]{geometry}
+\usepackage{graphicx,subcaption,booktabs,amsmath}
+\usepackage[locale=DE]{siunitx}
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage[labelsep=period]{caption}
+\captionsetup[table]{position=top}
+\numberwithin{figure}{section}\numberwithin{table}{section}\numberwithin{equation}{section}
+\providecommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+\begin{document}
+\input{emisja_tresc}
+\end{document}

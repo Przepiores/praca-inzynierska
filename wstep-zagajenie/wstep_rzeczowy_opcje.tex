@@ -1,0 +1,121 @@
+% =====================================================================
+%  Wstęp pracy inżynierskiej — dwie RZECZOWE propozycje (wersja 2, 28.10.2026)
+%  Styl: sprawozdawczy, bez pytań retorycznych i ozdobników.
+%  \cite{TODO-...} = miejsca, gdzie trzeba podpiąć źródło z bibliografii.
+%  Poprzednie propozycje: wstep_zagajenie_opcje.tex (bez zmian).
+% =====================================================================
+
+% =====================================================================
+%  OPCJA C — od analizy materiałów do warunków misji kosmicznych
+% =====================================================================
+\chapter{Wstęp}
+
+Analiza składu pierwiastkowego jest jednym z~podstawowych badań
+materiałowych. W~warunkach laboratoryjnych wykonuje się ją najczęściej
+metodą spektroskopii EDS (ang.~\textit{Energy Dispersive Spectroscopy})
+w~elektronowym mikroskopie skaningowym. Wiązka elektronów pada
+na~próbkę, a~zawarte w~niej pierwiastki emitują promieniowanie X
+o~energiach charakterystycznych dla każdego z~nich. Spektrometr mierzy
+energie fotonów, co pozwala ustalić skład próbki.
+
+Ten sam rodzaj badań jest potrzebny w~misjach kosmicznych, w~których
+określa się skład skał i~gruntu na~powierzchni Księżyca, Marsa czy
+planetoid. Sprowadzanie próbek na~Ziemię jest kosztowne i~możliwe tylko
+w~nielicznych misjach, dlatego analizę wykonuje się na~miejscu,
+przyrządami zamontowanymi na~lądowniku lub łaziku~\cite{TODO-insitu}.
+Stosowane obecnie przyrządy, takie jak spektrometry APXS czy PIXL,
+wzbudzają promieniowanie X~próbki źródłem radioizotopowym lub lampą
+rentgenowską~\cite{TODO-apxs,TODO-pixl}.
+
+Wzbudzanie próbki bezpośrednio wiązką elektronów, tak jak w~EDS,
+nie jest w~tych zastosowaniach stosowane. Wymaga ono działa
+elektronowego, które w~mikroskopie wraz z~kolumną elektronooptyczną
+i~układem próżniowym ma znaczne wymiary, masę i~pobór mocy.
+W~przyrządach kosmicznych są to parametry ograniczone budżetem misji.
+Na~powierzchni ciał pozbawionych atmosfery panuje natomiast naturalna
+próżnia, w~której wiązka elektronów może propagować bez osobnej komory.
+
+Zmniejszenie wymiarów źródła elektronów umożliwia technologia MEMS
+(ang.~\textit{Micro-Electro-Mechanical Systems}), w~której wytwarza się
+struktury o~wymiarach od~mikrometrów do~milimetrów. Na~Politechnice
+Wrocławskiej opracowano w~tej technologii miniaturowe źródło
+promieniowania rentgenowskiego z~zimną katodą z~nanorurek węglowych
+(CNT)~\cite{TODO-urbanski}. Katoda ta nie wymaga elementu grzejnego,
+a~cała struktura krzemowo-szklana ma wymiary rzędu centymetrów i~masę
+rzędu gramów. W~niniejszej pracy rozwiązanie to wykorzystano do~budowy
+miniaturowego analizatora EDS, w~którym wiązka elektronów,
+ogniskowana polem magnetycznym, pada bezpośrednio na~badaną próbkę.
+
+Tematyka pracy wpisuje się w~dyscyplinę automatyka, elektronika,
+elektrotechnika i~technologie kosmiczne, ponieważ łączy elektronikę
+układów zasilania źródła elektronów i~akwizycji widm, elektrotechnikę
+wysokich napięć przyspieszających i~ogniskowania wiązki oraz
+projektowanie przyrządu przeznaczonego do~misji kosmicznych.
+
+Praca jest również zgodna z~profilem kierunku Inteligentna Elektronika.
+Analizator EDS można traktować jako czujnik składu pierwiastkowego.
+Wielkością mierzoną jest skład chemiczny próbki, a~sygnałem wyjściowym
+widmo energii fotonów promieniowania X. Podobnie jak w~innych układach
+czujnikowych, można w~nim wyróżnić element wzbudzający, czyli źródło
+elektronów, element przetwarzający, czyli detektor z~torem akwizycji,
+oraz układ zasilania i~sterowania, który ustala warunki pracy źródła,
+m.in. napięcie ekstrakcyjne i~przyspieszające.
+
+W~docelowym przyrządzie kosmicznym taki czujnik pracowałby samodzielnie,
+bez bieżącego udziału operatora, ze względu na~opóźnienia łączności
+z~Ziemią. Wymaga to elektroniki, która steruje emisją elektronów,
+kontroluje stabilność prądu wiązki, rejestruje widmo i~wstępnie je
+przetwarza, np.~rozpoznając linie charakterystyczne pierwiastków przed
+wysłaniem danych. Zagadnienia te łączą mikrosystemy MEMS z~układami
+pomiarowymi i~przetwarzaniem sygnałów, co odpowiada zakresowi kierunku
+Inteligentna Elektronika.
+
+
+% =====================================================================
+%  OPCJA D — od wymagań stawianych przyrządom kosmicznym
+% =====================================================================
+\chapter{Wstęp}
+
+Przyrządy przeznaczone do~misji kosmicznych muszą spełniać wymagania,
+które w~aparaturze laboratoryjnej mają drugorzędne znaczenie. Każdy
+gram masy i~każdy wat mocy zwiększają koszt misji, a~miejsce
+na~pokładzie lądownika lub łazika jest dzielone między wiele
+instrumentów~\cite{TODO-budzet}. Z~tego powodu w~technice kosmicznej
+dąży się do~miniaturyzacji przyrządów przy zachowaniu ich funkcji
+pomiarowych.
+
+Jednym z~podstawowych zadań misji planetarnych jest określenie składu
+pierwiastkowego skał i~gruntu. Pozwala to wnioskować o~pochodzeniu
+i~historii badanego ciała oraz ocenić dostępność surowców, np.~na
+Księżycu~\cite{TODO-sklad}. W~laboratoriach skład materiałów bada się
+powszechnie metodą spektroskopii EDS
+(ang.~\textit{Energy Dispersive Spectroscopy}). Wiązka elektronów
+pada na~próbkę, a~zawarte w~niej pierwiastki emitują promieniowanie X
+o~energiach charakterystycznych dla każdego z~nich, które mierzy
+spektrometr.
+
+Przeniesienie tej metody na~powierzchnię innego ciała niebieskiego
+ograniczają przede wszystkim wymiary i~pobór mocy działa elektronowego.
+Klasyczne działo z~żarzoną katodą i~kolumną elektronooptyczną jest
+elementem mikroskopu skaningowego i~nie spełnia wymagań przyrządu
+kosmicznego. Jednocześnie na~ciałach pozbawionych atmosfery, takich jak
+Księżyc czy planetoidy, naturalna próżnia umożliwia propagację wiązki
+elektronów bez osobnej komory, co czyni EDS metodą atrakcyjną dla
+takich misji.
+
+Ograniczenie wymiarów i~poboru mocy źródła elektronów umożliwia
+technologia MEMS (ang.~\textit{Micro-Electro-Mechanical Systems}).
+Na~Politechnice Wrocławskiej opracowano w~tej technologii miniaturowe
+źródło promieniowania rentgenowskiego z~zimną katodą z~nanorurek
+węglowych (CNT)~\cite{TODO-urbanski}. Zimna emisja polowa nie wymaga
+podgrzewania katody, a~struktura krzemowo-szklana ma wymiary rzędu
+centymetrów i~masę rzędu gramów. Niniejsza praca dotyczy wykorzystania
+tego rozwiązania do~budowy miniaturowego analizatora EDS, w~którym
+wiązka elektronów, ogniskowana polem magnetycznym, pada bezpośrednio
+na~badaną próbkę.
+
+Tematyka pracy wpisuje się w~dyscyplinę automatyka, elektronika,
+elektrotechnika i~technologie kosmiczne, ponieważ łączy elektronikę
+układów zasilania źródła elektronów i~akwizycji widm, elektrotechnikę
+wysokich napięć przyspieszających i~ogniskowania wiązki oraz
+projektowanie przyrządu przeznaczonego do~misji kosmicznych.

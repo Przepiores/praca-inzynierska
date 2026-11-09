@@ -1,0 +1,226 @@
+% =====================================================================
+%  Rozdział 3 — Projekt i wykonanie prototypu (budżet: 6,5 str., ok. 1500 słów)
+%  Plan akapitów: wspolne/rozdzial3_plan.md (oznaczenia T1–T20 = brakujące dane)
+%  Wersja robocza 09.11.2026: napisane 3.1 i 3.2 (budowa struktury, szkło 1 mm),
+%  pozostałe podrozdziały jako nagłówki z \TODO.
+% =====================================================================
+\chapter{Projekt i~wykonanie prototypu}
+\label{ch:projekt}
+
+W~rozdziale opisano projekt struktury krzemowo-szklanej źródła elektronów
+oraz kolejne etapy jej wytworzenia, aż do zmontowanego prototypu. Zasady
+zastosowanych procesów technologicznych omówiono w~\pref{sec:technologia},
+a~stanowisko pomiarowe w~\rozdzref{ch:stanowisko}.
+
+% ---------------------------------------------------------------------
+\section{Założenia projektowe i~koncepcja struktury}
+\label{sec:koncepcja}
+
+Prototyp miał spełniać następujące wymagania:
+\begin{itemize}[nosep]
+  \item wytworzenie wiązki elektronów przez emisję polową z~nanorurek
+        węglowych przy napięciu ekstrakcyjnym $\UB$ rzędu \SI{1}{\kilo\volt},
+  \item przyspieszenie elektronów do energii wystarczającej do wzbudzenia
+        linii charakterystycznych pierwiastków lekkich (w~badaniach
+        $\UT$ do \SI{4}{\kilo\volt}, docelowo \SIrange{10}{18}{\kilo\volt}),
+  \item izolacja elektryczna elektrod przy tych napięciach,
+  \item wykonanie wyłącznie procesami MEMS: fotolitografią, trawieniem
+        krzemu i~bondingiem anodowym krzem--szkło,
+  \item możliwość późniejszej hermetyzacji struktury.
+\end{itemize}
+
+Strukturę zaprojektowano jako stos płaskich elementów krzemowych
+rozdzielonych szkłem borokrzemowym (\rysref{fig:przekroj-struktury}).
+Licząc od dołu, składa się ona z~emitera (E) z~ostrzem uformowanym
+z~nanorurek węglowych, szkła dystansowego o~grubości \SI{1}{\milli\metre},
+bramki (elektrody ekstrakcyjnej, B), drugiego szkła dystansowego oraz
+targetu (T). Każda elektroda krzemowa jest osobnym elementem
+z~własnym kontaktem elektrycznym, a~szkło oddziela je galwanicznie
+i~ustala odległości między nimi. Wiązkę ogniskuje magnes trwały NdFeB
+umieszczony przy emiterze
+\TODO{T1: położenie magnesu i~ewentualne dodatkowe elementy wg szkicu}.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[x=1cm, y=1cm, font=\small]
+    % kolory
+    \colorlet{si}{gray!35}
+    \colorlet{gl}{cyan!12}
+    % target
+    \fill[si] (0,4.4) rectangle (8,4.9);
+    % szkło 2 z otworem
+    \fill[gl] (0,3.4) rectangle (3,4.4);
+    \fill[gl] (5,3.4) rectangle (8,4.4);
+    % bramka z aperturą
+    \fill[si] (0,2.9) rectangle (3.7,3.4);
+    \fill[si] (4.3,2.9) rectangle (8,3.4);
+    % szkło 1 z otworem
+    \fill[gl] (0,1.9) rectangle (3,2.9);
+    \fill[gl] (5,1.9) rectangle (8,2.9);
+    % emiter
+    \fill[si] (0,1.4) rectangle (8,1.9);
+    % wieża (ostrze) CNT
+    \fill[black!75] (3.7,1.9) -- (4,2.45) -- (4.3,1.9) -- cycle;
+    % magnes (poglądowo, położenie do potwierdzenia)
+    \fill[orange!40] (3.2,0.7) rectangle (4.8,1.4);
+    % obrysy
+    \foreach \y in {1.4,1.9,2.9,3.4,4.4,4.9} {\draw[gray] (0,\y) -- (8,\y);}
+    \draw (0,1.4) rectangle (8,4.9);
+    \draw (3.2,0.7) rectangle (4.8,1.4);
+    % wiązka
+    \draw[-{Stealth[length=2.5mm]}, blue!70!black, thick, dashed]
+      (4,2.5) -- (4,4.38);
+    % opisy
+    \foreach \y/\t in {4.65/target (T),
+                       3.9/szkło borokrzemowe,
+                       3.15/bramka (B),
+                       2.4/szkło borokrzemowe \SI{1}{\milli\metre},
+                       1.65/emiter (E),
+                       1.05/magnes NdFeB}
+      {\node[anchor=west] at (8.3,\y) {\t};}
+    \node[anchor=east] at (3.4,2.3) {ostrze CNT};
+    \draw[gray] (3.42,2.25) -- (3.82,2.1);    \node[anchor=west, blue!70!black] at (4.1,3.75) {$e^-$};
+    % wymiar
+    \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}] (-0.3,1.9) -- (-0.3,2.9)
+      node[midway, left] {$d$};
+  \end{tikzpicture}
+  \caption{Przekrój struktury prototypu (schemat poglądowy, bez zachowania
+    skali): E -- emiter z~ostrzem CNT, B -- bramka (elektroda ekstrakcyjna),
+    T -- target; $d$ -- odległość emiter--bramka \opracowanieWlasne}
+  \label{fig:przekroj-struktury}
+\end{figure}
+% TODO(rys.): podmienić na wersję zgodną ze szkicem kris (T1); sprawdzić
+% grubość drugiego szkła, kształt emitera, wymiary otworów i położenie magnesu.
+
+W~porównaniu ze źródłem promieniowania rentgenowskiego opisanym
+w~\cite{urbanski2026phd} konstrukcja jest uproszczona: nie ma
+elektrody ogniskującej ani zintegrowanej mikropompy, a~wiązka pada
+bezpośrednio na target, który pełni rolę nośnika badanej próbki
+(lub warstwy luminoforu), a~nie targetu transmisyjnego.
+Sposób zasilania elektrod opisano w~\rozdzref{ch:stanowisko}.
+\TODO{T2: które elementy przejęto z~projektu źródła RTG, a~które zaprojektowano od nowa}
+
+% ---------------------------------------------------------------------
+\section{Dobór materiałów i~grubości elementów}
+\label{sec:materialy}
+
+Elektrody wykonano z~płytek krzemu monokrystalicznego o~orientacji
+(100), ponieważ kształt emitera i~otworów uzyskuje się trawieniem
+anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
+konstrukcyjnym i~przewodzącym.
+\TODO{T4: grubość, typ i~rezystywność płytek Si}
+
+Jako dystansownik między emiterem a~bramką zastosowano szkło
+borokrzemowe o~grubości \SI{1}{\milli\metre}. Grubość szkła wyznacza
+bezpośrednio odległość emiter--bramka $d$, a~więc natężenie pola
+elektrycznego przy emiterze. Przy $d \approx \SI{1}{\milli\metre}$
+i~$\UB = \SI{1}{\kilo\volt}$ średnie natężenie pola wynosi ok.
+\SI{1}{\volt\per\micro\metre}; lokalne pole na wierzchołkach nanorurek
+jest wielokrotnie większe dzięki współczynnikowi wzmocnienia pola
+(\pref{sec:emisja}). Ostrze CNT o~wysokości $h$ skraca odległość
+wierzchołka od bramki do $d - h$, co dodatkowo zwiększa pole przy
+wierzchołku.
+\TODO{T7: wysokość ostrza CNT $h$ i~średnica apertury bramki}
+
+Drugim zadaniem szkła jest izolacja elektrod. W~próżni ograniczeniem
+jest przede wszystkim przeskok wzdłuż powierzchni szkła między krawędziami
+sąsiednich elektrod, dlatego grubość dystansownika wyznacza też drogę
+upływu. Między bramką a~targetem występuje różnica potencjałów
+$\UT - \UB$, a~między emiterem a~bramką $\UB$. Przy napięciach
+stosowanych w~badaniach (do \SI{4}{\kilo\volt}) szkło o~grubości
+\SI{1}{\milli\metre} zapewniało wystarczającą izolację. Przy docelowych
+napięciach \SIrange{10}{18}{\kilo\volt} potrzebne są dodatkowe
+zabezpieczenia, np. zalanie krawędzi struktury żywicą epoksydową, jak
+w~\cite{urbanski2026phd}.
+\TODO{T5: typ szkła (Borofloat~33?), grubość drugiego szkła, powód wyboru 1~mm}
+
+Szkło borokrzemowe ma współczynnik rozszerzalności cieplnej zbliżony do
+krzemu i~zawiera jony sodu, dzięki czemu można je łączyć z~krzemem
+bondingiem anodowym (\pref{subsec:bonding}). Duża odległość między
+emiterem a~targetem sprzyja jednak rozbieganiu się wiązki, co uzasadnia
+zastosowanie magnesu ogniskującego (\pref{sec:wiazka}).
+Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Elementy struktury prototypu (od dołu)}
+  \label{tab:elementy-struktury}
+  \begin{tabular}{@{}llll@{}}
+    \toprule
+    Element & Materiał & Grubość & Funkcja \\
+    \midrule
+    emiter (E)        & Si (100) + ostrze CNT & \TODO{T4}          & źródło elektronów \\
+    dystansownik      & szkło borokrzemowe   & \SI{1}{\milli\metre} & izolacja, odległość $d$ \\
+    bramka (B)        & Si (100)             & \TODO{T4}           & elektroda ekstrakcyjna \\
+    dystansownik      & szkło borokrzemowe   & \TODO{T5}           & izolacja B--T \\
+    target (T)        & \TODO{T8}            & \TODO{T8}           & nośnik próbki / luminoforu \\
+    magnes ogniskujący & NdFeB               & --                  & ogniskowanie wiązki \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+% ---------------------------------------------------------------------
+\section{Projekt emitera, bramki i~targetu}
+\label{sec:projekt-elektrod}
+\TODO{T6--T8: wymiary emitera, apertura bramki, target; magnes jakościowo (plan p.~3.3)}
+
+\section{Projekt masek fotolitograficznych}
+\label{sec:maski}
+\TODO{T9--T10: liczba i~przeznaczenie masek, reguły projektowe, rozkład na płytce (plan p.~3.4)}
+
+\section{Wytwarzanie elementów krzemowych}
+\label{sec:wytwarzanie-si}
+\TODO{T11--T14: warstwa maskująca, fotolitografia, trawienie KOH, kontrola wymiarów (plan p.~3.5)}
+
+\section{Wykonanie elementów szklanych}
+\label{sec:szklo}
+
+Dystansowniki wykonano z~płytki szkła borokrzemowego o~grubości
+\SI{1}{\milli\metre}. Najpierw wytrawiono w~niej otwory o~średnicy
+\SI{0.6}{\milli\metre}, przez które przechodzi wiązka elektronów,
+a~następnie płytkę pocięto piłą na pojedyncze elementy. Taka kolejność
+pozwala obrabiać całą płytkę naraz i~zachować jednakowe położenie
+otworów we wszystkich dystansownikach. Przed bondingiem elementy
+oczyszczono, ponieważ zanieczyszczenia i~nierówności powierzchni
+uniemożliwiają szczelne połączenie (\pref{subsec:bonding}).
+\TODO{T15: roztwór i~maska do trawienia otworów w~szkle, sposób czyszczenia}
+
+\section{Formowanie emitera CNT}
+\label{sec:nanoszenie-cnt}
+
+Emiter ma postać ostrza (wieży) z~nanorurek węglowych na płaskim
+elemencie krzemowym. Zawiesinę nanorurek nakraplano pipetą na element
+pomocniczy, który przykładano do emitera nagrzanego na płycie grzejnej
+do \SI{240}{\celsius}. Element pomocniczy odciągano następnie szybkim
+ruchem od powierzchni emitera. Zawiesina rozciągała się między oboma
+elementami i~zasychała w~kontakcie z~gorącym podłożem, tworząc wieżę
+nanorurek wydłużoną w~kierunku przyszłej bramki. Kształt ostrza
+zwiększa lokalne natężenie pola na jego wierzchołku i~skraca odległość
+od bramki (\pref{sec:materialy}).
+\TODO{T16: skład zawiesiny (rodzaj CNT, rozpuszczalnik, PVP?), materiał elementu pomocniczego, wysokość i~średnica uzyskanej wieży}
+\TODO{T17: czy emiter formowano przed bondingiem, czy po nim}
+
+\section{Bonding anodowy i~montaż prototypu}
+\label{sec:bonding-montaz}
+
+Elementy połączono bondingiem anodowym w~atmosferze. Stół grzejny
+nagrzewano do \SI{450}{\celsius}, czyli do górnej granicy typowego
+zakresu temperatur procesu (\pref{subsec:bonding}). Stół był
+jednocześnie elektrodą uziemiającą, a~kolejne warstwy stosu znajdowały
+się coraz dalej od niego, więc ich temperatura była niższa niż
+temperatura stołu. Wysoka temperatura stołu zapewniała, że także
+najwyżej położone połączenia osiągały temperaturę wystarczającą do
+przewodnictwa jonowego szkła. Między elementy wprowadzono dodatkowo
+przekładkę, która zmniejszała dystans między łączonymi elementami.
+\TODO{T18: kolejność łączenia warstw, sposób justowania otworów względem ostrza; czym była przekładka i~gdzie leżała}
+\TODO{T19: napięcie i~czas bondingu, czy wszystkie połączenia były trwałe}
+
+\TODO{T20: montaż -- położenie magnesu, kontakty elektryczne do E, B, T, luminofor i~próbka na targecie, wymiary i~masa prototypu}
+
+Wszystkie połączenia wykonano w~atmosferze, dlatego wnętrze struktury
+nie jest zamknięte w~próżni, a~prototyp jest niehermetyczny. Badania
+prowadzono w~komorze próżniowej przy ciśnieniu ok.
+\SI{1e-5}{\hecto\pascal} (\rozdzref{ch:stanowisko}). Rozwiązaniem
+docelowym jest wykonanie ostatniego połączenia bondingiem anodowym
+w~próżni i~podtrzymywanie próżni mikropompą; trudności tego procesu
+omówiono w~\pref{subsec:bonding}.

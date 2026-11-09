@@ -1,0 +1,117 @@
+% =====================================================================
+%  WSPÓLNE MAKRA PRACY
+%  Oznaczenia zgodne z wspolne/slownik.md (sekcje 3.1 i 3.3).
+%  Nowe makro dopisuje się tutaj, nie w pliku rozdziału.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+%  Znaczniki robocze
+% ---------------------------------------------------------------------
+% \TODO{tekst}  — czerwona wstawka w tekście + ostrzeżenie w logu
+%                 („Package praca Warning: TODO: ...”).
+% W wersji do oddania ustawić w main.tex \wersjaFinalnatrue:
+% każdy pozostawiony \TODO zatrzyma kompilację błędem.
+\newif\ifwersjaFinalna
+\makeatletter
+\newcommand{\TODO}[1]{%
+  \ifwersjaFinalna
+    \PackageError{praca}{Pozostawiony TODO: \detokenize{#1}}{Uzupełnij lub usuń znacznik.}%
+  \else
+    \PackageWarning{praca}{TODO: \detokenize{#1}}%
+    \textcolor{red}{[TODO: #1]}%
+  \fi}
+\makeatother
+% \DOSPRAWDZENIA{tekst} — fragment do weryfikacji (pomarańczowe tło znaczeniowe)
+\newcommand{\DOSPRAWDZENIA}[1]{\textcolor{orange!80!black}{#1}}
+
+% ---------------------------------------------------------------------
+%  Odwołania (słownik, p. 5.5): małą literą, z tyldą
+% ---------------------------------------------------------------------
+\newcommand{\rysref}[1]{rys.~\ref{#1}}
+\newcommand{\tabref}[1]{tab.~\ref{#1}}
+\newcommand{\wzorref}[1]{wzór~\eqref{#1}}
+\newcommand{\rozdzref}[1]{rozdz.~\ref{#1}}
+\newcommand{\pref}[1]{p.~\ref{#1}}
+\newcommand{\zalref}[1]{zał.~\ref{#1}}
+
+% ---------------------------------------------------------------------
+%  Terminy obcojęzyczne przy pierwszym użyciu: \ang{...} jest zajęte przez
+%  siunitx (kąty), dlatego \angielski.
+%  „spektroskopia EDS (\angielski{Energy Dispersive X-ray Spectroscopy})”
+% ---------------------------------------------------------------------
+\newcommand{\angielski}[1]{ang.~\textit{#1}}
+
+% ---------------------------------------------------------------------
+%  Rysunki i podpisy
+% ---------------------------------------------------------------------
+% \rysunek[szerokość]{plik}{podpis}{etykieta}
+%   \rysunek[0.8\linewidth]{rozdz4/stanowisko.jpg}{Stanowisko pomiarowe
+%     \opracowanieWlasne}{fig:stanowisko}
+\newcommand{\rysunek}[4][\linewidth]{%
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=#1]{#2}
+    \caption{#3}
+    \label{#4}
+  \end{figure}}
+% Dopiski o źródle rysunku (słownik, p. 5.10)
+\newcommand{\opracowanieWlasne}{(opracowanie własne)}
+\newcommand{\naPodstawie}[1]{(na podstawie~\cite{#1})}
+\newcommand{\zrodlo}[1]{(źródło:~\cite{#1})}
+
+% Tabela: podpis nad tabelą (ustawione w preambule), wzór:
+% \begin{table}[htbp]\centering
+%   \caption{Podpis}\label{tab:xxx}
+%   \begin{tabular}{@{}lr@{}}\toprule A & B\\\midrule ... \\\bottomrule\end{tabular}
+% \end{table}
+% Nagłówek kolumny z jednostką: „$U_\mathrm{B}$ [\si{\volt}]” albo \tabjedn
+\newcommand{\tabjedn}[2]{#1~[\si{#2}]}
+
+% \inputBezPreambuly{plik} — wstawia fragment przygotowany jako samodzielny
+% dokument (\documentclass, \usepackage, \sisetup, \begin{document} są
+% pomijane; brak \end{document} nie przeszkadza). Przykład:
+%   \resizebox{\textwidth}{!}{\inputBezPreambuly{../uklad-pomiarowy/uklad_pomiarowy_body}}
+\makeatletter
+\let\praca@begin\begin
+\newcommand{\inputBezPreambuly}[1]{\begingroup
+  \renewcommand{\documentclass}[2][]{}%
+  \renewcommand{\usepackage}[2][]{}%
+  \renewcommand{\sisetup}[1]{}%
+  \def\begin##1{\ifstrequal{##1}{document}{}{\praca@begin{##1}}}%
+  \input{#1}\endgroup}
+\makeatother
+
+% Domyślne katalogi z rysunkami i danymi dla fragmentów, które używają
+% \figdir / \datadir (np. emisja-magnes-pomiary/emisja_tresc.tex).
+% Wrapper rozdziału ustawia je przez \renewcommand przed \input.
+\newcommand{\figdir}{rysunki}
+\newcommand{\datadir}{dane}
+
+% ---------------------------------------------------------------------
+%  Oznaczenia wielkości (słownik, p. 3.1) — można też pisać wprost
+% ---------------------------------------------------------------------
+\newcommand{\UB}{U_\mathrm{B}}          % napięcie ekstrakcyjne (emiter–bramka)
+\newcommand{\UT}{U_\mathrm{T}}          % napięcie przyspieszające (emiter–target)
+\newcommand{\Ie}{I_\mathrm{e}}          % prąd emisji
+\newcommand{\IB}{I_\mathrm{B}}          % prąd bramki
+\newcommand{\IT}{I_\mathrm{T}}          % prąd targetu
+\newcommand{\RT}{R_\mathrm{T}}          % rezystor w obwodzie targetu
+\newcommand{\RB}{R_\mathrm{B}}          % rezystor w obwodzie bramki
+\newcommand{\Ezero}{E_0}                % energia elektronów wiązki
+\newcommand{\Ec}{E_\mathrm{c}}          % energia krytyczna
+\newcommand{\me}{m_\mathrm{e}}          % masa elektronu
+\newcommand{\kB}{k_\mathrm{B}}          % stała Boltzmanna
+\newcommand{\FL}{\vec F_\mathrm{L}}     % siła Lorentza
+\newcommand{\RKO}{R_\mathrm{KO}}        % zasięg Kanayi–Okayamy
+\newcommand{\dd}{\mathop{}\!\mathrm{d}} % różniczka: \dd x
+
+% Linie widmowe (notacja Siegbahna): „Si~\Ka”, „Fe~\Kb”
+\newcommand{\Ka}{K\ensuremath{\alpha}}
+\newcommand{\Kb}{K\ensuremath{\beta}}
+\newcommand{\La}{L\ensuremath{\alpha}}
+
+% Jednostka umowna (jasność ekranu L)
+\DeclareSIUnit{\ju}{j.u.}
+
+% Plik z dodatkowymi makrami wątków (opcjonalny)
+\InputIfFileExists{szablon/makra_dodatkowe.tex}{}{}

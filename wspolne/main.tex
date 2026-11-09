@@ -1,0 +1,15 @@
+% !TEX program = lualatex
+% =====================================================================
+%  PRACA DYPLOMOWA INŻYNIERSKA — plik główny
+%  Politechnika Wrocławska, Wydział Elektroniki, Fotoniki i Mikrosystemów
+%  Kompilacja:  latexmk main.tex          (ustawienia w .latexmkrc)
+%         albo: lualatex main && biber main && lualatex main && lualatex main
+%  Overleaf: Menu → Compiler: LuaLaTeX.
+%  Instrukcja podłączania rozdziałów: wspolne/README.md, sekcja „Szablon LaTeX”.
+% =====================================================================
+% twoside = druk dwustronny (wymóg WEFiM); openany = rozdział od dowolnej
+% strony (budżet stron zakłada brak pustych stron przed rozdziałami).
+% Wersja jednostronna dla promotora (interlinia ≈ 1,5): main-roboczy.tex.
+\documentclass[12pt, a4paper, twoside, openany]{mwrep}
+
+\input{main-tresc}   % preambuła + treść (wspólne z main-roboczy.tex)

@@ -1,0 +1,59 @@
+% =====================================================================
+%  DANE PRACY — jedyne miejsce, w którym wpisuje się metadane.
+%  Tytuł, streszczenie i słowa kluczowe MUSZĄ być identyczne z USOS-APD
+%  (Regulamin studiów §35 ust. 5). Rok = rok złożenia pracy (APD: 18.12.2026).
+% =====================================================================
+\newcommand{\pracaAutor}{Krystian Przepiórka}
+\newcommand{\pracaOpiekun}{dr inż. Paweł Urbański}
+\newcommand{\pracaKierunek}{Inteligentna Elektronika}
+\newcommand{\pracaSpecjalnosc}{}   % pusta = wiersz „Specjalność” pominięty
+\newcommand{\pracaRok}{2026}
+\newcommand{\pracaTytul}{Opracowanie, wykonanie oraz badania miniaturowego
+  analizatora EDS w~technologii MEMS do zastosowań kosmicznych}
+% Tytuł EN z repozytorium W:\VAULT\Inzynierka\latex (body.tex, \titlen)
+\newcommand{\pracaTytulEN}{Development, implementation and testing of
+  a~miniature MEMS-based EDS analyzer for space applications}
+
+% Streszczenie i abstract: wersje robocze z repozytorium
+% (frontmatter/streszczenie.tex, abstract_en.tex) — do uzupełnienia o wyniki
+% i ujednolicenia z tekstem w USOS-APD.
+\newcommand{\pracaStreszczenie}{%
+  Celem pracy jest opracowanie, wykonanie oraz badania miniaturowego
+  analizatora EDS (\angielski{Energy Dispersive X-ray Spectroscopy})
+  w~technologii MEMS (\angielski{Micro-Electro-Mechanical Systems}),
+  przeznaczonego do zastosowań kosmicznych. W~ramach pracy zaprojektowano
+  źródło elektronów wykorzystujące zjawisko emisji polowej z~nanorurek
+  węglowych (CNT) wraz z~elektrodą ekstrakcyjną oraz elektrodą umożliwiającą
+  przyspieszanie wiązki elektronów. Przeanalizowano możliwość zastosowania
+  magnetycznego układu ogniskowania wiązki elektronów w~celu poprawy
+  parametrów wiązki oraz zwiększenia efektywności wzbudzania
+  charakterystycznego promieniowania rentgenowskiego. Wykonano prototyp
+  układu, a~jego działanie zweryfikowano eksperymentalnie z~wykorzystaniem
+  spektrometru rentgenowskiego. Oceniono możliwość wykorzystania technologii
+  MEMS do budowy kompaktowych analizatorów materiałowych przeznaczonych do
+  zastosowań kosmicznych.
+  \TODO{dopisać 2--3 zdania z~wynikami liczbowymi; tekst 1:1 z~USOS-APD (200--300 słów)}}
+\newcommand{\pracaSlowaKluczowe}{%
+  MEMS, spektroskopia EDS, emisja polowa, nanorurki węglowe,
+  ogniskowanie magnetyczne, zastosowania kosmiczne}
+\newcommand{\pracaAbstract}{%
+  The aim of this thesis is to develop, build and test a~miniature EDS
+  (Energy Dispersive X-ray Spectroscopy) analyzer manufactured in MEMS
+  (Micro-Electro-Mechanical Systems) technology, intended for space
+  applications. The work covers the design of an electron source based on
+  cold field emission from carbon nanotubes (CNT), combined with an
+  extraction electrode and an accelerating electrode. The feasibility of
+  using a~magnetic electron-beam focusing system is analyzed in order to
+  improve beam parameters and increase the efficiency of characteristic
+  X-ray excitation. A~working prototype is built and verified
+  experimentally using an X-ray spectrometer. The feasibility of using
+  MEMS technology to build compact material analyzers for space
+  applications is evaluated.
+  \TODO{add 2--3 sentences with key results; text identical with USOS-APD}}
+\newcommand{\pracaKeywords}{%
+  MEMS, EDS, field emission, carbon nanotubes, magnetic focusing,
+  space applications}
+
+% Metadane PDF
+\hypersetup{pdfauthor={\pracaAutor}, pdftitle={\pracaTytul},
+            pdfsubject={Praca dyplomowa inżynierska, PWr WEFiM}}

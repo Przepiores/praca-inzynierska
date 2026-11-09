@@ -1,0 +1,122 @@
+% Rozdział 1 — Wstęp (budżet: 2,5 str.)
+% Wersja dopracowana 09.11.2026 na podstawie opcji C (zatwierdzonej 08.11.2026).
+% Treść jest teraz tutaj; wstep-zagajenie/wstep_opcja_C.tex nie jest już wczytywany.
+% Poprzednia wersja: rozdzialy/01_wstep_backup_2026-11-09.tex.
+% Zamknięte pozycje rejestru: A9 (klucze cytowań), B9/W5 (masa źródła przypisana
+% źródłu), B15/W2 (brzmienie o przyrządach w misjach), B26 (cele zawężone do
+% zebranych danych — do potwierdzenia przez autora).
+% 09.11 wieczorem (kris): mniej cytowań (1 na tezę), U_T = 4–11 kV bez 10–18 kV.
+\chapter{Wstęp}
+\label{ch:wstep}
+
+Analiza składu pierwiastkowego jest jednym z~podstawowych badań
+materiałowych. W~laboratoriach wykonuje się ją najczęściej metodą
+spektroskopii EDS (\angielski{Energy Dispersive X-ray Spectroscopy})
+w~elektronowym mikroskopie skaningowym (SEM)~\cite{goldstein2018sem}.
+Wiązka elektronów pada na~próbkę, a~zawarte w~niej pierwiastki emitują
+promieniowanie X o~energiach charakterystycznych dla każdego z~nich.
+Spektrometr mierzy energie fotonów, co pozwala ustalić skład próbki.
+
+Ten sam rodzaj badań jest potrzebny w~misjach kosmicznych, w~których
+określa się skład skał i~gruntu na~powierzchni Księżyca, Marsa czy
+planetoid. Sprowadzanie próbek na~Ziemię jest kosztowne i~możliwe tylko
+w~nielicznych misjach, dlatego analizę wykonuje się na~miejscu,
+przyrządami zamontowanymi na~lądowniku lub łaziku~\cite{gellert2015apxs}.
+Spektrometry APXS łazików marsjańskich wzbudzają próbkę cząstkami alfa
+i~promieniowaniem X ze źródła radioizotopowego~\cite{rieder2003apxs},
+a~przyrząd PIXL łazika Perseverance -- promieniowaniem z~miniaturowej
+lampy rentgenowskiej~\cite{allwood2020pixl}.
+
+Wzbudzanie próbki bezpośrednio wiązką elektronów, tak jak w~EDS, nie
+zostało dotąd zastosowane w~przyrządach wykorzystanych w~misjach.
+Wymaga ono działa elektronowego, które w~mikroskopie wraz z~kolumną
+elektronooptyczną i~układem próżniowym ma znaczne wymiary, masę i~pobór
+mocy. Projekty miniaturowych mikroskopów SEM do badań Księżyca i~Marsa
+nadal opierały się na~klasycznej kolumnie elektronowej~\cite{gaskin2012mvpsem}.
+Na~powierzchni ciał pozbawionych atmosfery, takich jak Księżyc czy
+planetoidy, panuje natomiast naturalna próżnia, w~której wiązka
+elektronów może się rozchodzić bez osobnej komory.
+
+Zmniejszenie wymiarów źródła elektronów umożliwia technologia MEMS
+(\angielski{Micro-Electro-Mechanical Systems}), w~której wytwarza się
+struktury o~wymiarach od~mikrometrów do~milimetrów. Na~Politechnice
+Wrocławskiej powstały w~tej technologii m.in.\ polowe źródła elektronów,
+mikropompy próżniowe i~mikroskop elektronowy~\cite{krysztof2019imaging},
+a~także przyrządy przeznaczone do~misji kosmicznych~\cite{dziuban2022methane}.
+Opracowano tam również miniaturowe źródło promieniowania rentgenowskiego
+MEMS z~zimną katodą z~nanorurek węglowych (CNT).
+Zimna katoda nie wymaga elementu grzejnego, a~struktura źródła ma masę
+kilku gramów~\cite{urbanski2026phd}. Źródło to zaproponowano do~budowy
+kompaktowego spektrometru XRF, w~którym próbkę wzbudza promieniowanie
+X~\cite{urbanski2026xrf}.
+
+W~niniejszej pracy rozwiązanie to wykorzystano w~inny sposób. Wiązka
+elektronów, ogniskowana polem magnetycznym, pada bezpośrednio na~próbkę
+umieszczoną na~targecie, a~spektrometr rejestruje promieniowanie
+charakterystyczne próbki. Układ taki odpowiada metodzie EDS i~stanowi
+miniaturowy analizator EDS w~technologii MEMS.
+
+Tematyka pracy wpisuje się w~dyscyplinę automatyka, elektronika,
+elektrotechnika i~technologie kosmiczne, ponieważ łączy elektronikę
+układów zasilania źródła elektronów i~akwizycji widm, elektrotechnikę
+wysokich napięć przyspieszających i~ogniskowania wiązki oraz
+projektowanie przyrządu przeznaczonego do~misji kosmicznych.
+
+Praca jest również zgodna z~profilem kierunku Inteligentna Elektronika.
+Analizator EDS można traktować jako czujnik składu pierwiastkowego.
+Wielkością mierzoną jest skład chemiczny próbki, a~sygnałem wyjściowym
+widmo energii fotonów promieniowania X. Podobnie jak w~innych układach
+czujnikowych, można w~nim wyróżnić element wzbudzający, czyli źródło
+elektronów, element przetwarzający, czyli detektor z~torem akwizycji,
+oraz układ zasilania i~sterowania, który ustala warunki pracy źródła,
+m.in.\ napięcie ekstrakcyjne i~przyspieszające.
+
+W~docelowym przyrządzie kosmicznym taki czujnik pracowałby samodzielnie,
+bez bieżącego udziału operatora, ze względu na~opóźnienia łączności
+z~Ziemią. Wymaga to elektroniki, która steruje emisją elektronów,
+kontroluje stabilność prądu wiązki, rejestruje widmo i~wstępnie je
+przetwarza, np.~rozpoznając linie charakterystyczne pierwiastków przed
+wysłaniem danych. Zagadnienia te łączą mikrosystemy MEMS z~układami
+pomiarowymi i~przetwarzaniem sygnałów, co odpowiada zakresowi kierunku
+Inteligentna Elektronika.
+
+\section{Cel i~zakres pracy}
+\label{sec:cel}
+
+Celem pracy jest opracowanie, wykonanie oraz badania prototypu
+miniaturowego analizatora EDS w~technologii MEMS, przeznaczonego
+do~zastosowań kosmicznych. Zakres pracy obejmuje część inżynierską
+i~badawczą.
+
+Część inżynierska:
+\begin{itemize}
+  \item zaprojektowanie elementów źródła elektronów (emitera, bramki
+    i~targetu) oraz masek do~procesu technologicznego,
+  \item wykonanie struktur krzemowych i~szklanych, naniesienie kompozytu
+    CNT-PVP na~emiter i~połączenie elementów bondingiem anodowym,
+  \item zestawienie stanowiska pomiarowego z~komorą próżniową, zasilaniem
+    wysokim napięciem i~spektrometrem rentgenowskim.
+\end{itemize}
+
+Część badawcza:
+\begin{itemize}
+  \item pomiary emisji polowej emitera CNT, czyli zależności prądu emisji
+    od~napięcia,
+  \item ocena wpływu magnesu ogniskującego na~kształt wiązki obserwowanej
+    na~ekranie luminescencyjnym,
+  \item rejestracja widma promieniowania X wzbudzanego wiązką elektronów
+    i~identyfikacja linii charakterystycznych,
+  \item ocena możliwości zastosowania technologii MEMS do~miniaturyzacji
+    analizatorów EDS przeznaczonych do~zastosowań kosmicznych.
+\end{itemize}
+
+% B26: z celów usunięto wpływ geometrii bramki, średnicę wiązki w µm
+% i porównanie liczby fotonów z magnesem i bez, bo brak takich danych.
+% Jeśli autor je dostarczy, przywrócić odpowiednie punkty.
+Badania prowadzono w~komorze próżniowej przy ciśnieniu rzędu
+\SI{1e-3}{\pascal} (\SI{1e-5}{\hecto\pascal}). Elementy połączono
+bondingiem anodowym w~atmosferze, dlatego struktura nie jest hermetyczna.
+Hermetyzacja z~mikropompą, istotna w~docelowym przyrządzie, nie wchodzi
+w~zakres pracy, podobnie jak konstrukcja zasilacza wysokiego napięcia
+i~detektora. Widma rejestrowano przy napięciu przyspieszającym $U_\mathrm{T}$
+w~zakresie \SIrange{4}{11}{\kilo\volt}.

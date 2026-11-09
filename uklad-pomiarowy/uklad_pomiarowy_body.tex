@@ -1,0 +1,60 @@
+% Fragment do pracy: \input{figures/uklad_pomiarowy/uklad_pomiarowy_body.tex}
+% Wymaga w preambule: \usepackage[european,siunitx]{circuitikz}
+% do pliku figures/... i wstaw przez \input w środowisku figure.
+\documentclass[border=4mm]{standalone}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage{lmodern}
+\usepackage[european,siunitx]{circuitikz}
+\usepackage{siunitx}
+\sisetup{output-decimal-marker={,}}
+\begin{document}
+%%% START
+\begin{circuitikz}[scale=1, transform shape, line width=0.6pt]
+  \ctikzset{bipoles/length=1.2cm}
+  % --- Zasilacz 1 (obwód targetu) ---
+  \draw (0,0) to[battery1, invert, l_={$U_\mathrm{T}$}] (0,6);
+  \node[left, align=right, font=\small] at (-0.6,3) {zasilacz 1\\(target)};
+  \node[left] at (-0.25,5.4) {$+$};
+  \node[left] at (-0.25,0.6) {$-$};
+  % rezystor ograniczający z woltomierzem równolegle
+  \draw (0,6) -- (1.2,6) to[R, l={$R=\SI{100}{\kilo\ohm}$}, *-*] (4.2,6) -- (5.4,6);
+  % woltomierz mierzący napięcie na R
+  \draw (1.2,6) -- (1.2,4.6) to[rmeter, t=V, l_={$U_R$}] (4.2,4.6) -- (4.2,6);
+  \draw (5.4,6) -- (8,6) -- (8,5.15);
+
+  % --- Źródło RTG MEMS (komora próżniowa) ---
+  \draw[dashed, rounded corners=3pt] (6.6,1.0) rectangle (9.4,5.6);
+  \node[anchor=north west, font=\scriptsize, align=left] at (6.65,5.55) {próżnia};
+  % target (T)
+  \draw[line width=2.4pt] (7.2,5.0) -- (8.8,5.0);
+  \node[right] at (8.85,5.0) {T};
+  % bramka (B) z aperturą
+  \draw[line width=1.6pt] (7.0,3.3) -- (7.8,3.3);
+  \draw[line width=1.6pt] (8.2,3.3) -- (9.0,3.3);
+  \node[above] at (8.75,3.35) {B};
+  % emiter (E) - ostrze
+  \draw[line width=1.6pt] (7.3,1.6) -- (8.7,1.6);
+  \filldraw (7.75,1.6) -- (8,2.25) -- (8.25,1.6) -- cycle;
+  \node[left] at (7.3,1.6) {E};
+  % wiązka elektronów
+  \draw[-latex, densely dotted] (8,2.35) -- (8,4.85);
+  \node[font=\scriptsize, rotate=90] at (7.75,4.1) {$e^-$};
+
+  % --- Zasilacz 2 (bramka, B_on) ---
+  \draw (9.0,3.3) -- (10.6,3.3) -- (10.6,6) -- (12,6);
+  \draw (12,0) to[battery1, invert, l_={$U_\mathrm{B}$}] (12,6);
+  \node[right, align=left, font=\small] at (12.9,3) {zasilacz 2\\(bramka, $B_\mathrm{on}$)};
+  \node[right] at (12.25,5.4) {$+$};
+  \node[right] at (12.25,0.6) {$-$};
+
+  % --- Wspólna szyna (emiter) ---
+  \draw (8,1.6) -- (8,0) node[circ]{};
+  \draw (0,0) -- (8,0);
+  % gałąź powrotna zasilacza 2: rezystor R i amperomierz
+  \draw (8,0) -- (8.6,0) to[R, l={$R_\mathrm{B}=\SI{100}{\kilo\ohm}$}, *-*] (10.4,0)
+        -- (12,0);
+  % woltomierz mierzący napięcie na R_B
+  \draw (8.6,0) -- (8.6,-1.4) to[rmeter, t=V, l_={$U_{R_\mathrm{B}}$}] (10.4,-1.4) -- (10.4,0);
+\end{circuitikz}

@@ -1,0 +1,65 @@
+% Wstęp — opcja C (zatwierdzona 08.11.2026), do wstawienia w W:\VAULT\Inzynierka\latex\chapters\01_wstep.tex
+%  OPCJA C — od analizy materiałów do warunków misji kosmicznych
+% =====================================================================
+\chapter{Wstęp}
+
+Analiza składu pierwiastkowego jest jednym z~podstawowych badań
+materiałowych. W~warunkach laboratoryjnych wykonuje się ją najczęściej
+metodą spektroskopii EDS (ang.~\textit{Energy Dispersive Spectroscopy})
+w~elektronowym mikroskopie skaningowym. Wiązka elektronów pada
+na~próbkę, a~zawarte w~niej pierwiastki emitują promieniowanie X
+o~energiach charakterystycznych dla każdego z~nich. Spektrometr mierzy
+energie fotonów, co pozwala ustalić skład próbki.
+
+Ten sam rodzaj badań jest potrzebny w~misjach kosmicznych, w~których
+określa się skład skał i~gruntu na~powierzchni Księżyca, Marsa czy
+planetoid. Sprowadzanie próbek na~Ziemię jest kosztowne i~możliwe tylko
+w~nielicznych misjach, dlatego analizę wykonuje się na~miejscu,
+przyrządami zamontowanymi na~lądowniku lub łaziku~\cite{TODO-insitu}.
+Stosowane obecnie przyrządy, takie jak spektrometry APXS czy PIXL,
+wzbudzają promieniowanie X~próbki źródłem radioizotopowym lub lampą
+rentgenowską~\cite{TODO-apxs,TODO-pixl}.
+
+Wzbudzanie próbki bezpośrednio wiązką elektronów, tak jak w~EDS,
+nie jest w~tych zastosowaniach stosowane. Wymaga ono działa
+elektronowego, które w~mikroskopie wraz z~kolumną elektronooptyczną
+i~układem próżniowym ma znaczne wymiary, masę i~pobór mocy.
+W~przyrządach kosmicznych są to parametry ograniczone budżetem misji.
+Na~powierzchni ciał pozbawionych atmosfery panuje natomiast naturalna
+próżnia, w~której wiązka elektronów może propagować bez osobnej komory.
+
+Zmniejszenie wymiarów źródła elektronów umożliwia technologia MEMS
+(ang.~\textit{Micro-Electro-Mechanical Systems}), w~której wytwarza się
+struktury o~wymiarach od~mikrometrów do~milimetrów. Na~Politechnice
+Wrocławskiej opracowano w~tej technologii miniaturowe źródło
+promieniowania rentgenowskiego z~zimną katodą z~nanorurek węglowych
+(CNT)~\cite{TODO-urbanski}. Katoda ta nie wymaga elementu grzejnego,
+a~cała struktura krzemowo-szklana ma wymiary rzędu centymetrów i~masę
+rzędu gramów. W~niniejszej pracy rozwiązanie to wykorzystano do~budowy
+miniaturowego analizatora EDS, w~którym wiązka elektronów,
+ogniskowana polem magnetycznym, pada bezpośrednio na~badaną próbkę.
+
+Tematyka pracy wpisuje się w~dyscyplinę automatyka, elektronika,
+elektrotechnika i~technologie kosmiczne, ponieważ łączy elektronikę
+układów zasilania źródła elektronów i~akwizycji widm, elektrotechnikę
+wysokich napięć przyspieszających i~ogniskowania wiązki oraz
+projektowanie przyrządu przeznaczonego do~misji kosmicznych.
+
+Praca jest również zgodna z~profilem kierunku Inteligentna Elektronika.
+Analizator EDS można traktować jako czujnik składu pierwiastkowego.
+Wielkością mierzoną jest skład chemiczny próbki, a~sygnałem wyjściowym
+widmo energii fotonów promieniowania X. Podobnie jak w~innych układach
+czujnikowych, można w~nim wyróżnić element wzbudzający, czyli źródło
+elektronów, element przetwarzający, czyli detektor z~torem akwizycji,
+oraz układ zasilania i~sterowania, który ustala warunki pracy źródła,
+m.in. napięcie ekstrakcyjne i~przyspieszające.
+
+W~docelowym przyrządzie kosmicznym taki czujnik pracowałby samodzielnie,
+bez bieżącego udziału operatora, ze względu na~opóźnienia łączności
+z~Ziemią. Wymaga to elektroniki, która steruje emisją elektronów,
+kontroluje stabilność prądu wiązki, rejestruje widmo i~wstępnie je
+przetwarza, np.~rozpoznając linie charakterystyczne pierwiastków przed
+wysłaniem danych. Zagadnienia te łączą mikrosystemy MEMS z~układami
+pomiarowymi i~przetwarzaniem sygnałów, co odpowiada zakresowi kierunku
+Inteligentna Elektronika.
+

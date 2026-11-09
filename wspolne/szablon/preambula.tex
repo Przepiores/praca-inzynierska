@@ -1,0 +1,164 @@
+% =====================================================================
+%  WSPÓLNA PREAMBUŁA PRACY INŻYNIERSKIEJ (PWr, WEFiM)
+%  Kompilacja: LuaLaTeX + biber  (latexmk -lualatex main.tex)
+%  Wymogi: A4, druk dwustronny, 12 pt, Times New Roman, tekst
+%  wyjustowany, rysunki/tabele/wzory numerowane w obrębie rozdziału,
+%  numer strony w górnym zewnętrznym rogu.
+%  Parametry do szybkiej zmiany: sekcja „USTAWIENIA” poniżej.
+% =====================================================================
+
+% ---------------------------------------------------------------------
+%  USTAWIENIA
+% ---------------------------------------------------------------------
+% Interlinia (setspace): 1.1 w LaTeX ≈ 1,15 w Wordzie (≈ 400 słów/str.,
+% zgodnie z wspolne/budzet_stron.md). 1.0 = pojedyncza, 1.25 ≈ 1,5 w Wordzie.
+\providecommand{\interlinia}{1.1}
+
+% ---------------------------------------------------------------------
+%  Język i czcionki
+% ---------------------------------------------------------------------
+\usepackage{etoolbox}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{polish}
+\setotherlanguage{english}
+
+% Times New Roman (Windows/Overleaf), w przeciwnym razie metryczny klon
+% TeX Gyre Termes. Matematyka: TeX Gyre Termes Math (spójna z Times).
+\usepackage{amsmath,amssymb}
+\usepackage{unicode-math}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{TeX Gyre Termes}}
+\setmathfont{TeX Gyre Termes Math}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{TeX Gyre Cursor}[Scale=MatchLowercase]
+\usepackage{microtype}
+\usepackage{indentfirst}   % wcięcie także pierwszego akapitu (typografia polska)
+
+% ---------------------------------------------------------------------
+%  Układ strony
+% ---------------------------------------------------------------------
+% Marginesy wg Golden Standard: 25 mm, od strony grzbietu 30 mm.
+\usepackage[a4paper, inner=30mm, outer=25mm, top=25mm, bottom=25mm,
+            headheight=15pt, headsep=6mm, footskip=12mm]{geometry}
+\usepackage{setspace}
+\setstretch{\interlinia}
+\frenchspacing
+\clubpenalty=10000 \widowpenalty=10000 \displaywidowpenalty=10000
+
+% Numer strony w górnym zewnętrznym rogu (parzyste: lewy, nieparzyste:
+% prawy), bez żywej paginy i bez stopki. Tak samo na stronach
+% otwierających rozdziały.
+\usepackage{fancyhdr}
+\fancypagestyle{praca}{%
+  \fancyhf{}%
+  \fancyhead[LE,RO]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}}
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[LE,RO]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+\pagestyle{praca}
+% mwrep używa stylów „opening”/„closing”/„blank” na początku i końcu
+% rozdziału oraz na pustych stronach — wszędzie ten sam numer strony.
+\makeatletter
+\let\ps@opening\ps@praca
+\let\ps@closing\ps@praca
+\let\ps@blank\ps@praca
+\makeatother
+
+% Spis treści do poziomu podrozdziału (x.y.z)
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
+
+% ---------------------------------------------------------------------
+%  Matematyka, jednostki, chemia
+% ---------------------------------------------------------------------
+% Numeracja wzorów (r.n) w obrębie rozdziału, po prawej
+\numberwithin{equation}{chapter}
+
+\usepackage{siunitx}
+% Jedno ustawienie dla całej pracy (słownik, p. 3.4): przecinek
+% dziesiętny, mnożenie „·”, zakresy z półpauzą i jednostką raz na końcu.
+\sisetup{
+  output-decimal-marker = {,},
+  exponent-product      = \cdot,
+  group-separator       = {\,},
+  group-minimum-digits  = 4,
+  range-phrase          = {--},
+  range-units           = single,
+  list-pair-separator   = {~i~},
+  list-final-separator  = {~i~},
+  list-separator        = {,~},
+  per-mode              = symbol,
+  inter-unit-product    = \ensuremath{{}\cdot{}},
+  separate-uncertainty  = true,
+}
+% Wsteczna zgodność: istniejące rozdziały używają \SI, \SIrange, \si, \num
+% (składnia siunitx v2) — działa bez zmian. Nowy tekst: \qty, \qtyrange.
+
+\usepackage[version=4]{mhchem}    % \ce{SiO2}, \ce{Si3N4} (opcjonalnie)
+
+% ---------------------------------------------------------------------
+%  Rysunki, tabele, wykresy, schematy
+% ---------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\setlist{nosep, leftmargin=*, labelindent=\parindent}
+\setlist[itemize]{label=\textbullet}  % kropki zamiast półpauz (prośba autora 09.11.2026)
+
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc, decorations.pathmorphing}
+\usepackage[european, siunitx]{circuitikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17,
+  /pgf/number format/use comma,
+  /pgf/number format/1000 sep={}}
+
+% Fragmenty-rysunki zapisane jako samodzielne dokumenty (z \documentclass
+% i preambułą, np. uklad-pomiarowy/uklad_pomiarowy_body.tex) wstawia się
+% makrem \inputBezPreambuly{plik} z szablon/makra.tex.
+
+% Podpisy: „Rys. 3.1.” pod rysunkiem, „Tab. 3.1.” nad tabelą
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup{labelsep=period, font=small, labelfont=bf, justification=centering,
+              singlelinecheck=true, skip=6pt}
+\captionsetup[table]{position=top}
+\captionsetup[sub]{labelformat=parens, labelsep=space, labelfont=normalfont}
+\gappto\captionspolish{%
+  \renewcommand{\figurename}{Rys.}%
+  \renewcommand{\tablename}{Tab.}%
+  \renewcommand{\bibname}{Literatura}%
+  \renewcommand{\appendixname}{Załącznik}}
+% numeracja rysunków i tabel w obrębie rozdziału (np. Rys. 3.1)
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
+
+% Ścieżki szukania grafik (względem wspolne/). Rozdziały mogą dopisywać
+% własne przez \graphicspath lub makro \figdir.
+\graphicspath{{rysunki/}{../}}
+
+% ---------------------------------------------------------------------
+%  Bibliografia: biblatex + biber, styl IEEE (wspolne/README.md, sekcja 3)
+% ---------------------------------------------------------------------
+\usepackage{csquotes}
+\usepackage[backend=biber, style=ieee, sorting=none, maxnames=3, minnames=1,
+            doi=true, url=false, isbn=false]{biblatex}
+\addbibresource{bibliografia.bib}
+
+% ---------------------------------------------------------------------
+%  Hiperłącza (na końcu preambuły)
+% ---------------------------------------------------------------------
+\usepackage[hidelinks, unicode, bookmarksnumbered, pdfusetitle]{hyperref}
+\usepackage{bookmark}
+% tylda i twarda spacja w zakładkach PDF (tytuły z „i~”, „w~”)
+\pdfstringdefDisableCommands{\def~{ }\def\nobreakspace{ }\def\TODO#1{}}

@@ -1,0 +1,35 @@
+% =====================================================================
+%  WSPÓLNA TREŚĆ main.tex i main-roboczy.tex (wszystko po \documentclass).
+%  Kolejność części i \input rozdziałów zmienia się TUTAJ.
+% =====================================================================
+\input{szablon/preambula}
+\input{szablon/makra}
+\input{szablon/strona_tytulowa}
+\input{frontmatter/dane_pracy}
+
+% Wersja do oddania: odkomentować — każdy pozostały \TODO da błąd kompilacji.
+% \wersjaFinalnatrue
+
+\begin{document}
+
+% ---------------- Część wstępna (kolejność wg „Zasad edytowania pracy” WEFiM)
+\stronaTytulowa                      % 1. strona tytułowa, 2–3. streszczenie i abstract
+% \input{frontmatter/podziekowania}  % 4. podziękowania (opcjonalne)
+\tableofcontents                     % 5. spis treści
+\input{frontmatter/wykaz_skrotow}    % 6. wykaz skrótów i oznaczeń
+
+% ---------------- Część zasadnicza
+\input{rozdzialy/01_wstep}           % 7–8. wstęp, cel pracy
+\input{rozdzialy/02_podstawy}        % 9. wprowadzenie teoretyczne
+\input{rozdzialy/03_projekt}         % 10. prace własne
+\input{rozdzialy/04_stanowisko}
+\input{rozdzialy/05_badania}
+\input{rozdzialy/06_podsumowanie}    % 11. podsumowanie
+
+% ---------------- Literatura i dodatki
+\printbibliography[title={Literatura}]   % 12. (mwrep dodaje do spisu treści)
+
+\appendix                            % 13. dodatki
+% \input{rozdzialy/A_zasilanie}  % usunięty 09.11 (kris): zasilacze opisane w rozdz. 4
+
+\end{document}
