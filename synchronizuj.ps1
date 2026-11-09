@@ -1,5 +1,5 @@
 # Aktualizacja pracy na komputerze: git pull + kopia najnowszego PDF do Downloads.
-# Uruchomienie (PowerShell):  W:\VAULT\Inzynierka\latex\synchronizuj.ps1
+# Uruchomienie: powershell -ExecutionPolicy Bypass -File W:\VAULT\Inzynierka\latex\synchronizuj.ps1
 $repo = $PSScriptRoot
 git -C $repo pull --ff-only
 $data = (git -C $repo log -1 --format=%cs -- pdf/Praca_inzynierska.pdf)

@@ -193,3 +193,20 @@ Nie przeniesiono, celowo:
 - `config/packages.tex`: `locale=DE`, kolorowe linki, `listings`, `longtable` — zastąpione `szablon/preambula.tex` (`listings`/`longtable` można dopisać, jeśli będą potrzebne).
 
 Repo można teraz zastąpić zawartością `wspolne/` (plus foldery rozdziałów) albo przestać go używać; `wspolne/` jest aktualnym źródłem.
+
+---
+
+# Wydanie na koniec dnia (synchronizacja z komputerem)
+
+Decyzja kris (2026-11-09): obie wersje mają być aktualne, a najnowszy PDF ma trafiać do `C:\Users\Krystian\Downloads` pod koniec dnia, w którym były zmiany. Kanał: prywatne repo **`Przepiores/praca-inzynierska`** (gałąź `main`), sklonowane na komputerze do `W:\VAULT\Inzynierka\latex`. Kopia starego szkieletu: `W:\VAULT\Inzynierka\latex_backup_2026-11-09`.
+
+**W commitach i plikach repo nie dodaje się żadnych podpisów Claude** (bez `Co-Authored-By`, linków do sesji itp.); autor: `Krystian Przepiórka <334652709+Przepiores@users.noreply.github.com>`.
+
+Procedura (na prośbę użytkownika, gdy były zmiany):
+1. Skompilować `wspolne/main.tex` w kopii projektu w kontenerze (foldery: `wspolne`, `wstep-zagajenie`, `podstawy-teoretyczne`, `uklad-pomiarowy`, `emisja-magnes-pomiary`, `projekt-prototypu`, `widma-eds`; dopisać nowy folder rozdziału, jeśli powstał). Sprawdzić brak błędów i liczbę stron.
+2. Zapisać PDF do `/mnt/project-files/wydania/Praca_inzynierska_RRRR-MM-DD.pdf`.
+3. Sklonować repo, nadpisać te foldery (bez `build/`, `*.zip`, `main*.pdf`), skopiować PDF do `pdf/Praca_inzynierska.pdf`, commit „Stan na RRRR-MM-DD (N str.)”, push na `main`.
+4. Na komputerze: `git -C W:\VAULT\Inzynierka\latex pull --ff-only`, potem kopia `pdf\Praca_inzynierska.pdf` → `Downloads\Praca_inzynierska_RRRR-MM-DD.pdf`. Ręcznie to samo robi `powershell -ExecutionPolicy Bypass -File W:\VAULT\Inzynierka\latex\synchronizuj.ps1`.
+5. Plików w `W:\VAULT\Inzynierka\latex` nie edytować ręcznie (pull się nie powiedzie przy konflikcie); zmiany wprowadzać w projekcie.
+
+Pierwsze wydanie: 2026-11-09, 36 stron (commit `a6fd7e0`).
