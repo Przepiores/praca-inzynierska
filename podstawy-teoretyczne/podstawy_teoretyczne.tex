@@ -593,29 +593,6 @@ Analizator wielokanałowy (MCA) przypisuje impuls do kanału odpowiadającego
 jego amplitudzie i~zlicza impulsy w~kanałach. Wynikiem jest histogram
 liczby zliczeń w~funkcji energii, czyli widmo.
 
-\subsection{Parametry spektrometru}
-
-\begin{itemize}
-  \item \textbf{Rozdzielczość energetyczna} -- szerokość połówkowa (FWHM)
-        linii, podawana zwykle dla linii Mn K$\alpha$
-        (\SI{5.9}{\kilo\electronvolt}). Wynika z~szumu elektroniki
-        i~ze statystyki tworzenia par:
-        \begin{equation}
-          \mathrm{FWHM} = \sqrt{\mathrm{FWHM}_\mathrm{el}^2 + (2{,}355)^2\,\mathcal{F}\,\varepsilon\,E},
-        \end{equation}
-        gdzie $\mathcal{F}\approx0{,}12$ jest czynnikiem Fano. Granica
-        statystyczna dla Mn K$\alpha$ wynosi ok. \SI{120}{\electronvolt},
-        a~typowe detektory SDD osiągają \SIrange{125}{150}{\electronvolt}.
-  \item \textbf{Kalibracja energii} -- przypisanie kanałom energii na
-        podstawie znanych linii (np. ze źródła $^{55}$Fe lub próbki
-        wzorcowej).
-  \item \textbf{Czas martwy} -- czas, w~którym układ przetwarza impuls
-        i~nie rejestruje kolejnych. Przy dużych szybkościach zliczeń
-        rośnie, a~część fotonów jest tracona.
-  \item \textbf{Czas zbierania widma} -- wpływa na liczbę zliczeń,
-        a~więc na niepewność statystyczną.
-\end{itemize}
-
 \subsection{Analiza widma}
 
 Analiza jakościowa polega na przypisaniu pikom pierwiastków na
