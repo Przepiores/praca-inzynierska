@@ -16,17 +16,17 @@
 
 \subsection{Przebieg pomiarów}
 
-Porównano dwie sesje pomiarowe, w~których przy stałym napięciu targetu
+Porównano dwie sesje pomiarowe, w~których przy stałym napięciu $\UT$
 zwiększano napięcie $U$ co \SI{100}{V} i~rejestrowano prąd emisji
 $I_e$ oraz zdjęcie ekranu luminescencyjnego:
 \begin{itemize}
-  \item \textbf{Sesja B} (\sesjaB) -- napięcie targetu \SI{2000}{V},
+  \item \textbf{Sesja B} (\sesjaB) -- $\UT=\SI{2000}{V}$,
         $U=\SIrange{500}{1500}{V}$, prąd w~zakresie
         \SIrange{2}{22}{\micro A};
         zdjęcia dla $U=\SIrange{700}{1100}{V}$ (arkusz \emph{Book1},
         seria~1). Przed tą sesją źródło zostało odgazowane przez
         wygrzanie w~temperaturze ok. \SI{200}{\celsius}.
-  \item \textbf{Sesja M} (\sesjaM) -- napięcie targetu \SI{1500}{V},
+  \item \textbf{Sesja M} (\sesjaM) -- $\UT=\SI{1500}{V}$,
         $U=\SIrange{500}{1700}{V}$, prąd w~zakresie
         \SIrange{14}{200}{\micro A}; zdjęcia dla
         $U=\SIrange{500}{1600}{V}$ (arkusz \emph{magnez\_emisja}). Źródło nie było przed tą sesją
@@ -58,7 +58,7 @@ ekranu z~prądem. Wyniki zebrano w~tab.~\ref{tab:emisja-iv}.
     1600 & --   & 200 \\
     1700 & --   & 200 \\
     \midrule
-    $U_\text{target}$ & \SI{2000}{V} & \SI{1500}{V} \\
+    $\UT$ & \SI{2000}{V} & \SI{1500}{V} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -75,7 +75,7 @@ upływu (tło), następnie prąd rośnie wykładniczo do \SI{180}{\micro A}
 przy \SI{1200}{V}, po czym nasyca się na poziomie
 \SIrange{190}{200}{\micro A}. Przy tym samym napięciu $U$ prąd w~sesji~M
 jest ok. 10--20 razy większy niż w~sesji~B (np. \SI{69}{\micro A} wobec
-\SI{4}{\micro A} przy \SI{1000}{V}), mimo niższego napięcia targetu.
+\SI{4}{\micro A} przy \SI{1000}{V}), mimo niższego $\UT$.
 
 \subsection{Wpływ warunków źródła na wyniki}
 
@@ -114,9 +114,9 @@ i~skupienia plamki.
       unbounded coords=jump,
     ]
       \addplot[red!60!black, mark=triangle*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_bez.csv};
-      \addlegendentry{\sesjaB\ ($U_\text{t}=\SI{2000}{V}$)}
+      \addlegendentry{\sesjaB\ ($\UT=\SI{2000}{V}$)}
       \addplot[blue!70!black, mark=*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
-      \addlegendentry{\sesjaM\ ($U_\text{t}=\SI{1500}{V}$)}
+      \addlegendentry{\sesjaM\ ($\UT=\SI{1500}{V}$)}
       \draw[gray, dashed] (axis cs:450,15) -- (axis cs:1750,15)
         node[pos=0.2, below, font=\scriptsize] {upływ ok. \SI{15}{\micro A}};
     \end{semilogyaxis}
@@ -249,7 +249,7 @@ w~mikrometrach.
     Parametr & M (\sesjaM) & B (\sesjaB) & seria 2 (\sesjaB) \\
     \midrule
     Odgazowanie źródła & nie & tak (\SI{200}{\celsius}) & -- \\
-    Napięcie targetu & \SI{1500}{V} & \SI{2000}{V} & -- \\
+    Napięcie $\UT$ & \SI{1500}{V} & \SI{2000}{V} & -- \\
     Próg emisji (prąd) & \SI{800}{V} & \SI{800}{V} & -- \\
     Pierwsza widoczna plamka & \SI{600}{V} & \SI{800}{V} & -- \\
     Prąd maksymalny & \SI{200}{\micro A} & \SI{22}{\micro A} & \SI{400}{\micro A} \\
@@ -324,7 +324,7 @@ w~mikrometrach.
         ($r=0{,}95$--$0{,}99$) i~może służyć jako jego względna miara.
   \item Bezpośrednie porównanie wartości prądów między sesjami jest
         ograniczone: źródło było odgazowane tylko przed sesją bez magnesu,
-        sesje różnią się napięciem targetu (\SI{2000}{V} vs
+        sesje różnią się napięciem $\UT$ (\SI{2000}{V} vs
         \SI{1500}{V}). Z~magnesem prąd jest 10--20 razy większy, co może
         wynikać zarówno z~ogniskowania, jak i~ze stanu źródła. Prąd
         upływu, nasycenie i~poświata w~sesji z~magnesem wynikają

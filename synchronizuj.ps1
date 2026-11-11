@@ -6,3 +6,9 @@ $data = (git -C $repo log -1 --format=%cs -- pdf/Praca_inzynierska.pdf)
 $cel  = Join-Path $env:USERPROFILE "Downloads\Praca_inzynierska_$data.pdf"
 Copy-Item (Join-Path $repo "pdf\Praca_inzynierska.pdf") $cel -Force
 Write-Host "Zapisano: $cel"
+$prom = Join-Path $repo "pdf\Praca_inzynierska_promotor.pdf"
+if (Test-Path $prom) {
+  $celP = Join-Path $env:USERPROFILE "Downloads\Praca_inzynierska_promotor_$data.pdf"
+  Copy-Item $prom $celP -Force
+  Write-Host "Zapisano: $celP"
+}

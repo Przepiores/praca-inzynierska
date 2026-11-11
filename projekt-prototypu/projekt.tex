@@ -94,9 +94,11 @@ umieszczony przy emiterze
 
 W~porównaniu ze źródłem promieniowania rentgenowskiego opisanym
 w~\cite{urbanski2026phd} konstrukcja jest uproszczona: nie ma
-elektrody ogniskującej ani zintegrowanej mikropompy, a~wiązka pada
-bezpośrednio na target, który pełni rolę nośnika badanej próbki
-(lub warstwy luminoforu), a~nie targetu transmisyjnego.
+elektrody ogniskującej ani zintegrowanej mikropompy. Targetem jest
+membrana krzemowa, w~której wiązka elektronów wytwarza promieniowanie X.
+Promieniowanie to wychodzi przez membranę i~wzbudza badaną próbkę
+(\pref{subsec:target}). Do obserwacji kształtu wiązki na targecie
+umieszczano warstwę luminoforu.
 Sposób zasilania elektrod opisano w~\rozdzref{ch:stanowisko}.
 \TODO{T2: które elementy przejęto z~projektu źródła RTG, a~które zaprojektowano od nowa}
 
@@ -105,7 +107,7 @@ Sposób zasilania elektrod opisano w~\rozdzref{ch:stanowisko}.
 \label{sec:materialy}
 
 Elektrody wykonano z~płytek krzemu monokrystalicznego o~orientacji
-(100), ponieważ kształt emitera i~otworów uzyskuje się trawieniem
+(100), ponieważ kształt otworów i~membrany targetu uzyskuje się trawieniem
 anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym.
 \TODO{T4: grubość, typ i~rezystywność płytek Si}
@@ -149,17 +151,19 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
     \toprule
     Element & Materiał & Grubość & Funkcja \\
     \midrule
-    emiter (E)        & Si (100) + ostrze CNT & \TODO{T4}          & źródło elektronów \\
+    emiter (E)        & Si (100) + ostrze CNT & \TODOtab{T4}          & źródło elektronów \\
     dystansownik      & szkło borokrzemowe   & \SI{1}{\milli\metre} & izolacja, odległość $d$ \\
-    bramka (B)        & Si (100)             & \TODO{T4}           & elektroda ekstrakcyjna \\
-    dystansownik      & szkło borokrzemowe   & \TODO{T5}           & izolacja B--T \\
-    target (T)        & \TODO{T8}            & \TODO{T8}           & nośnik próbki / luminoforu \\
+    bramka (B)        & Si (100)             & \TODOtab{T4}           & elektroda ekstrakcyjna \\
+    dystansownik      & szkło borokrzemowe   & \TODOtab{T5}           & izolacja B--T \\
+    target (T)        & Si (membrana)        & \TODOtab{T8}           & źródło promieniowania X \\
     magnes ogniskujący & NdFeB               & --                  & ogniskowanie wiązki \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 % ---------------------------------------------------------------------
+% Podrozdziały bez treści — pomijane w wersji dla promotora.
+\ifwersjaPromotor\else
 \section{Projekt emitera, bramki i~targetu}
 \label{sec:projekt-elektrod}
 \TODO{T6--T8: wymiary emitera, apertura bramki, target; magnes jakościowo (plan p.~3.3)}
@@ -171,6 +175,8 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
 \section{Wytwarzanie elementów krzemowych}
 \label{sec:wytwarzanie-si}
 \TODO{T11--T14: warstwa maskująca, fotolitografia, trawienie KOH, kontrola wymiarów (plan p.~3.5)}
+
+\fi
 
 \section{Wykonanie elementów szklanych}
 \label{sec:szklo}
@@ -215,7 +221,7 @@ przekładkę, która zmniejszała dystans między łączonymi elementami.
 \TODO{T18: kolejność łączenia warstw, sposób justowania otworów względem ostrza; czym była przekładka i~gdzie leżała}
 \TODO{T19: napięcie i~czas bondingu, czy wszystkie połączenia były trwałe}
 
-\TODO{T20: montaż -- położenie magnesu, kontakty elektryczne do E, B, T, luminofor i~próbka na targecie, wymiary i~masa prototypu}
+\TODO{T20: montaż -- położenie magnesu, kontakty elektryczne do E, B, T, luminofor na targecie, położenie próbki, wymiary i~masa prototypu}
 
 Wszystkie połączenia wykonano w~atmosferze, dlatego wnętrze struktury
 nie jest zamknięte w~próżni, a~prototyp jest niehermetyczny. Badania
