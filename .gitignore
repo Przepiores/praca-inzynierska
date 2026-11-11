@@ -10,3 +10,6 @@ build/
 *.run.xml
 *.toc
 *.out
+
+# PDF-y z kompilacji w wspolne/ (wydania trafiają do pdf/)
+wspolne/*.pdf
