@@ -417,7 +417,38 @@ energii równej energii elektronów (granica Duane'a--Hunta):
 \end{equation}
 W~widmie promieniowanie hamowania stanowi tło, na którym widoczne
 są linie charakterystyczne. Pomiar granicy Duane'a--Hunta w~widmie pozwala
-sprawdzić rzeczywistą energię elektronów docierających do targetu.
+sprawdzić rzeczywistą energię elektronów docierających do targetu. Kształt widma dla dwóch energii elektronów przedstawiono na
+rys.~\ref{fig:kramers}.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        width=0.85\linewidth, height=0.45\linewidth,
+        xmin=0, xmax=16.5, ymin=0, ymax=30,
+        xlabel={Energia fotonu $E$ [\si{\kilo\electronvolt}]},
+        ylabel={$N(E)$ [j.u.]},
+        ytick=\empty, axis lines=left,
+        legend style={draw=none, font=\small}, legend cell align=left, legend pos=north east]
+      \addplot[thick, blue!70!black, domain=0.5:4, samples=120]
+        {(4-x)/x};
+      \addlegendentry{$E_0=\SI{4}{\kilo\electronvolt}$ (widma prototypu)}
+      \addplot[thick, red!70!black, dashed, domain=0.5:15, samples=200]
+        {(15-x)/x};
+      \addlegendentry{$E_0=\SI{15}{\kilo\electronvolt}$}
+      \draw[gray, densely dotted] (axis cs:4,0) -- (axis cs:4,12)
+        node[above, font=\footnotesize, black] {$e\UT=\SI{4}{\kilo\electronvolt}$};
+      \draw[gray, densely dotted] (axis cs:15,0) -- (axis cs:15,8)
+        node[above, font=\footnotesize, black] {\SI{15}{\kilo\electronvolt}};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Widmo promieniowania hamowania według wzoru Kramersa dla dwóch
+    energii elektronów; widmo kończy się na granicy Duane'a--Hunta
+    $E_\mathrm{max}=eU$. Na widmo ciągłe nakładają się linie
+    charakterystyczne, a~przy małych energiach jest ono osłabiane przez
+    absorpcję w~targecie i~oknie detektora \opracowanieWlasne}
+  \label{fig:kramers}
+\end{figure}
 
 \subsection{Jonizacja powłok wewnętrznych}
 \label{subsec:jonizacja}
