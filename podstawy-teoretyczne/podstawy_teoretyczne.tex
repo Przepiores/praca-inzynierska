@@ -63,7 +63,7 @@ obejmuje:
   \item usunięcie fotorezystu.
 \end{enumerate}
 W~strukturach źródła fotolitografia wyznacza położenie i~wymiary otworów
-w~elektrodach oraz membrany targetu.
+w~elektrodach i~membran.
 
 \subsection{Trawienie anizotropowe krzemu w~KOH}
 \label{subsec:koh}
@@ -290,7 +290,7 @@ W~układzie występują dwa napięcia o~różnych funkcjach:
   \item \textbf{napięcie ekstrakcyjne} $U_\mathrm{B}$ (emiter--bramka)
         -- decyduje o~natężeniu pola na emiterze, a~więc o~prądzie emisji,
   \item \textbf{napięcie przyspieszające} $U_\mathrm{T}$ (emiter--target)
-        -- decyduje o~energii elektronów padających na target,
+        -- decyduje o~energii elektronów padających na target lub próbkę,
         a~więc o~tym, które linie charakterystyczne mogą zostać wzbudzone
         (p.~\ref{subsec:jonizacja}).
 \end{itemize}
@@ -388,8 +388,7 @@ gdzie $A$ -- masa atomowa [g/mol], $E_0$ -- energia elektronów [keV],
 $Z$ -- liczba atomowa, $\rho$ -- gęstość [g/cm$^3$]. Dla krzemu przy
 \SI{15}{\kilo\electronvolt} zasięg wynosi ok. \SI{3}{\micro\metre}.
 Analiza EDS dotyczy więc warstwy przypowierzchniowej próbki o~grubości
-rzędu mikrometrów. W~targecie transmisyjnym zasięg ten określa grubość
-warstwy, w~której powstaje promieniowanie X (p.~\ref{subsec:target}).
+rzędu mikrometrów.
 
 \subsection{Promieniowanie hamowania}
 
@@ -408,9 +407,9 @@ energii równej energii elektronów (granica Duane'a--Hunta):
   E_\mathrm{max} = eU, \qquad
   \lambda_\mathrm{min}\,[\si{\nano\metre}] = \frac{1{,}2398}{U\,[\si{\kilo\volt}]}.
 \end{equation}
-W~widmie promieniowanie hamowania stanowi tło, na którym widoczne
+W~analizie EDS promieniowanie hamowania stanowi tło, na którym widoczne
 są linie charakterystyczne. Pomiar granicy Duane'a--Hunta w~widmie pozwala
-sprawdzić rzeczywistą energię elektronów docierających do targetu. Kształt widma dla dwóch energii elektronów przedstawiono na
+sprawdzić rzeczywistą energię elektronów docierających do próbki. Kształt widma dla dwóch energii elektronów przedstawiono na
 rys.~\ref{fig:kramers}.
 
 \begin{figure}[htbp]
@@ -439,7 +438,7 @@ rys.~\ref{fig:kramers}.
     energii elektronów; widmo kończy się na granicy Duane'a--Hunta
     $E_\mathrm{max}=eU$. Na widmo ciągłe nakładają się linie
     charakterystyczne, a~przy małych energiach jest ono osłabiane przez
-    absorpcję w~targecie i~oknie detektora \opracowanieWlasne}
+    absorpcję w~próbce i~oknie detektora \opracowanieWlasne}
   \label{fig:kramers}
 \end{figure}
 
@@ -463,14 +462,11 @@ przyspieszającym \SI{15}{\kilo\volt} dobrze wzbudzane są linie K
 pierwiastków do żelaza włącznie, co obejmuje główne pierwiastki
 skałotwórcze (O, Mg, Al, Si, Ca, Fe). Przy energii
 \SI{4}{\kilo\electronvolt}, stosowanej przy rejestracji widm prototypu,
-elektrony wzbudzają w~krzemowym targecie linię Si~K ($U_0\approx2{,}2$)
-oraz promieniowanie hamowania o~energii do \SI{4}{\kilo\electronvolt}.
-Promieniowanie to wzbudza w~próbce linie pierwiastków, których energia
-krytyczna jest mniejsza od \SI{4}{\kilo\electronvolt}, najskuteczniej
-fotonami o~energii nieco większej od krawędzi absorpcji. Obejmuje to linie
-K pierwiastków od tlenu do potasu, m.in. Mg, Al i~Si. Linii K wapnia
-($E_\mathrm{c}=\SI{4.04}{\kilo\electronvolt}$) i~żelaza
-($E_\mathrm{c}=\SI{7.11}{\kilo\electronvolt}$) nie da się wzbudzić.
+warunek $U_0\geq2$ spełniają linie K pierwiastków o~energii krytycznej do
+ok. \SI{2}{\kilo\electronvolt}: O, Na, Mg, Al i~Si. Linie K fosforu
+i~siarki są wzbudzane słabiej ($U_0\approx1{,}6$--1{,}9), linia K potasu
+tylko śladowo, a~linii K wapnia ($E_\mathrm{c}=\SI{4.04}{\kilo\electronvolt}$)
+i~linii K żelaza ($E_\mathrm{c}=\SI{7.11}{\kilo\electronvolt}$) nie da się wzbudzić.
 Żelazo i~inne metale przejściowe można wtedy rozpoznać tylko po liniach L
 (np. Fe L$\alpha$ \SI{0.705}{\kilo\electronvolt}). Pomiary emisji przy
 $U_\mathrm{T}=\SI{2}{\kilo\volt}$ służyły do badania źródła elektronów,
@@ -531,11 +527,9 @@ różnią się sposobem wzbudzenia:
         X wymaga specjalnej optyki~\cite{beckhoff2006xrf}.
 \end{itemize}
 Miniaturowe źródło RTG MEMS rozwijane na Politechnice Wrocławskiej
-zaproponowano do spektrometrii XRF~\cite{urbanski2026xrf}.
-W~badanym prototypie wiązka elektronów pada na krzemową membranę targetu,
-a~wytworzone w~niej promieniowanie X wzbudza próbkę
-(p.~\ref{subsec:target}). Widmo promieniowania charakterystycznego
-próbki rejestruje się spektrometrem z~dyspersją energii (EDS).
+zastosowano dotychczas do spektrometrii XRF~\cite{urbanski2026xrf}.
+W~tej pracy wiązka elektronów pada bezpośrednio na próbkę, czyli
+przyrząd działa jak analizator EDS.
 
 \subsection{Target transmisyjny i~odbiciowy}
 \label{subsec:target}
@@ -548,14 +542,8 @@ wzdłuż osi wiązki. Grubość warstwy dobiera się tak, aby była porównywaln
 z~zasięgiem elektronów: zbyt cienka nie wykorzysta energii wiązki, zbyt
 gruba pochłonie wytworzone promieniowanie. Konstrukcja transmisyjna
 pozwala zbudować źródło osiowe i~zwarte, dlatego zastosowano ją w~źródle
-MEMS~\cite{urbanski2023target,urbanski2024monochromatic}.
-
-W~analizatorze opisanym w~tej pracy targetem jest cienka membrana
-krzemowa. Elektrony hamowane w~membranie wytwarzają promieniowanie
-hamowania oraz linię Si~\Ka{}, które wychodzą na wylot przez membranę
-i~padają na badaną próbkę. Próbka nie jest więc bombardowana elektronami,
-lecz wzbudzana promieniowaniem X wytworzonym w~targecie, a~linia Si~\Ka{}
-targetu jest obecna w~każdym rejestrowanym widmie.
+MEMS~\cite{urbanski2023target,urbanski2024monochromatic}. W~analizatorze
+EDS rolę targetu pełni badana próbka.
 
 % =====================================================================
 \section{Pomiar widma metodą EDS}
@@ -564,7 +552,7 @@ targetu jest obecna w~każdym rejestrowanym widmie.
 \subsection{Stanowisko pomiarowe}
 
 Stanowisko składa się z~komory próżniowej z~układem pomp, badanej
-struktury (emiter, bramka, target) z~próbką, dwóch zasilaczy
+struktury (emiter, bramka, target lub próbka), dwóch zasilaczy
 wysokiego napięcia (obwód bramki i~obwód targetu), rezystorów
 ograniczających \SI{100}{\kilo\ohm} z~woltomierzami do pomiaru prądów
 oraz spektrometru rentgenowskiego ustawionego tak, aby widział
@@ -633,9 +621,8 @@ pozorne lub zniekształcenia:
   \item \textbf{nakładanie się linii} różnych pierwiastków o~zbliżonych
         energiach (np. S K$\alpha$ \SI{2.31}{\kilo\electronvolt}
         i~Mo L$\alpha$ \SI{2.29}{\kilo\electronvolt}),
-  \item \textbf{linie pochodzące z~elementów konstrukcji} -- przede
-        wszystkim Si~\Ka{} krzemowego targetu, a~także linie bramki,
-        uchwytu i~ścianek komory, w~które trafiają elektrony rozproszone.
+  \item \textbf{linie pochodzące z~elementów konstrukcji} (bramka,
+        uchwyt, ścianki komory), w~które trafiają elektrony rozproszone.
 \end{itemize}
 
 \subsection{EDS a~WDS}
@@ -683,7 +670,7 @@ napięć z~dokładności zasilaczy.
 
 \subsection{Próżnia}
 
-Elektrony muszą przebyć drogę od emitera do targetu bez zderzeń
+Elektrony muszą przebyć drogę od emitera do próbki bez zderzeń
 z~cząsteczkami gazu. Średnia droga swobodna cząsteczki powietrza
 w~temperaturze pokojowej wynosi w~przybliżeniu
 $\lambda\,[\si{\milli\metre}] \approx 6{,}6/p\,[\si{\pascal}]$,
@@ -707,9 +694,8 @@ elektronami), więc sama hermetyzacja nie wystarcza do utrzymania próżni
 Na powierzchni Księżyca i~planetoid panuje naturalna próżnia (na
 Księżycu rzędu \SI{1e-10}{\pascal}), wystarczająca do propagacji wiązki
 elektronów bez osobnej komory. Na Marsie ciśnienie atmosfery CO$_2$
-wynosi ok. \SI{600}{\pascal}, więc wnętrze źródła musi być oddzielone od
-atmosfery. Rolę okna może pełnić membrana targetu, przez którą
-promieniowanie X wychodzi w~stronę próbki. Rozwiązania tego typu
+wynosi ok. \SI{600}{\pascal}, więc wiązka elektronów musiałaby przejść
+przez cienkie okno lub krótki odcinek gazu. Rozwiązania tego typu
 rozważano dla miniaturowych mikroskopów ze zmiennym ciśnieniem
 \cite{gaskin2012mvpsem,thaisen2010minisem}.
 Przyrząd musi ponadto znosić promieniowanie kosmiczne, duże zmiany
@@ -730,8 +716,8 @@ Analizę składu pierwiastkowego in situ prowadzą obecnie:
   \item \textbf{CheMin} (Curiosity) -- dyfrakcja i~fluorescencja
         rentgenowska próbek pobranych przez łazik~\cite{blake2012chemin}.
 \end{itemize}
-Wykorzystują one źródła radioizotopowe lub konwencjonalne lampy
-rentgenowskie. Analizator EDS ze źródłem MEMS z~katodą polową mógłby uzupełnić te
+Żaden z~nich nie wzbudza próbki bezpośrednio wiązką elektronów.
+Analizator EDS z~katodą polową w~technologii MEMS mógłby uzupełnić te
 przyrządy jako lekki czujnik o~małym poborze mocy, przeznaczony na
 powierzchnię ciał bez atmosfery.
 

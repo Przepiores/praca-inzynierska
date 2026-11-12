@@ -46,12 +46,8 @@ umieszczony przy emiterze
     % kolory
     \colorlet{si}{gray!35}
     \colorlet{gl}{cyan!12}
-    % target: krzem z membraną (wnęka trawiona w KOH od strony bramki)
+    % target
     \fill[si] (0,4.4) rectangle (8,4.9);
-    \fill[white] (3.1,4.4) -- (3.62,4.78) -- (4.38,4.78) -- (4.9,4.4) -- cycle;
-    % próbka nad membraną
-    \fill[orange!45] (3.0,5.55) rectangle (5.0,5.85);
-    \draw (3.0,5.55) rectangle (5.0,5.85);
     % szkło 2 z otworem
     \fill[gl] (0,3.4) rectangle (3,4.4);
     \fill[gl] (5,3.4) rectangle (8,4.4);
@@ -68,21 +64,14 @@ umieszczony przy emiterze
     % magnes (poglądowo, położenie do potwierdzenia)
     \fill[orange!40] (3.2,0.7) rectangle (4.8,1.4);
     % obrysy
-    \foreach \y in {1.4,1.9,2.9,3.4,4.9} {\draw[gray] (0,\y) -- (8,\y);}
-    \draw[gray] (0,4.4) -- (3.1,4.4) -- (3.62,4.78) -- (4.38,4.78) -- (4.9,4.4) -- (8,4.4);
+    \foreach \y in {1.4,1.9,2.9,3.4,4.4,4.9} {\draw[gray] (0,\y) -- (8,\y);}
     \draw (0,1.4) rectangle (8,4.9);
     \draw (3.2,0.7) rectangle (4.8,1.4);
     % wiązka
     \draw[-{Stealth[length=2.5mm]}, blue!70!black, thick, dashed]
-      (4,2.5) -- (4,4.76);
-    % promieniowanie X z membrany i z próbki
-    \draw[-{Stealth[length=2.5mm]}, violet, thick] (4,4.95) -- (4,5.5);
-    \node[anchor=west, violet] at (4.05,5.22) {\footnotesize X};
-    \draw[-{Stealth[length=2.5mm]}, teal!70!black, thick] (5.05,5.75) -- (6.3,6.2)
-      node[anchor=west] {\footnotesize do detektora};
+      (4,2.5) -- (4,4.38);
     % opisy
-    \foreach \y/\t in {5.7/próbka,
-                       4.65/target (T) z~membraną Si,
+    \foreach \y/\t in {4.65/target (T),
                        3.9/szkło borokrzemowe,
                        3.15/bramka (B),
                        2.4/szkło borokrzemowe \SI{1}{\milli\metre},
@@ -97,20 +86,17 @@ umieszczony przy emiterze
   \end{tikzpicture}
   \caption{Przekrój struktury prototypu (schemat poglądowy, bez zachowania
     skali): E -- emiter z~ostrzem CNT, B -- bramka (elektroda ekstrakcyjna),
-    T -- target z~membraną krzemową, w~której wiązka wytwarza promieniowanie X
-    wzbudzające próbkę; $d$ -- odległość emiter--bramka \opracowanieWlasne}
+    T -- target; $d$ -- odległość emiter--bramka \opracowanieWlasne}
   \label{fig:przekroj-struktury}
 \end{figure}
-% Rys. zaktualizowany 12.11 (target z membraną Si, próbka nad nim). Do sprawdzenia:
-% grubość membrany (T8), grubość drugiego szkła, wymiary otworów, położenie magnesu (T1).
+% TODO(rys.): podmienić na wersję zgodną ze szkicem kris (T1); sprawdzić
+% grubość drugiego szkła, wymiary otworów i położenie magnesu.
 
 W~porównaniu ze źródłem promieniowania rentgenowskiego opisanym
 w~\cite{urbanski2026phd} konstrukcja jest uproszczona: nie ma
-elektrody ogniskującej ani zintegrowanej mikropompy. Targetem jest
-membrana krzemowa, w~której wiązka elektronów wytwarza promieniowanie X.
-Promieniowanie to wychodzi przez membranę i~wzbudza badaną próbkę
-(\pref{subsec:target}). Do obserwacji kształtu wiązki na targecie
-umieszczano warstwę luminoforu.
+elektrody ogniskującej ani zintegrowanej mikropompy, a~wiązka pada
+bezpośrednio na target, który pełni rolę nośnika badanej próbki
+(lub warstwy luminoforu), a~nie targetu transmisyjnego.
 Sposób zasilania elektrod opisano w~\rozdzref{ch:stanowisko}.
 \TODO{T2: które elementy przejęto z~projektu źródła RTG, a~które zaprojektowano od nowa}
 
@@ -119,7 +105,7 @@ Sposób zasilania elektrod opisano w~\rozdzref{ch:stanowisko}.
 \label{sec:materialy}
 
 Elektrody wykonano z~płytek krzemu monokrystalicznego o~orientacji
-(100), ponieważ kształt otworów i~membrany targetu uzyskuje się trawieniem
+(100), ponieważ kształt otworów uzyskuje się trawieniem
 anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym.
 \TODO{T4: grubość, typ i~rezystywność płytek Si}
@@ -167,7 +153,7 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
     dystansownik      & szkło borokrzemowe   & \SI{1}{\milli\metre} & izolacja, odległość $d$ \\
     bramka (B)        & Si (100)             & \TODOtab{T4}           & elektroda ekstrakcyjna \\
     dystansownik      & szkło borokrzemowe   & \TODOtab{T5}           & izolacja B--T \\
-    target (T)        & Si (membrana)        & \TODOtab{T8}           & źródło promieniowania X \\
+    target (T)        & \TODOtab{T8}            & \TODOtab{T8}           & nośnik próbki / luminoforu \\
     magnes ogniskujący & NdFeB               & --                  & ogniskowanie wiązki \\
     \bottomrule
   \end{tabular}
@@ -233,7 +219,7 @@ przekładkę, która zmniejszała dystans między łączonymi elementami.
 \TODO{T18: kolejność łączenia warstw, sposób justowania otworów względem ostrza; czym była przekładka i~gdzie leżała}
 \TODO{T19: napięcie i~czas bondingu, czy wszystkie połączenia były trwałe}
 
-\TODO{T20: montaż -- położenie magnesu, kontakty elektryczne do E, B, T, luminofor na targecie, położenie próbki, wymiary i~masa prototypu}
+\TODO{T20: montaż -- położenie magnesu, kontakty elektryczne do E, B, T, luminofor i~próbka na targecie, wymiary i~masa prototypu}
 
 Wszystkie połączenia wykonano w~atmosferze, dlatego wnętrze struktury
 nie jest zamknięte w~próżni, a~prototyp jest niehermetyczny. Badania
