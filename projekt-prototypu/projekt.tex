@@ -34,7 +34,8 @@ rozdzielonych szkłem borokrzemowym (\rysref{fig:przekroj-struktury}).
 Licząc od dołu, składa się ona z~emitera (E) z~ostrzem uformowanym
 z~nanorurek węglowych, szkła dystansowego o~grubości \SI{1}{\milli\metre},
 bramki (elektrody ekstrakcyjnej, B), drugiego szkła dystansowego oraz
-targetu (T). Każda elektroda krzemowa jest osobnym elementem
+targetu (T) w~postaci elektrody skupiającej z~otworem, na której
+umieszcza się próbkę. Każda elektroda krzemowa jest osobnym elementem
 z~własnym kontaktem elektrycznym, a~szkło oddziela je galwanicznie
 i~ustala odległości między nimi. Wiązkę ogniskuje magnes trwały NdFeB
 umieszczony przy emiterze
@@ -46,8 +47,12 @@ umieszczony przy emiterze
     % kolory
     \colorlet{si}{gray!35}
     \colorlet{gl}{cyan!12}
-    % target
-    \fill[si] (0,4.4) rectangle (8,4.9);
+    % próbka na targecie (nad otworem)
+    \fill[orange!45] (2.6,4.9) rectangle (5.4,5.15);
+    \draw (2.6,4.9) rectangle (5.4,5.15);
+    % target: elektroda skupiająca z otworem
+    \fill[si] (0,4.4) rectangle (3.6,4.9);
+    \fill[si] (4.4,4.4) rectangle (8,4.9);
     % szkło 2 z otworem
     \fill[gl] (0,3.4) rectangle (3,4.4);
     \fill[gl] (5,3.4) rectangle (8,4.4);
@@ -57,36 +62,48 @@ umieszczony przy emiterze
     % szkło 1 z otworem
     \fill[gl] (0,1.9) rectangle (3,2.9);
     \fill[gl] (5,1.9) rectangle (8,2.9);
-    % emiter
-    \fill[si] (0,1.4) rectangle (8,1.9);
-    % wieża (ostrze) CNT
+    % emiter: pełna grubość na brzegach, pocieniony obszar w środku
+    \fill[si] (0,1.1) rectangle (2.8,1.9);
+    \fill[si] (5.2,1.1) rectangle (8,1.9);
+    \fill[si] (2.8,1.6) rectangle (5.2,1.9);
+    \fill[si] (2.8,1.1) -- (3.1,1.6) -- (2.8,1.6) -- cycle;
+    \fill[si] (5.2,1.1) -- (4.9,1.6) -- (5.2,1.6) -- cycle;
+    % ostrze (wieża) CNT na płaskim emiterze
     \fill[black!75] (3.7,1.9) -- (4,2.45) -- (4.3,1.9) -- cycle;
-    % magnes (poglądowo, położenie do potwierdzenia)
-    \fill[orange!40] (3.2,0.7) rectangle (4.8,1.4);
+    % magnes (poglądowo) we wnęce pod pocienionym obszarem
+    \fill[orange!40] (3.3,1.1) rectangle (4.7,1.6);
     % obrysy
-    \foreach \y in {1.4,1.9,2.9,3.4,4.4,4.9} {\draw[gray] (0,\y) -- (8,\y);}
-    \draw (0,1.4) rectangle (8,4.9);
-    \draw (3.2,0.7) rectangle (4.8,1.4);
+    \draw (0,1.1) -- (2.8,1.1) -- (3.1,1.6) -- (4.9,1.6) -- (5.2,1.1) -- (8,1.1);
+    \foreach \y in {1.9,2.9,3.4,4.4,4.9} {\draw[gray] (0,\y) -- (8,\y);}
+    \draw (0,1.1) -- (0,4.9) (8,1.1) -- (8,4.9);
+    \draw (3.3,1.1) rectangle (4.7,1.6);
+    \draw (3.6,4.4) -- (3.6,4.9) (4.4,4.4) -- (4.4,4.9);
     % wiązka
     \draw[-{Stealth[length=2.5mm]}, blue!70!black, thick, dashed]
-      (4,2.5) -- (4,4.38);
+      (4,2.5) -- (4,4.88);
     % opisy
-    \foreach \y/\t in {4.65/target (T),
+    \foreach \y/\t in {5.2/próbka,
+                       4.6/target (T): elektroda skupiająca z~otworem,
                        3.9/szkło borokrzemowe,
                        3.15/bramka (B),
                        2.4/szkło borokrzemowe \SI{1}{\milli\metre},
-                       1.65/emiter (E),
-                       1.05/magnes NdFeB}
+                       1.75/emiter (E) \SI{670}{\micro\metre},
+                       1.3/pocienienie do \SI{240}{\micro\metre}}
       {\node[anchor=west] at (8.3,\y) {\t};}
-    \node[anchor=east] at (3.4,2.3) {ostrze CNT};
-    \draw[gray] (3.42,2.25) -- (3.82,2.1);    \node[anchor=west, blue!70!black] at (4.1,3.75) {$e^-$};
+    \node[anchor=east] at (3.4,2.35) {ostrze CNT};
+    \draw[gray] (3.42,2.3) -- (3.82,2.1);
+    \node[anchor=east] at (3.0,0.75) {magnes NdFeB};
+    \draw[gray] (3.0,0.8) -- (3.5,1.2);
+    \node[anchor=west, blue!70!black] at (4.1,3.75) {$e^-$};
     % wymiar
     \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}] (-0.3,1.9) -- (-0.3,2.9)
       node[midway, left] {$d$};
   \end{tikzpicture}
   \caption{Przekrój struktury prototypu (schemat poglądowy, bez zachowania
-    skali): E -- emiter z~ostrzem CNT, B -- bramka (elektroda ekstrakcyjna),
-    T -- target; $d$ -- odległość emiter--bramka \opracowanieWlasne}
+    skali): E -- emiter z~ostrzem CNT i~pocienionym obszarem, B -- bramka
+    (elektroda ekstrakcyjna), T -- target w~postaci elektrody skupiającej
+    z~otworem, na której leży próbka; $d$ -- odległość emiter--bramka
+    \opracowanieWlasne}
   \label{fig:przekroj-struktury}
 \end{figure}
 % TODO(rys.): podmienić na wersję zgodną ze szkicem kris (T1); sprawdzić
@@ -94,9 +111,10 @@ umieszczony przy emiterze
 
 W~porównaniu ze źródłem promieniowania rentgenowskiego opisanym
 w~\cite{urbanski2026phd} konstrukcja jest uproszczona: nie ma
-elektrody ogniskującej ani zintegrowanej mikropompy, a~wiązka pada
-bezpośrednio na target, który pełni rolę nośnika badanej próbki
-(lub warstwy luminoforu), a~nie targetu transmisyjnego.
+zintegrowanej mikropompy ani targetu transmisyjnego z~membraną krzemową.
+Zamiast membrany target ma postać elektrody skupiającej z~otworem:
+wiązka przechodzi przez otwór i~pada bezpośrednio na próbkę
+(lub warstwę luminoforu) umieszczoną na targecie.
 Sposób zasilania elektrod opisano w~\rozdzref{ch:stanowisko}.
 \TODO{T2: które elementy przejęto z~projektu źródła RTG, a~które zaprojektowano od nowa}
 
@@ -108,8 +126,9 @@ Elektrody wykonano z~płytek krzemu monokrystalicznego o~orientacji
 (100), ponieważ kształt otworów uzyskuje się trawieniem
 anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym. Emiter ma wymiary
-\qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre}.
-\TODO{T4: grubość bramki, typ i~rezystywność płytek Si; element o~grubości \SI{240}{\micro\metre} (membrana?)}
+\qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre};
+w~części środkowej jest pocieniony do \SI{240}{\micro\metre}.
+\TODO{T4: grubość bramki i~targetu, typ i~rezystywność płytek Si; sposób pocienienia emitera (KOH od spodu?) i~położenie magnesu}
 
 Jako dystansownik między emiterem a~bramką zastosowano szkło
 borokrzemowe o~grubości \SI{1}{\milli\metre}. Grubość szkła wyznacza
@@ -150,14 +169,16 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
     \toprule
     Element & Materiał & Grubość & Funkcja \\
     \midrule
-    emiter (E)        & Si (100) + ostrze CNT & \SI{670}{\micro\metre} & źródło elektronów \\
+    emiter (E)        & Si (100) + ostrze CNT & \SI{670}{\micro\metre} (\SI{240}{\micro\metre}\textsuperscript{*}) & źródło elektronów \\
     dystansownik      & szkło borokrzemowe   & \SI{1}{\milli\metre} & izolacja, odległość $d$ \\
     bramka (B)        & Si (100)             & \TODOtab{T4}           & elektroda ekstrakcyjna \\
     dystansownik      & szkło borokrzemowe   & \TODOtab{T5}           & izolacja B--T \\
-    target (T)        & \TODOtab{T8}            & \TODOtab{T8}           & nośnik próbki / luminoforu \\
+    target (T)        & \TODOtab{T8}            & \TODOtab{T8}           & elektroda skupiająca z~otworem, nośnik próbki \\
     magnes ogniskujący & NdFeB               & --                  & ogniskowanie wiązki \\
     \bottomrule
   \end{tabular}
+
+  \footnotesize\textsuperscript{*}\,grubość w~pocienionej części środkowej
 \end{table}
 
 % ---------------------------------------------------------------------
