@@ -29,7 +29,7 @@ Zasada nadrzędna: **jedno pojęcie = jeden termin = jeden symbol** w całej pra
 | **źródło RTG MEMS** (przy pierwszym użyciu: miniaturowe źródło promieniowania rentgenowskiego MEMS) | przyrząd z rozprawy P. Urbańskiego, punkt wyjścia pracy | nie nazywać tak własnego analizatora (zob. niespójność N9) |
 | **emiter (E)** | mikroostrze krzemowe pokryte kompozytem CNT-PVP | „katoda” tylko w kontekście ogólnym: „zimna katoda” vs „katoda żarzona”; „katoda polowa” — unikać |
 | **bramka (B)** | elektroda ekstrakcyjna z aperturą; przy pierwszym użyciu: „bramka (elektroda ekstrakcyjna)” | „grid”, „siatka”, „elektroda wyciągająca” |
-| **target (T)** | elektroda przyspieszająca i skupiająca z otworem (zamiast membrany Si, kris 15.11); na niej leży badana próbka / warstwa luminoforu, na którą pada wiązka | „anoda” (dopuszczalne tylko w opisie ogólnym lampy RTG) |
+| **target (T)** | górna elektroda struktury: elektroda skupiająca z otworem (zamiast membrany Si, kris 15.11); wiązka wychodzi przez otwór i pada na próbkę / warstwę luminoforu | „anoda” (dopuszczalne tylko w opisie ogólnym lampy RTG) |
 | **próbka** | badany materiał, na który pada wiązka (na targecie) | nie zamieniać „próbka” ↔ „target” w obrębie jednego akapitu |
 | **magnes ogniskujący** (magnes trwały NdFeB) | element magnetycznego ogniskowania, umieszczony na emiterze | „magnes neodymowy” tylko jako dopowiedzenie przy pierwszym użyciu |
 | **ekran luminescencyjny** (warstwa luminoforu na targecie) | do obserwacji kształtu wiązki | „ekran luminoforowy”, „fosfor” |
