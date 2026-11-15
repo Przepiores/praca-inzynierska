@@ -84,15 +84,13 @@ umieszczony przy emiterze
       {\node[anchor=west] at (8.3,\y) {\t};}
     \node[anchor=east] at (3.0,2.45) {ostrze CNT};
     \draw[gray] (3.02,2.4) -- (3.85,1.7);
-    \node[anchor=east] at (2.6,0.75) {dno wnęki \SI{240}{\micro\metre}};
-    \draw[gray] (2.62,0.8) -- (3.4,1.25);
     \node[anchor=west, blue!70!black] at (4.1,3.75) {$e^-$};
     % wymiar
     \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}] (-0.3,1.9) -- (-0.3,2.9)
       node[midway, left] {$d$};
   \end{tikzpicture}
   \caption{Przekrój struktury prototypu (schemat poglądowy, bez zachowania
-    skali): E -- emiter z~wnęką, na której pocienionym dnie znajduje się
+    skali): E -- emiter z~wnęką, na której dnie znajduje się
     ostrze CNT, B -- bramka (elektroda ekstrakcyjna), T -- elektroda skupiająca
     z~otworem; $d$ -- odległość emiter--bramka
     \opracowanieWlasne}
@@ -118,10 +116,9 @@ Elektrody wykonano z~płytek krzemu monokrystalicznego o~orientacji
 (100), ponieważ kształt otworów uzyskuje się trawieniem
 anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym. Emiter ma wymiary
-\qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre};
-w~części środkowej ma wnękę od strony bramki, a~dno wnęki o~grubości
-\SI{240}{\micro\metre} jest podłożem ostrza CNT.
-\TODO{T4: grubość bramki i~targetu, typ i~rezystywność płytek Si; sposób wykonania wnęki w~emiterze (KOH?)}
+\qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre}; w~jego części środkowej, od strony bramki, wytrawiono
+wnękę, na której dnie znajduje się ostrze CNT (\pref{sec:przebieg}).
+\TODO{T4: grubość bramki, elektrody skupiającej i~drugiego szkła; typ i~rezystywność płytek Si}
 
 Jako dystansownik między emiterem a~bramką zastosowano szkło
 borokrzemowe o~grubości \SI{1}{\milli\metre}. Grubość szkła wyznacza
@@ -162,7 +159,7 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
     \toprule
     Element & Materiał & Grubość & Funkcja \\
     \midrule
-    emiter (E)        & Si (100) + ostrze CNT & \SI{670}{\micro\metre} (\SI{240}{\micro\metre}\textsuperscript{*}) & źródło elektronów \\
+    emiter (E)        & Si (100) + ostrze CNT & \SI{670}{\micro\metre} & źródło elektronów \\
     dystansownik      & szkło borokrzemowe   & \SI{1}{\milli\metre} & izolacja, odległość $d$ \\
     bramka (B)        & Si (100)             & \TODOtab{T4}           & elektroda ekstrakcyjna \\
     dystansownik      & szkło borokrzemowe   & \TODOtab{T5}           & izolacja B--T \\
@@ -170,8 +167,6 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
     magnes ogniskujący & NdFeB               & --                  & ogniskowanie wiązki \\
     \bottomrule
   \end{tabular}
-
-  \footnotesize\textsuperscript{*}\,grubość dna wnęki pod ostrzem CNT
 \end{table}
 
 % ---------------------------------------------------------------------
@@ -190,6 +185,54 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
 \TODO{T11--T14: warstwa maskująca, fotolitografia, trawienie KOH, kontrola wymiarów (plan p.~3.5)}
 
 \fi
+
+\section{Przebieg wytwarzania struktury}
+\label{sec:przebieg}
+
+Kolejność czynności prowadzących do gotowej struktury przedstawiono na
+\rysref{fig:proces}. Elementy krzemowe i~szklane wytwarzano równolegle
+na całych płytkach, a~dopiero po ich pocięciu łączono je w~stos.
+W~emiterze trawieniem w~KOH (\pref{subsec:koh}) wykonano wnękę od strony
+bramki, pozostawiając dno o~grubości \SI{240}{\micro\metre}, na którym
+formowano ostrze CNT. W~bramce i~elektrodzie skupiającej wytrawiono
+otwory na przejście wiązki.
+\TODO{T11--T13, T17: warstwa maskująca, parametry KOH; kolejność formowania ostrza CNT względem bondingu}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[font=\small, node distance=4mm and 6mm,
+      blok/.style={draw, rounded corners=2pt, align=center, minimum height=8mm,
+                   text width=36mm, fill=gray!8},
+      sz/.style={blok, fill=cyan!8},
+      cnt/.style={blok, fill=orange!12},
+      >={Stealth[length=2mm]}]
+    % gałąź krzemowa
+    \node[blok] (si1) {płytki Si (100)\\mycie};
+    \node[blok, below=of si1] (si2) {warstwa maskująca};
+    \node[blok, below=of si2] (si3) {fotolitografia,\\otwarcie okien};
+    \node[blok, below=of si3] (si4) {trawienie w~KOH:\\wnęka w~emiterze,\\otwory w~B i~T};
+    \node[blok, below=of si4] (si5) {usunięcie maski,\\cięcie płytki};
+    % gałąź szklana
+    \node[sz, right=12mm of si1] (g1) {płytka szkła\\borokrzemowego \SI{1}{\milli\metre}};
+    \node[sz, below=of g1] (g2) {trawienie otworów\\$\varnothing\,\SI{0.6}{\milli\metre}$};
+    \node[sz, below=of g2] (g3) {cięcie piłą};
+    \node[sz, below=of g3] (g4) {czyszczenie};
+    % łączenie
+    \node[blok, below=10mm of $(si5.south)!0.5!(g4.south |- si5.south)$, text width=60mm] (b)
+      {bonding anodowy stosu\\E--szkło--B--szkło--T\\w~atmosferze, \SI{450}{\celsius}};
+    \node[cnt, below=of b, text width=60mm] (c)
+      {formowanie ostrza CNT na dnie wnęki emitera\\(płyta grzejna \SI{240}{\celsius})};
+    \node[blok, below=of c, text width=60mm] (m)
+      {montaż: magnes NdFeB, kontakty E, B, T};
+    \foreach \a/\b in {si1/si2,si2/si3,si3/si4,si4/si5,g1/g2,g2/g3,g3/g4,b/c,c/m}
+      \draw[->] (\a) -- (\b);
+    \draw[->] (si5.south) -- ++(0,-4mm) -| ([xshift=-12mm]b.north);
+    \draw[->] (g4.south) |- ++(0,-4mm) -| ([xshift=12mm]b.north);
+  \end{tikzpicture}
+  \caption{Schemat blokowy wytwarzania struktury prototypu; kolejność
+    formowania ostrza CNT względem bondingu do potwierdzenia \opracowanieWlasne}
+  \label{fig:proces}
+\end{figure}
 
 \section{Wykonanie elementów szklanych}
 \label{sec:szklo}
