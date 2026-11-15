@@ -84,7 +84,7 @@ LAB = {  # (E tabel., etykieta, przesunięcie pionowe w pkt)
  'final': [(0.930,'Cu L$\\alpha$',4),(1.660,'Au M$\\zeta$',4),(2.123,'Au M$\\alpha$',4),(2.409,'Au M$\\gamma$',14),
            (5.415,'Cr K$\\alpha$',4),(5.947,'Cr K$\\beta$',4),(8.041,'Cu K$\\alpha$',4)],
  'aluminium': [(1.487,'Al K$\\alpha$',4),(2.973,'2·Al (sum.)',4),(4.46,'3·Al',4),(5.899,'Mn',14),(6.400,'Fe K$\\alpha$',4)]}
-TIT = {'miedz': '(a) próbka A: Cu i inne materiały', 'olow': '(b) próbka B: Pb',
+TIT = {'miedz': '(a) próbka A: Cu z zanieczyszczeniami', 'olow': '(b) próbka B: Pb',
        'final': '(c) próbka C: Au, Cr, Cu', 'aluminium': '(d) próbka D: Al'}
 
 PANELE = ['miedz', 'olow', 'final']   # próbkę Al opisano w tekście (widmo podobne do rys. 4 kV)

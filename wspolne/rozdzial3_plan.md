@@ -87,7 +87,7 @@ Najważniejsze (bez nich nie da się napisać rozdziału): **T1, T4, T6, T7, T9,
 | T1 | 3.1 | Pełny układ warstw od dołu do góry: ile elementów krzemowych i szklanych, czy jest osobna elektroda ogniskująca (elektrostatyczna) czy tylko magnes. Szkic odręczny wystarczy do narysowania rys. 3.1. |
 | T2 | 3.1 | Czy elementy projektowano od zera, czy na bazie projektu z rozprawy Urbańskiego (które elementy przejęto, co zmieniono). |
 | T3 | 3.1 | Jak wyprowadzono kontakty do E, B, T (pola kontaktowe na krzemie, klej przewodzący, druty). |
-| T4 | 3.2 | Płytki Si: grubość, orientacja (zakładamy (100)), typ i rezystywność, jedno- czy dwustronnie polerowane. |
+| T4 | 3.2 | **Częściowo (15.11, kris): emiter 14 × 14 mm, grubość całego emitera 670 µm; podano też „membrana 240 µm” (do wyjaśnienia, który to element).** Płytki Si: grubość, orientacja (zakładamy (100)), typ i rezystywność, jedno- czy dwustronnie polerowane. |
 | T5 | 3.2 | Szkło 1 mm: typ (Borofloat 33?), dlaczego wybrano 1 mm (dostępność, izolacja, odległość), ile warstw szkła i gdzie. |
 | T6 | 3.3 | Obliczenia wymiarów emitera ze sprawozdania (etap 2): kształt emitera (ostrze/płaszczyzna), wymiary okna w masce, wysokość ostrza. |
 | T7 | 3.3 | Odległość emiter–bramka $d$ i wymiar apertury bramki. |
