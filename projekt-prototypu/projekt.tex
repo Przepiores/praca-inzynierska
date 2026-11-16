@@ -199,40 +199,36 @@ formowano ostrze CNT. Ostrze formowano przed bondingiem anodowym. W~bramce i~ele
 otwory na przejście wiązki.
 \TODO{T11--T13: warstwa maskująca, parametry KOH}
 
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \begin{tikzpicture}[font=\small, >={Stealth[length=2.2mm]},
       krok/.style={draw=#1!50!black, fill=#1!8, rounded corners=3pt, line width=0.6pt,
-                   align=center, text width=46mm, minimum height=10mm, inner xsep=5pt, inner ysep=3pt,
+                   align=center, text width=46mm, minimum height=8mm, inner xsep=5pt, inner ysep=2pt, font=\footnotesize,
                    execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
       nr/.style={circle, fill=#1!55!black, text=white, font=\scriptsize\bfseries,
                  inner sep=0pt, minimum size=4.4mm},
       strz/.style={->, line width=0.8pt, draw=black!60}]
     % tła torów
-    \fill[blue!4, rounded corners=6pt] (-3.0,0.85) rectangle (3.0,-10.0);
-    \fill[cyan!5, rounded corners=6pt] (3.6,0.85) rectangle (9.6,-6.6);
+    \fill[blue!4, rounded corners=6pt] (-3.0,0.75) rectangle (3.0,-7.75);
+    \fill[cyan!5, rounded corners=6pt] (3.6,0.75) rectangle (9.6,-4.9);
     \node[font=\small\bfseries, text=blue!45!black] at (0,0.45) {elementy krzemowe (E, B, T)};
     \node[font=\small\bfseries, text=cyan!35!black] at (6.6,0.45) {dystansowniki szklane};
     % tor krzemowy
-    \node[krok=blue] (s1) at (0,-0.6) {płytki Si (100), mycie};
-    \node[krok=blue] (s2) at (0,-2.2) {wytworzenie warstwy maskującej};
-    \node[krok=blue] (s3) at (0,-3.8) {fotolitografia,\\otwarcie okien};
-    \node[krok=blue] (s4) at (0,-5.5) {trawienie w~KOH: wnęka w~E,\\otwory w~B i~T};
-    \node[krok=blue] (s5) at (0,-7.25) {usunięcie maski,\\cięcie płytki};
-    \node[krok=orange] (s6) at (0,-9.0) {formowanie ostrza CNT\\na dnie wnęki emitera\\(płyta grzejna \SI{240}{\celsius})};
+    \node[krok=blue] (s1) at (0,-0.4) {płytki Si (100), mycie};
+    \node[krok=blue] (s2) at (0,-1.6) {wytworzenie warstwy maskującej};
+    \node[krok=blue] (s3) at (0,-2.8) {fotolitografia,\\otwarcie okien};
+    \node[krok=blue] (s4) at (0,-4.1) {trawienie w~KOH: wnęka w~E,\\otwory w~B i~T};
+    \node[krok=blue] (s5) at (0,-5.45) {usunięcie maski,\\cięcie płytki};
+    \node[krok=orange] (s6) at (0,-6.9) {formowanie ostrza CNT\\na dnie wnęki emitera\\(płyta grzejna \SI{240}{\celsius})};
     % tor szklany
-    \node[krok=cyan] (g1) at (6.6,-0.6) {płytka szkła\\borokrzemowego \SI{1}{\milli\metre}};
-    \node[krok=cyan] (g2) at (6.6,-2.2) {trawienie otworów\\w~HF, $\varnothing\,\SI{6}{\milli\metre}$};
-    \node[krok=cyan] (g3) at (6.6,-3.8) {cięcie piłą};
-    \node[krok=cyan] (g4) at (6.6,-5.5) {czyszczenie przed bondingiem};
+    \node[krok=cyan] (g1) at (6.6,-0.4) {płytka szkła\\borokrzemowego \SI{1}{\milli\metre}};
+    \node[krok=cyan] (g2) at (6.6,-1.6) {trawienie otworów\\w~HF, $\varnothing\,\SI{6}{\milli\metre}$};
+    \node[krok=cyan] (g3) at (6.6,-2.8) {cięcie piłą};
+    \node[krok=cyan] (g4) at (6.6,-4.1) {czyszczenie przed bondingiem};
     % łączenie
-    \node[krok=teal, text width=78mm] (b) at (3.3,-11.3)
+    \node[krok=teal, text width=78mm] (b) at (3.3,-8.75)
       {bonding anodowy stosu E--szkło--B--szkło--T\\w~atmosferze, \SI{450}{\celsius}};
-    \node[krok=gray, text width=78mm] (m) at (3.3,-12.9) {montaż magnesu NdFeB};
-    % numery kroków
-    \foreach \n/\k/\c in {s1/1/blue,s2/2/blue,s3/3/blue,s4/4/blue,s5/5/blue,s6/6/orange,
-                          g1/1/cyan,g2/2/cyan,g3/3/cyan,g4/4/cyan,b/7/teal,m/8/gray}
-      \node[nr=\c] at (\n.north west) {\k};
+    \node[krok=gray, text width=78mm] (m) at (3.3,-9.95) {montaż magnesu NdFeB};
     % strzałki
     \foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5,s5/s6,g1/g2,g2/g3,g3/g4,b/m}
       \draw[strz] (\a) -- (\b);
