@@ -297,12 +297,24 @@ W~układzie występują dwa napięcia o~różnych funkcjach:
 Rozdzielenie tych funkcji pozwala regulować prąd wiązki niezależnie od
 jej energii. W~pomiarach emisji prototypu (p.~\ref{sec:emisja-magnes})
 stosowano $U_\mathrm{T}=\SI{2000}{\volt}$, a~widma rejestrowano przy
-$U_\mathrm{T}=\SI{4000}{\volt}$ i~$U_\mathrm{B}=\SI{1000}{\volt}$.
-Energia elektronów padających na target wynosiła więc podczas rejestracji widm
-\SI{4}{\kilo\electronvolt}, co potwierdza granica widma ciągłego przy
-ok. \SI{4}{\kilo\electronvolt}. W~obwodzie mierzy się prąd bramki i~prąd targetu. Ich
+$U_\mathrm{T}$ od \SI{4}{\kilo\volt} ($U_\mathrm{B}=\SI{1000}{\volt}$) do
+\SI{10}{\kilo\volt}, co było największym napięciem zastosowanym w~badaniach.
+Energia elektronów padających na próbkę odpowiada $eU_\mathrm{T}$, co potwierdza
+granica widma ciągłego przy ok. \SI{4}{} i~\SI{10}{\kilo\electronvolt}
+(p.~\ref{sec:widma}). W~obwodzie mierzy się prąd bramki i~prąd targetu. Ich
 różnica względem prądu emisji wskazuje na prądy upływu lub elektrony
 docierające do innych elementów.
+
+Aby elektrony były przyspieszane w~kierunku targetu, target musi mieć
+potencjał dodatni względem emitera. Można to uzyskać na dwa sposoby:
+uziemić emiter i~doprowadzić do targetu napięcie $+U_\mathrm{T}$ albo
+uziemić target i~spolaryzować emiter napięciem $-U_\mathrm{T}$. Drugi
+sposób jest prostszy w~realizacji: próbka, uchwyt i~komora pozostają na
+potencjale masy, więc między próbką a~detektorem i~ściankami komory nie
+występuje pole odchylające elektrony ani ryzyko przebicia do detektora,
+a~wysokie napięcie jest doprowadzone tylko do niewielkiego emitera.
+Wymaga on jednak zasilacza wysokiego napięcia o~ujemnej polaryzacji
+wyjścia, a~obwód bramki musi być wtedy odniesiony do potencjału emitera.
 
 \subsection{Ruch elektronu w~polu magnetycznym}
 
@@ -558,8 +570,8 @@ ograniczających \SI{100}{\kilo\ohm} z~woltomierzami do pomiaru prądów
 oraz spektrometru rentgenowskiego ustawionego tak, aby widział
 oświetlany obszar próbki. Ciśnienie w~komorze podczas pomiarów nie przekraczało
 \SI{1e-5}{\milli\bar}. Charakterystyki emisji mierzono przy
-$U_\mathrm{T}=\SI{2000}{\volt}$, a~widma przy
-$U_\mathrm{T}=\SI{4000}{\volt}$ i~$U_\mathrm{B}=\SI{1000}{\volt}$.
+$U_\mathrm{T}=\SI{2000}{\volt}$, a~widma przy $U_\mathrm{T}$
+od \SI{4}{} do \SI{10}{\kilo\volt}.
 Schemat elektryczny przedstawiono na rys.~\ref{fig:uklad-pomiarowy}.
 
 \subsection{Charakterystyka prądowo-napięciowa emitera}
