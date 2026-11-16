@@ -194,43 +194,51 @@ Kolejność czynności prowadzących do gotowej struktury przedstawiono na
 na całych płytkach, a~dopiero po ich pocięciu łączono je w~stos.
 W~emiterze trawieniem w~KOH (\pref{subsec:koh}) wykonano wnękę od strony
 bramki, pozostawiając dno o~grubości \SI{240}{\micro\metre}, na którym
-formowano ostrze CNT. W~bramce i~elektrodzie skupiającej wytrawiono
+formowano ostrze CNT. Ostrze formowano przed bondingiem anodowym. W~bramce i~elektrodzie skupiającej wytrawiono
 otwory na przejście wiązki.
-\TODO{T11--T13, T17: warstwa maskująca, parametry KOH; kolejność formowania ostrza CNT względem bondingu}
+\TODO{T11--T13: warstwa maskująca, parametry KOH}
 
 \begin{figure}[htbp]
   \centering
-  \begin{tikzpicture}[font=\small, node distance=4mm and 6mm,
-      blok/.style={draw, rounded corners=2pt, align=center, minimum height=8mm,
-                   text width=36mm, fill=gray!8},
-      sz/.style={blok, fill=cyan!8},
-      cnt/.style={blok, fill=orange!12},
-      >={Stealth[length=2mm]}]
-    % gałąź krzemowa
-    \node[blok] (si1) {płytki Si (100)\\mycie};
-    \node[blok, below=of si1] (si2) {warstwa maskująca};
-    \node[blok, below=of si2] (si3) {fotolitografia,\\otwarcie okien};
-    \node[blok, below=of si3] (si4) {trawienie w~KOH:\\wnęka w~emiterze,\\otwory w~B i~T};
-    \node[blok, below=of si4] (si5) {usunięcie maski,\\cięcie płytki};
-    % gałąź szklana
-    \node[sz, right=12mm of si1] (g1) {płytka szkła\\borokrzemowego \SI{1}{\milli\metre}};
-    \node[sz, below=of g1] (g2) {trawienie otworów\\$\varnothing\,\SI{0.6}{\milli\metre}$};
-    \node[sz, below=of g2] (g3) {cięcie piłą};
-    \node[sz, below=of g3] (g4) {czyszczenie};
+  \begin{tikzpicture}[font=\small, >={Stealth[length=2.2mm]},
+      krok/.style={draw=#1!50!black, fill=#1!8, rounded corners=3pt, line width=0.6pt,
+                   align=center, text width=46mm, minimum height=10mm, inner xsep=5pt, inner ysep=3pt,
+                   execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000}},
+      nr/.style={circle, fill=#1!55!black, text=white, font=\scriptsize\bfseries,
+                 inner sep=0pt, minimum size=4.4mm},
+      strz/.style={->, line width=0.8pt, draw=black!60}]
+    % tła torów
+    \fill[blue!4, rounded corners=6pt] (-3.0,0.85) rectangle (3.0,-10.0);
+    \fill[cyan!5, rounded corners=6pt] (3.6,0.85) rectangle (9.6,-6.6);
+    \node[font=\small\bfseries, text=blue!45!black] at (0,0.45) {elementy krzemowe (E, B, T)};
+    \node[font=\small\bfseries, text=cyan!35!black] at (6.6,0.45) {dystansowniki szklane};
+    % tor krzemowy
+    \node[krok=blue] (s1) at (0,-0.6) {płytki Si (100), mycie};
+    \node[krok=blue] (s2) at (0,-2.2) {wytworzenie warstwy maskującej};
+    \node[krok=blue] (s3) at (0,-3.8) {fotolitografia,\\otwarcie okien};
+    \node[krok=blue] (s4) at (0,-5.5) {trawienie w~KOH: wnęka w~E,\\otwory w~B i~T};
+    \node[krok=blue] (s5) at (0,-7.25) {usunięcie maski,\\cięcie płytki};
+    \node[krok=orange] (s6) at (0,-9.0) {formowanie ostrza CNT\\na dnie wnęki emitera\\(płyta grzejna \SI{240}{\celsius})};
+    % tor szklany
+    \node[krok=cyan] (g1) at (6.6,-0.6) {płytka szkła\\borokrzemowego \SI{1}{\milli\metre}};
+    \node[krok=cyan] (g2) at (6.6,-2.2) {trawienie otworów\\$\varnothing\,\SI{0.6}{\milli\metre}$};
+    \node[krok=cyan] (g3) at (6.6,-3.8) {cięcie piłą};
+    \node[krok=cyan] (g4) at (6.6,-5.5) {czyszczenie przed bondingiem};
     % łączenie
-    \node[blok, below=10mm of $(si5.south)!0.5!(g4.south |- si5.south)$, text width=60mm] (b)
-      {bonding anodowy stosu\\E--szkło--B--szkło--T\\w~atmosferze, \SI{450}{\celsius}};
-    \node[cnt, below=of b, text width=60mm] (c)
-      {formowanie ostrza CNT na dnie wnęki emitera\\(płyta grzejna \SI{240}{\celsius})};
-    \node[blok, below=of c, text width=60mm] (m)
-      {montaż: magnes NdFeB, kontakty E, B, T};
-    \foreach \a/\b in {si1/si2,si2/si3,si3/si4,si4/si5,g1/g2,g2/g3,g3/g4,b/c,c/m}
-      \draw[->] (\a) -- (\b);
-    \draw[->] (si5.south) -- ++(0,-4mm) -| ([xshift=-12mm]b.north);
-    \draw[->] (g4.south) |- ++(0,-4mm) -| ([xshift=12mm]b.north);
+    \node[krok=teal, text width=78mm] (b) at (3.3,-11.3)
+      {bonding anodowy stosu E--szkło--B--szkło--T\\w~atmosferze, \SI{450}{\celsius}};
+    \node[krok=gray, text width=78mm] (m) at (3.3,-12.9) {montaż magnesu NdFeB};
+    % numery kroków
+    \foreach \n/\k/\c in {s1/1/blue,s2/2/blue,s3/3/blue,s4/4/blue,s5/5/blue,s6/6/orange,
+                          g1/1/cyan,g2/2/cyan,g3/3/cyan,g4/4/cyan,b/7/teal,m/8/gray}
+      \node[nr=\c] at (\n.north west) {\k};
+    % strzałki
+    \foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5,s5/s6,g1/g2,g2/g3,g3/g4,b/m}
+      \draw[strz] (\a) -- (\b);
+    \draw[strz] (s6.south) -- (s6.south |- b.north);
+    \draw[strz] (g4.south) -- (g4.south |- b.north);
   \end{tikzpicture}
-  \caption{Schemat blokowy wytwarzania struktury prototypu; kolejność
-    formowania ostrza CNT względem bondingu do potwierdzenia \opracowanieWlasne}
+  \caption{Schemat blokowy wytwarzania struktury prototypu \opracowanieWlasne}
   \label{fig:proces}
 \end{figure}
 
@@ -260,7 +268,6 @@ nanorurek wydłużoną w~kierunku przyszłej bramki. Kształt ostrza
 zwiększa lokalne natężenie pola na jego wierzchołku i~skraca odległość
 od bramki (\pref{sec:materialy}).
 \TODO{T16: skład zawiesiny (rodzaj CNT, rozpuszczalnik, PVP?), materiał elementu pomocniczego, wysokość i~średnica uzyskanej wieży}
-\TODO{T17: czy emiter formowano przed bondingiem, czy po nim}
 
 \section{Bonding anodowy i~montaż prototypu}
 \label{sec:bonding-montaz}
@@ -277,7 +284,7 @@ przekładkę, która zmniejszała dystans między łączonymi elementami.
 \TODO{T18: kolejność łączenia warstw, sposób justowania otworów względem ostrza; czym była przekładka i~gdzie leżała}
 \TODO{T19: napięcie i~czas bondingu, czy wszystkie połączenia były trwałe}
 
-\TODO{T20: montaż -- położenie magnesu, kontakty elektryczne do E, B, T, luminofor i~próbka na targecie, wymiary i~masa prototypu}
+\TODO{T20: montaż magnesu (położenie, mocowanie), wymiary i~masa prototypu}
 
 Wszystkie połączenia wykonano w~atmosferze, dlatego wnętrze struktury
 nie jest zamknięte w~próżni, a~prototyp jest niehermetyczny. Badania
