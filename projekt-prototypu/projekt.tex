@@ -130,7 +130,8 @@ jest wielokrotnie większe dzięki współczynnikowi wzmocnienia pola
 (\pref{sec:emisja}). Ostrze CNT o~wysokości $h$ skraca odległość
 wierzchołka od bramki do $d - h$, co dodatkowo zwiększa pole przy
 wierzchołku.
-\TODO{T7: wysokość ostrza CNT $h$ i~średnica apertury bramki}
+Wysokość ostrza wynosi ok.~\SI{360}{\micro\metre} (\pref{sec:nanoszenie-cnt}).
+\TODO{T7: średnica apertury bramki}
 
 Drugim zadaniem szkła jest izolacja elektrod. W~próżni ograniczeniem
 jest przede wszystkim przeskok wzdłuż powierzchni szkła między krawędziami
@@ -221,7 +222,7 @@ otwory na przejście wiązki.
     \node[krok=orange] (s6) at (0,-9.0) {formowanie ostrza CNT\\na dnie wnęki emitera\\(płyta grzejna \SI{240}{\celsius})};
     % tor szklany
     \node[krok=cyan] (g1) at (6.6,-0.6) {płytka szkła\\borokrzemowego \SI{1}{\milli\metre}};
-    \node[krok=cyan] (g2) at (6.6,-2.2) {trawienie otworów\\$\varnothing\,\SI{0.6}{\milli\metre}$};
+    \node[krok=cyan] (g2) at (6.6,-2.2) {trawienie otworów\\w~HF, $\varnothing\,\SI{6}{\milli\metre}$};
     \node[krok=cyan] (g3) at (6.6,-3.8) {cięcie piłą};
     \node[krok=cyan] (g4) at (6.6,-5.5) {czyszczenie przed bondingiem};
     % łączenie
@@ -246,14 +247,15 @@ otwory na przejście wiązki.
 \label{sec:szklo}
 
 Dystansowniki wykonano z~płytki szkła borokrzemowego o~grubości
-\SI{1}{\milli\metre}. Najpierw wytrawiono w~niej otwory o~średnicy
-\SI{0.6}{\milli\metre}, przez które przechodzi wiązka elektronów,
-a~następnie płytkę pocięto piłą na pojedyncze elementy. Taka kolejność
+\SI{1}{\milli\metre}. Najpierw wytrawiono w~niej w~kwasie fluorowodorowym (HF) otwory
+o~średnicy \SI{6}{\milli\metre}, przez które przechodzi wiązka elektronów.
+Maską była folia ochronna naklejona na szkło, która chroniła pozostałą
+powierzchnię przed działaniem HF. Następnie płytkę pocięto piłą na pojedyncze elementy. Taka kolejność
 pozwala obrabiać całą płytkę naraz i~zachować jednakowe położenie
 otworów we wszystkich dystansownikach. Przed bondingiem elementy
 oczyszczono, ponieważ zanieczyszczenia i~nierówności powierzchni
 uniemożliwiają szczelne połączenie (\pref{subsec:bonding}).
-\TODO{T15: roztwór i~maska do trawienia otworów w~szkle, sposób czyszczenia}
+\TODO{T15: sposób czyszczenia przed bondingiem}
 
 \section{Formowanie emitera CNT}
 \label{sec:nanoszenie-cnt}
@@ -264,10 +266,11 @@ pomocniczy, który przykładano do emitera nagrzanego na płycie grzejnej
 do \SI{240}{\celsius}. Element pomocniczy odciągano następnie szybkim
 ruchem od powierzchni emitera. Zawiesina rozciągała się między oboma
 elementami i~zasychała w~kontakcie z~gorącym podłożem, tworząc wieżę
-nanorurek wydłużoną w~kierunku przyszłej bramki. Kształt ostrza
+nanorurek wydłużoną w~kierunku przyszłej bramki. Wysokość wieży
+wynosiła ok.~1,5 grubości dna wnęki emitera, tj.~ok.~\SI{360}{\micro\metre}. Kształt ostrza
 zwiększa lokalne natężenie pola na jego wierzchołku i~skraca odległość
 od bramki (\pref{sec:materialy}).
-\TODO{T16: skład zawiesiny (rodzaj CNT, rozpuszczalnik, PVP?), materiał elementu pomocniczego, wysokość i~średnica uzyskanej wieży}
+\TODO{T16: skład zawiesiny (rodzaj CNT, rozpuszczalnik, PVP?), materiał elementu pomocniczego, średnica wieży}
 
 \section{Bonding anodowy i~montaż prototypu}
 \label{sec:bonding-montaz}

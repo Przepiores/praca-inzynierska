@@ -98,8 +98,8 @@ Najważniejsze (bez nich nie da się napisać rozdziału): **T1, T4, T6, T7, T9,
 | T12 | 3.5 | Fotolitografia: fotorezyst, obroty wirowania, wygrzewanie, czas naświetlania, wywoływacz, trawienie maski (BHF?). |
 | T13 | 3.5 | KOH: stężenie, temperatura, czas, głębokość, uzyskana szybkość, problemy w trakcie. |
 | T14 | 3.5 | Czy mierzono wymiary po trawieniu (mikroskop, profilometr) i czy są zdjęcia. |
-| T15 | 3.6 | Jak wykonano otwory w szkle 1 mm. |
-| T16 | 3.7 | Zawiesina CNT: rodzaj nanorurek, rozpuszczalnik, czy z PVP, stężenie, objętość/liczba kropli. |
+| T15 | 3.6 | **Zamknięte (16.11, kris): HF, maska = folia ochronna, otwory Ø 6 mm (wcześniej błędnie 0,6 mm).** |
+| T16 | 3.7 | **Częściowo (16.11): wysokość wieży CNT ≈ 1,5 × grubość dna wnęki (240 µm) ≈ 360 µm.** Zawiesina CNT: rodzaj nanorurek, rozpuszczalnik, czy z PVP, stężenie, objętość/liczba kropli. |
 | T17 | 3.7 | CNT naniesiono przed bondingiem czy po nim. |
 | T18 | 3.8 | Kolejność łączenia elementów i sposób justowania. |
 | T19 | 3.8 | Parametry bondingu w atmosferze: temperatura, napięcie, czas; czy wszystkie połączenia się udały. |
