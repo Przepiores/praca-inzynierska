@@ -1,0 +1,100 @@
+% =====================================================================
+%  Widma EDS próbek o różnym składzie (pomiary 13.11.2026) — dalsza część
+%  sekcji \ref{sec:widma}. Wstawiany we wspolne/rozdzialy/05_badania.tex
+%  po \input{../widma-eds/widma_tresc}.
+%  Dane: widma-eds/dane_mca/2026-11-13/ (.mca), skrypt: skrypty_mca/widma_mca.py,
+%  położenia pików: piki_13-11.csv, rysunek: widma_materialy.pdf.
+% =====================================================================
+
+\subsection{Widma próbek o~różnym składzie}
+\label{sec:widma-probki}
+
+Kolejne widma zarejestrowano 13.11.2026 dla czterech próbek: A~(miedź o~nieznanym
+składzie i~zanieczyszczonej powierzchni), B~(ołów), C~(złoto, chrom i~miedź) i~D~(aluminium).
+Dla próbek A--C wykonano po 6--10 serii o~czasie życia
+\SIrange{40}{250}{\second}, które zsumowano. Dla próbki~D wykorzystano serię
+o~najmniejszym czasie martwym (\SI{20}{\percent}); pozostałe serie miały czas
+martwy do \SI{90}{\percent}, przy którym widmo zniekształcają piki sumacyjne. Napięcie przyspieszające wynosiło
+$\UT=\SI{10}{\kilo\volt}$, co potwierdza koniec tła promieniowania hamowania
+przy ok.~\SI{10}{\kilo\electronvolt} (granica Duane'a--Hunta), więc
+$\Ezero\approx\SI{10}{\kilo\electronvolt}$.
+
+Skala energii zapisana przez program ProSpect (\num{8192} kanały,
+\SI{80}{\kilo\electronvolt}) wymagała korekcji: linia Cu~\Ka{} wypadała
+w~niej przy \SI{7.89}{\kilo\electronvolt} zamiast \SI{8.04}{\kilo\electronvolt}.
+Zależność liniową $E = a\,E_\mathrm{p} + b$ wyznaczono z~położeń pięciu linii
+o~jednoznacznej identyfikacji (Al~\Ka, Pb~M$\alpha$, Cr~\Ka, Fe~\Ka, Cu~\Ka).
+Otrzymano $a = \num{1.0216}$ i~$b = \SI{-18}{\electronvolt}$, a~odchyłki
+punktów kalibracyjnych nie przekraczają \SI{3}{\electronvolt}.
+Pozostałe linie po korekcji leżą w~odległości do \SI{12}{\electronvolt}
+od wartości tabelarycznych~\cite{goldstein2018sem}.
+
+\rysunek[0.95\linewidth]{widma-eds/widma_materialy.pdf}{Widma EDS próbek A, B i~C
+  (pomiary z~13.11.2026, skala logarytmiczna, zliczenia na sekundę czasu życia);
+  szare pole -- zakres energii poza czułością toru pomiarowego, linia przerywana --
+  położenie linii O~\Ka{} \opracowanieWlasne}{fig:widma-probki}
+
+\begin{table}[htbp]\centering\small
+  \caption{Linie zidentyfikowane w~widmach z~13.11.2026}\label{tab:widma-probki}
+  \begin{tabular}{@{}lp{0.47\linewidth}p{0.3\linewidth}@{}}\toprule
+    Próbka & Linie (energia po korekcji, \si{\kilo\electronvolt}) & Interpretacja \\\midrule
+    A & Cu~L$\alpha$ 0,92; Cu~\Ka{} 8,04; Cu~\Kb{} 8,90; Te~L$\alpha$ 3,76,
+        L$\beta_1$ 4,04, L$\beta_2$ 4,30, L$\gamma_1$ 4,57; P~\Ka{} 2,01;
+        S~\Ka{} 2,30; Cl~\Ka{} 2,62; K~\Ka{} 3,32; Si~\Ka{} 1,73; Al~\Ka{} 1,48
+      & miedź; Te i~P (prawdopodobnie dodatki stopowe);
+        S, Cl, K, Si, Al z~zanieczyszczeń powierzchni \\
+    B & Pb~M$\zeta$ 1,83; Pb~M$\alpha$ 2,35; Pb~M$\gamma$ 2,65 & ołów \\
+    C & Au~M$\zeta$ 1,66; Au~M$\alpha\beta$ 2,13; Au~M$\gamma$ 2,41;
+        Cr~\Ka{} 5,42; Cr~\Kb{} 5,95; Cu~L$\alpha$ 0,93; Cu~\Ka{} 8,04
+      & złoto, chrom, miedź \\
+    D & Al~\Ka{} 1,48; Mn~\Ka{} 5,91; Fe~\Ka{} 6,40; pik sumacyjny 2,98
+      & stop aluminium z~Mn i~Fe \\\bottomrule
+  \end{tabular}
+\end{table}
+
+Widma przedstawiono na \rysref{fig:widma-probki}, a~zidentyfikowane linie
+zestawiono w~\tabref{tab:widma-probki}. W~próbce~A dominuje linia Cu~L$\alpha$.
+Linie Cu~K są słabe, ponieważ przy $\Ezero\approx\SI{10}{\kilo\electronvolt}$
+współczynnik nadnapięcia dla krawędzi Cu~K (\SI{8.98}{\kilo\electronvolt})
+wynosi tylko ok.~1,1. Grupę pików przy \SIrange{3.76}{4.57}{\kilo\electronvolt}
+przypisano serii L telluru: cztery linie zgadzają się z~wartościami tabelarycznymi
+w~granicach \SI{9}{\electronvolt}, a~stosunek wysokości L$\beta_1$/L$\alpha$
+(ok.~0,4) wyklucza alternatywną interpretację jako Ca~\Ka{} i~Ca~\Kb{}
+(\SI{3.69}{} i~\SI{4.01}{\kilo\electronvolt}). Skład próbki nie jest znany. Tellur i~fosfor są typowymi
+dodatkami miedzi tellurowej (CuTeP), a~S, Cl, K, Si i~Al pochodzą najpewniej
+z~zanieczyszczeń powierzchni.
+W~próbce~B widoczne są wyłącznie linie M ołowiu; linie Pb~L nie występują,
+ponieważ krawędź Pb~L$_3$ (\SI{13.0}{\kilo\electronvolt}) leży powyżej $\Ezero$.
+Widmo próbki~C zawiera linie M złota oraz linie Cr~K i~Cu, co odpowiada
+warstwie złota na podłożu miedzianym z~chromem jako warstwą pośrednią.
+Częstość zliczeń w~zakresie linii Au~M$\alpha$ w~dziesięciu kolejnych seriach
+wynosiła \SIrange{1027}{1096}{\per\second}, tj.~zmieniała się w~granicach
+ok.~\SI{\pm3}{\percent}. Widmo próbki~D jest podobne do \rysref{fig:widmo-4kV},
+lecz nie zawiera linii Mg i~Si, a~zawiera słabe linie Mn i~Fe, więc jest to
+inny stop aluminium.
+
+\subsection{Zakres niskich energii i~linia tlenu}
+\label{sec:widma-tlen}
+
+We wszystkich widmach liczba zliczeń spada poniżej ok.~\SI{0.65}{\kilo\electronvolt}
+o~kilka rzędów wielkości, praktycznie do zera
+(szare pole na \rysref{fig:widma-probki}). Linia O~\Ka{} (\SI{0.525}{\kilo\electronvolt})
+leży poniżej tej granicy, dlatego tlen nie jest rejestrowany, mimo że powierzchnia
+każdej z~próbek metalicznych jest pokryta tlenkiem rodzimym (Cu$_2$O/CuO, PbO, Al$_2$O$_3$)
+i~zaadsorbowaną wodą. Przy ciśnieniu \SI{1e-5}{\milli\bar} warstwa adsorbatu
+odnawia się w~czasie rzędu sekundy, więc pomiar w~komorze nie usuwa tlenu
+z~powierzchni. Dolną granicę wyznacza najpewniej absorpcja fotonów w~oknie wejściowym
+i~warstwie nieczułej detektora oraz próg dyskryminacji impulsów toru
+akwizycji~\cite{goldstein2018sem}; typu okna użytego detektora nie ustalono.
+
+Najsilniejszy pik w~zakresie niskich energii, przy \SI{0.92}{\kilo\electronvolt},
+nie pochodzi od tlenu, lecz jest linią Cu~L$\alpha$ (\SI{0.930}{\kilo\electronvolt}).
+Potwierdzają to linie Cu~\Ka{} i~Cu~\Kb{} w~tym samym widmie, obecność tego piku
+w~próbce~C z~podłożem miedzianym i~jego brak w~próbkach B i~D. Odległość od
+linii O~\Ka{} wynosi ok.~\SI{400}{\electronvolt}, tj.~pięciokrotność szerokości
+połówkowej piku (ok.~\SI{80}{\electronvolt}), więc nakładanie obu linii jest
+wykluczone. Pik leży tuż nad granicą czułości, przez co jego wysokość względem
+linii o~większych energiach jest zaniżona.
+
+Do oznaczania tlenu, najczęstszego pierwiastka skał i~regolitu, analizator
+docelowy wymaga detektora z~cienkim oknem polimerowym lub bez okna.

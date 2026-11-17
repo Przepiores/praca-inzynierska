@@ -137,6 +137,7 @@ Kompilacja: `latexmk main.tex` w folderze `wspolne/` (albo `lualatex main`, `bib
 - Bibliografia: biblatex + biber, `style=ieee`, `sorting=none`, plik `wspolne/bibliografia.bib` (sekcja 3 wyżej).
 - Wersja dla promotora (jednostronna): w `main.tex` `twoside` → `oneside`.
 - Wersja do oddania: odkomentować `\wersjaFinalnatrue` w `main.tex` — każdy pozostawiony `\TODO` zatrzyma kompilację.
+- Wersja dla promotora: `latexmk main-promotor.tex` — \TODO nie drukuje się w PDF, puste podrozdziały (\ifwersjaPromotor\else ... \fi) i pusty rozdz. 6 są pomijane; w komórkach tabel używać `\TODOtab{}` (w wersji dla promotora „--”).
 
 ## Makra (zawsze z `szablon/makra.tex`, nie definiować w rozdziałach)
 

@@ -11,18 +11,26 @@
 %                 („Package praca Warning: TODO: ...”).
 % W wersji do oddania ustawić w main.tex \wersjaFinalnatrue:
 % każdy pozostawiony \TODO zatrzyma kompilację błędem.
+% Wersja dla promotora (main-promotor.tex definiuje \wersjaPromotor przed
+% \documentclass): \TODO znika z PDF (tylko ostrzeżenie w logu),
+% \DOSPRAWDZENIA drukuje się zwykłym kolorem, a fragmenty objęte
+% \ifwersjaPromotor\else ... \fi (puste podrozdziały) są pomijane.
 \newif\ifwersjaFinalna
+\newif\ifwersjaPromotor
+\ifdefined\wersjaPromotor \wersjaPromotortrue \fi
 \makeatletter
 \newcommand{\TODO}[1]{%
   \ifwersjaFinalna
     \PackageError{praca}{Pozostawiony TODO: \detokenize{#1}}{Uzupełnij lub usuń znacznik.}%
   \else
     \PackageWarning{praca}{TODO: \detokenize{#1}}%
-    \textcolor{red}{[TODO: #1]}%
+    \ifwersjaPromotor\unskip\else\textcolor{red}{[TODO: #1]}\fi
   \fi}
+% \TODOtab{tekst} — \TODO w komórce tabeli; w wersji dla promotora „--”
+\newcommand{\TODOtab}[1]{\ifwersjaPromotor --\else\TODO{#1}\fi}
 \makeatother
 % \DOSPRAWDZENIA{tekst} — fragment do weryfikacji (pomarańczowe tło znaczeniowe)
-\newcommand{\DOSPRAWDZENIA}[1]{\textcolor{orange!80!black}{#1}}
+\newcommand{\DOSPRAWDZENIA}[1]{\ifwersjaPromotor #1\else\textcolor{orange!80!black}{#1}\fi}
 
 % ---------------------------------------------------------------------
 %  Odwołania (słownik, p. 5.5): małą literą, z tyldą

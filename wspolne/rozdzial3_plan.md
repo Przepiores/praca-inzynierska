@@ -87,7 +87,7 @@ Najważniejsze (bez nich nie da się napisać rozdziału): **T1, T4, T6, T7, T9,
 | T1 | 3.1 | Pełny układ warstw od dołu do góry: ile elementów krzemowych i szklanych, czy jest osobna elektroda ogniskująca (elektrostatyczna) czy tylko magnes. Szkic odręczny wystarczy do narysowania rys. 3.1. |
 | T2 | 3.1 | Czy elementy projektowano od zera, czy na bazie projektu z rozprawy Urbańskiego (które elementy przejęto, co zmieniono). |
 | T3 | 3.1 | Jak wyprowadzono kontakty do E, B, T (pola kontaktowe na krzemie, klej przewodzący, druty). |
-| T4 | 3.2 | Płytki Si: grubość, orientacja (zakładamy (100)), typ i rezystywność, jedno- czy dwustronnie polerowane. |
+| T4 | 3.2 | **Częściowo (15.11, kris): emiter 14 × 14 mm, grubość całego emitera 670 µm; podano też „membrana 240 µm” (do wyjaśnienia, który to element).** Płytki Si: grubość, orientacja (zakładamy (100)), typ i rezystywność, jedno- czy dwustronnie polerowane. |
 | T5 | 3.2 | Szkło 1 mm: typ (Borofloat 33?), dlaczego wybrano 1 mm (dostępność, izolacja, odległość), ile warstw szkła i gdzie. |
 | T6 | 3.3 | Obliczenia wymiarów emitera ze sprawozdania (etap 2): kształt emitera (ostrze/płaszczyzna), wymiary okna w masce, wysokość ostrza. |
 | T7 | 3.3 | Odległość emiter–bramka $d$ i wymiar apertury bramki. |
@@ -98,8 +98,8 @@ Najważniejsze (bez nich nie da się napisać rozdziału): **T1, T4, T6, T7, T9,
 | T12 | 3.5 | Fotolitografia: fotorezyst, obroty wirowania, wygrzewanie, czas naświetlania, wywoływacz, trawienie maski (BHF?). |
 | T13 | 3.5 | KOH: stężenie, temperatura, czas, głębokość, uzyskana szybkość, problemy w trakcie. |
 | T14 | 3.5 | Czy mierzono wymiary po trawieniu (mikroskop, profilometr) i czy są zdjęcia. |
-| T15 | 3.6 | Jak wykonano otwory w szkle 1 mm. |
-| T16 | 3.7 | Zawiesina CNT: rodzaj nanorurek, rozpuszczalnik, czy z PVP, stężenie, objętość/liczba kropli. |
+| T15 | 3.6 | **Zamknięte (16.11, kris): HF, maska = folia ochronna, otwory Ø 6 mm (wcześniej błędnie 0,6 mm).** |
+| T16 | 3.7 | **Częściowo (16.11): wysokość wieży CNT ≈ 1,5 × grubość dna wnęki (240 µm) ≈ 360 µm.** Zawiesina CNT: rodzaj nanorurek, rozpuszczalnik, czy z PVP, stężenie, objętość/liczba kropli. |
 | T17 | 3.7 | CNT naniesiono przed bondingiem czy po nim. |
 | T18 | 3.8 | Kolejność łączenia elementów i sposób justowania. |
 | T19 | 3.8 | Parametry bondingu w atmosferze: temperatura, napięcie, czas; czy wszystkie połączenia się udały. |

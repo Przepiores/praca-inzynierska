@@ -11,9 +11,9 @@ Nie sprawdzono repozytorium `W:\VAULT\Inzynierka\latex` (komputer był niedostę
 | Prąd w tabeli emisji | $I_\mathrm{e}$ = prąd emisji | symbol $I_\mathrm{e}$, nazwa „prąd emisji” |
 | Połączenie elementów | bonding anodowy w atmosferze | „połączono bondingiem anodowym w atmosferze; struktura nie jest hermetyczna, badania prowadzono w komorze próżniowej” |
 | Magnes | magnes trwały NdFeB umieszczony na emiterze, parametry nieznane | nie podawać indukcji ani wymiarów; „parametry magnesu nie były znane” jako ograniczenie w rozdz. pomiarów |
-| Detektor spektrometru | elektronika KETEK DPP2 (program ProSpect), detektor najpewniej KETEK SDD — typ niepotwierdzony | „spektrometr z detektorem półprzewodnikowym (prawdopodobnie SDD) i procesorem impulsów KETEK DPP2”; nie pisać „SDD” jako pewnika |
+| Detektor spektrometru | spektrometr KETEK AXAS-D (KETEK GmbH, Monachium), procesor impulsów KETEK DPP2, program ProSpect (17.11, etykieta) | „spektrometr rentgenowski KETEK AXAS-D”; bez parametrów spektrometru (decyzja kris) i bez określania typu detektora |
 | Ciśnienie w komorze | rzędu \SI{1e-5}{\hecto\pascal} | „\SI{1e-3}{\pascal} (\SI{1e-5}{\hecto\pascal})” |
-| Naniesienie CNT | kompozyt CNT-PVP jak w rozprawie Urbańskiego, nakraplany pipetą na emiter na płycie grzejnej nagrzanej do \SI{240}{\celsius} | „nakraplanie kompozytu CNT-PVP” |
+| Naniesienie CNT | dyspersja OCSiAl TUBALL BATT H2O (SWCNT 0,4 %, PVP 0,8 %, woda 98,8 %; 17.11, etykieta) → kompozyt CNT-PVP jak w rozprawie Urbańskiego, nakraplany pipetą na emiter na płycie grzejnej nagrzanej do \SI{240}{\celsius} | „nakraplanie kompozytu CNT-PVP” |
 
 Zasada nadrzędna: **jedno pojęcie = jeden termin = jeden symbol** w całej pracy. Nowy termin lub symbol dopisuje się tutaj, zanim trafi do rozdziału.
 
@@ -29,7 +29,7 @@ Zasada nadrzędna: **jedno pojęcie = jeden termin = jeden symbol** w całej pra
 | **źródło RTG MEMS** (przy pierwszym użyciu: miniaturowe źródło promieniowania rentgenowskiego MEMS) | przyrząd z rozprawy P. Urbańskiego, punkt wyjścia pracy | nie nazywać tak własnego analizatora (zob. niespójność N9) |
 | **emiter (E)** | mikroostrze krzemowe pokryte kompozytem CNT-PVP | „katoda” tylko w kontekście ogólnym: „zimna katoda” vs „katoda żarzona”; „katoda polowa” — unikać |
 | **bramka (B)** | elektroda ekstrakcyjna z aperturą; przy pierwszym użyciu: „bramka (elektroda ekstrakcyjna)” | „grid”, „siatka”, „elektroda wyciągająca” |
-| **target (T)** | elektroda przyspieszająca, na którą pada wiązka; w analizatorze nośnik badanej próbki / warstwy luminoforu | „anoda” (dopuszczalne tylko w opisie ogólnym lampy RTG) |
+| **target (T)** | górna elektroda struktury: elektroda skupiająca z otworem (zamiast membrany Si, kris 15.11); wiązka wychodzi przez otwór i pada na próbkę / warstwę luminoforu | „anoda” (dopuszczalne tylko w opisie ogólnym lampy RTG) |
 | **próbka** | badany materiał, na który pada wiązka (na targecie) | nie zamieniać „próbka” ↔ „target” w obrębie jednego akapitu |
 | **magnes ogniskujący** (magnes trwały NdFeB) | element magnetycznego ogniskowania, umieszczony na emiterze | „magnes neodymowy” tylko jako dopowiedzenie przy pierwszym użyciu |
 | **ekran luminescencyjny** (warstwa luminoforu na targecie) | do obserwacji kształtu wiązki | „ekran luminoforowy”, „fosfor” |

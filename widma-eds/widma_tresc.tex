@@ -1,7 +1,7 @@
 % =====================================================================
 %  Widma EDS — fragment rozdziału 5 (sekcja \ref{sec:widma}).
 %  Wstawiany we wspolne/rozdzialy/05_badania.tex po \section{Widma EDS próbek}.
-%  Dane: widma-eds/ (README.md, widmo_eds_4kV.xlsx, *_digitalizacja.csv).
+%  Dane: widma-eds/dane_mca/2026-06-12_Al_4kV/4SERIA.mca (wykres: skrypty_mca/widma_mca.py).
 %  Rysunki: widma-eds/widmo_eds_4kV.pdf, widma-eds/stabilnosc_zliczen.pdf
 % =====================================================================
 
@@ -10,10 +10,9 @@
 
 Widmo zarejestrowano 12.06.2026 przy napięciu przyspieszającym
 $\UT=\SI{4000}{\volt}$ i~napięciu ekstrakcyjnym $\UB=\SI{1000}{\volt}$.
-Impulsy z~detektora promieniowania X przetwarzano cyfrowym procesorem impulsów
-KETEK DPP2 obsługiwanym programem ProSpect (v1.1.36); typ detektora nie został
-potwierdzony, przy czym zastosowana elektronika współpracuje zwykle z~detektorami
-krzemowymi dryfowymi (SDD). Ustawienia toru akwizycji zestawiono w~\tabref{tab:widma-parametry}.
+Do pomiaru użyto spektrometru rentgenowskiego KETEK AXAS-D (KETEK GmbH,
+Monachium). Impulsy z~detektora przetwarzano cyfrowym procesorem impulsów
+KETEK DPP2 obsługiwanym programem ProSpect (v1.1.36). Ustawienia toru akwizycji zestawiono w~\tabref{tab:widma-parametry}.
 
 \begin{table}[htbp]\centering
   \caption{Parametry rejestracji widma EDS}\label{tab:widma-parametry}
@@ -32,16 +31,15 @@ krzemowymi dryfowymi (SDD). Ustawienia toru akwizycji zestawiono w~\tabref{tab:w
 Widmo zbierano w~trybie ciągłym z~kumulacją, a~stan pomiaru zapisano
 w~ośmiu chwilach pośrednich. Badaną próbką była płytka aluminiowa, a~pomiar
 wykonano z~magnesem ogniskującym umieszczonym na emiterze. Ciśnienie
-w~komorze wynosiło ok.~\SI{1e-5}{\hecto\pascal}.
+w~komorze nie przekraczało \SI{1e-5}{\milli\bar}.
 \TODO{prąd emisji $\Ie$ podczas pomiaru, jeśli zapisano}
 
 \subsection{Identyfikacja linii}
 \label{sec:widma-linie}
 
 Widmo po \SI{100}{\second} czasu życia przedstawiono na \rysref{fig:widmo-4kV}.
-\DOSPRAWDZENIA{Wartości odczytano ze zdjęcia ekranu programu po korekcji
-perspektywy, z~dokładnością położenia ok.~\SI{20}{\electronvolt}; przed oddaniem
-pracy należy zastąpić je widmem wyeksportowanym z~programu ProSpect.}
+Skalę energii pliku programu ProSpect skorygowano liniowo na podstawie
+położeń linii Mg~\Ka, Al~\Ka{} i~Si~\Ka{} (\pref{sec:widma-probki}).
 
 \rysunek[0.95\linewidth]{widma-eds/widmo_eds_4kV.pdf}{Widmo EDS zarejestrowane
   przy $\UT=\SI{4}{\kilo\volt}$ i~$\UB=\SI{1}{\kilo\volt}$, czas życia \SI{100}{\second};
@@ -51,8 +49,7 @@ W~widmie występują trzy linie charakterystyczne lekkich pierwiastków
 (\tabref{tab:widma-linie}). Najsilniejsza jest linia Al~\Ka{} (ok.~$1{,}33\cdot10^{6}$
 zliczeń w~kanale \SI{1.49}{\kilo\electronvolt}), a~linie Si~\Ka{} i~Mg~\Ka{} mają
 wysokość odpowiednio ok.~\SI{63}{\percent} i~\SI{39}{\percent} piku Al.
-Położenia pików zgadzają się z~wartościami tabelarycznymi w~granicach dokładności
-odczytu, co potwierdza poprawną kalibrację energetyczną toru akwizycji.
+Szerokość połówkowa pików wynosi ok.~\SI{87}{\electronvolt}.
 
 \begin{table}[htbp]\centering
   \caption{Linie zidentyfikowane w~widmie z~\rysref{fig:widmo-4kV}}\label{tab:widma-linie}
