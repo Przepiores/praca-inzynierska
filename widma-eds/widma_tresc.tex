@@ -9,10 +9,9 @@
 \label{sec:widma-warunki}
 
 Widmo zarejestrowano 12.06.2026 przy napięciu przyspieszającym
-$\UT=\SI{4000}{\volt}$ i~napięciu ekstrakcyjnym $\UB=\SI{1000}{\volt}$.
-Do pomiaru użyto spektrometru rentgenowskiego KETEK AXAS-D (KETEK GmbH,
-Monachium). Impulsy z~detektora przetwarzano cyfrowym procesorem impulsów
-KETEK DPP2 obsługiwanym programem ProSpect (v1.1.36). Ustawienia toru akwizycji zestawiono w~\tabref{tab:widma-parametry}.
+$\UT=\SI{4000}{\volt}$ i~napięciu ekstrakcyjnym $\UB=\SI{1000}{\volt}$
+spektrometrem opisanym w~\pref{sec:rejestracja-widm}. Ustawienia toru
+akwizycji zestawiono w~\tabref{tab:widma-parametry}.
 
 \begin{table}[htbp]\centering
   \caption{Parametry rejestracji widma EDS}\label{tab:widma-parametry}
@@ -56,21 +55,21 @@ Szerokość połówkowa pików wynosi ok.~\SI{87}{\electronvolt}.
   \begin{tabular}{@{}S[table-format=1.2]lS[table-format=1.3]l@{}}\toprule
     {$E$ piku [\si{\kilo\electronvolt}]} & Linia & {$E$ tabel. [\si{\kilo\electronvolt}]} & Pochodzenie \\\midrule
     1.26 & Mg~\Ka & 1.254 & domieszka w~próbce Al \\
-    1.48 & Al~\Ka & 1.486 & próbka \\
+    1.48 & Al~\Ka & 1.487 & próbka \\
     1.74 & Si~\Ka & 1.740 & struktura krzemowa\,/\,domieszka w~próbce \\
-    2.98 & Al~\Ka{} + Al~\Ka & 2.972 & pik sumacyjny \\
-    3.22 & Al~\Ka{} + Si~\Ka & 3.226 & pik sumacyjny \\
+    2.98 & Al~\Ka{} + Al~\Ka & 2.974 & pik sumacyjny \\
+    3.22 & Al~\Ka{} + Si~\Ka & 3.227 & pik sumacyjny \\
     3.46 & Si~\Ka{} + Si~\Ka & 3.480 & pik sumacyjny \\\bottomrule
   \end{tabular}
 \end{table}
 
 Ciągłe tło promieniowania hamowania zanika przy energii ok.~\SI{4}{\kilo\electronvolt},
-co odpowiada granicy Duane'a--Hunta $E_\mathrm{max}=e\UT$ (\rozdzref{ch:podstawy}).
+co odpowiada granicy Duane'a--Hunta $E_\mathrm{max}=e\UT$ (\pref{sec:rtg}).
 Elektrony docierają więc do próbki z~pełną energią ok.~\SI{4}{\kilo\electronvolt},
 a~napięcie bramki nie zwiększa energii wiązki. Przy tej energii współczynnik
 nadnapięcia wynosi ok.~3,1 dla Mg~K, 2,6 dla Al~K i~2,2 dla Si~K, co zapewnia
-skuteczne wzbudzenie tych linii; linie K pierwiastków cięższych od wapnia nie
-mogą być wzbudzone.
+skuteczne wzbudzenie tych linii; linii K wapnia i~pierwiastków cięższych
+nie można wzbudzić (\pref{subsec:jonizacja}).
 
 \subsection{Piki sumacyjne i~stabilność zliczeń}
 \label{sec:widma-stabilnosc}

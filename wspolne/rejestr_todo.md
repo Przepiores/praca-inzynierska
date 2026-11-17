@@ -89,3 +89,30 @@ Wspólna lista dla wszystkich wątków pracy inżynierskiej. Stan na 09.11.2026 
 - „Relaksacja” dla przejść w atomie: teoria używa poprawnie; „rekombinacja” występuje tylko dla nośników w detektorze (l. 549), co jest poprawne.
 - Wartości prądów w `emisja_tresc.tex` zgadzają się z plikami CSV w `emisja-magnes-pomiary/dane/`.
 - Odgazowanie: 200 °C w tej pracy, 250 °C przez 30 min w rozprawie Urbańskiego (wizualizacja `emisja-polowa-gazy`). To różne procedury, nie sprzeczność, ale przy porównaniu trzeba to zaznaczyć.
+
+---
+
+## D. Przegląd spójności 17.11.2026 (zamknięcia i nowe pozycje)
+
+Zamknięte na podstawie treści już obecnej w pracy lub w pamięci projektu:
+- **A25** zamknięte: p. 2.1.6 przepisany ogólnie (ostrze CNT-PVP), opis prototypu tylko w p. 3.5 (wieża na dnie wnęki); usunięto „nieuporządkowaną warstwę” i „płaski emiter” z rozdz. 2 i 3.
+- **B4** zamknięte: z rozdz. 2 usunięto zapowiedź wykresu F–N w pomiarach i porównania „przed/po odgazowaniu”; równanie F–N zostaje jako teoria.
+- **B5, B19, B21** zamknięte: w p. 5.1 $U$ → $\UB$, sesje „bez magnesu / z magnesem” (bez „B/M”), bez nazw arkuszy, intensywność $I$ → jasność $L$, $e$ → $\Delta$ (składowe $C_\mathrm{c}, C_\mathrm{z}, C_\mathrm{n}$), $r$ → $r_\mathrm{P}$.
+- **B11** zamknięte: ciśnienie w komorze konsekwentnie „\SI{1e-5}{\milli\bar} (\SI{1e-3}{\pascal})” (decyzja kris 12.11: mbar).
+- **B18** zamknięte: rozdz. 2 nie twierdzi już, że odgazowano przed wszystkimi pomiarami; odsyła do p. 5.1.
+- **B24** zamknięte: z rozdz. 2 usunięto listę APXS/PIXL/CheMin i zdanie o identyfikacji linii przed wysłaniem danych (są we wstępie).
+- **B25** częściowo: rozdz. 2 podaje przykłady dla 4 i 10 kV (Kramers, zasięg, $U_0$); 10–18 kV tylko jako wartość docelowa.
+- **B27** zamknięte: „dryfowy” w wykazie i teorii; ESD nie występuje.
+- Rozdz. 3: T1 (magnes pod emiterem), T2 (różnice wobec źródła RTG są w akapicie), T5 częściowo i T8 (drugie szkło 1 mm — oba dystansowniki z tej samej płytki; elektroda skupiająca z Si) zamknięte. Puste p. 3.3–3.5 scalone z „Przebiegiem wytwarzania” (jeden \TODO T9–T14).
+- Rozdz. 4 złożony z treści, która była w rozdz. 2 (stanowisko, I-V, bezpieczeństwo) i 5 (analiza zdjęć, spektrometr); polaryzacja (kris 16.11) opisana. Schemat: $R$ → $\RT$, usunięte „$B_\mathrm{on}$”.
+- Rozdz. 6 i wyniki w streszczeniu/abstrakcie napisane wyłącznie z wyników rozdz. 5 (do akceptacji kris).
+- Wykaz oznaczeń uzupełniony (TODO usunięte); droga swobodna $\bar l$ zamiast $\lambda$; Al K$\alpha$ = 1,487 keV wszędzie.
+
+Nowe pozycje:
+
+| nr | rozdział / plik | opis | kto | status |
+|---|---|---|---|---|
+| B30 | 3 / `projekt.tex` p. 3.2 | Geometria ostrza: wnęka 670 − 240 = 430 µm, wieża ≈ 360 µm → wierzchołek ok. 70 µm poniżej górnej powierzchni emitera, odległość do bramki ≈ $d$ + 70 µm (tekst wcześniej: $d - h$, rys. 3.1 pokazywał ostrze ponad powierzchnią). Poprawiono tekst i rys. 3.1; potwierdzić. | kris | do potwierdzenia |
+| B31 | 1 vs 2–5 | Wstęp: widma przy $\UT$ = 4–11 kV (kris 09.11); dane i rozdz. 3–5: 4 kV i 10 kV. Czy był pomiar przy 11 kV? Jeśli nie, zmienić wstęp na 4–10 kV. | kris | decyzja kris |
+| A29 | 5 / `widma-eds/dane_mca/2026-08-17_magnes/` | Widma z 17.08 z magnesem i bez (2SeriaBezMagnesu) nie są opisane w pracy. Al K$\alpha$: ok. 3300 /s z magnesem vs 1500 /s bez, ale koniec tła ok. 5,0 vs 3,4 keV, czyli inne $\UT$ — porównanie niejednoznaczne bez $\UT$ i $\Ie$. Dodać do p. 5.2 czy pominąć? | kris | decyzja kris |
+| A30 | 4 / `04_stanowisko.tex` | Przyjęto (notatka kris 09.11), że $\Ie$ w tab. 5.1 to prąd w obwodzie targetu (z napięcia na $\RT$). Potwierdzić. | kris | do potwierdzenia |

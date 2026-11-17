@@ -1,12 +1,31 @@
 % Rozdział 4 — Stanowisko pomiarowe i metodyka (budżet: 3,5 str.)
-% Źródła: uklad-pomiarowy/uklad_pomiarowy_body.tex (schemat circuitikz,
-% samodzielny dokument — wstawiany makrem \inputBezPreambuly, bez zmian w pliku).
-% Podpis jak w uklad-pomiarowy/rysunek_w_pracy.tex, ze ścieżką i nazwą
-% dopasowaną do pracy (słownik N6, N9). Docelowo wątek rozdziału
-% przenosi ten blok do własnego pliku.
+% 17.11.2026 (przegląd spójności): treść zebrana z miejsc, w których była już
+% w pracy — p. 2.4.1–2.4.2 i 2.5.5 podstaw teoretycznych (stanowisko,
+% charakterystyka I-V, bezpieczeństwo), p. 5.1.4 (metoda analizy zdjęć)
+% i p. 5.2.1 (spektrometr). Schemat circuitikz: uklad-pomiarowy/uklad_pomiarowy_body.tex
+% (wstawiany makrem \inputBezPreambuly).
 \chapter{Stanowisko pomiarowe i~metodyka}
 \label{ch:stanowisko}
-\TODO{opis komory próżniowej, obwodu E--B--T, spektrometru, metody analizy zdjęć}
+
+W~rozdziale opisano stanowisko, na którym badano prototyp, sposób
+pomiaru prądów i~napięć oraz metody opracowania zdjęć ekranu
+luminescencyjnego i~widm promieniowania X.
+
+\section{Komora próżniowa i~obwód elektryczny}
+\label{sec:obwod}
+
+Prototyp nie jest hermetyczny (\pref{sec:bonding-montaz}), dlatego
+wszystkie pomiary prowadzono w~komorze próżniowej. Ciśnienie
+w~komorze podczas pomiarów nie przekraczało \SI{1e-5}{\milli\bar}
+(\SI{1e-3}{\pascal}), co zapewnia propagację wiązki bez zderzeń
+z~cząsteczkami gazu (\pref{sec:uzupelnienia}).
+
+Schemat obwodu elektrycznego przedstawiono na \rysref{fig:uklad-pomiarowy}.
+Emiter (E) jest wspólnym punktem obu obwodów i~znajduje się na
+potencjale masy. Zasilacz~1 doprowadza do targetu (T) dodatnie napięcie
+przyspieszające $\UT$, a~zasilacz~2 do bramki (B) dodatnie napięcie
+ekstrakcyjne $\UB$. Wybrano wariant z~uziemionym emiterem; wariant
+z~ujemnym napięciem na emiterze omówiono w~\pref{sec:wiazka}.
 
 \begin{figure}[htbp]
   \centering
@@ -18,3 +37,74 @@
     \opracowanieWlasne}
   \label{fig:uklad-pomiarowy}
 \end{figure}
+
+W~każdym obwodzie znajduje się rezystor ograniczający
+$\RT = \RB = \SI{100}{\kilo\ohm}$. Rezystory ograniczają prąd w~razie
+wyładowania między elektrodami, a~jednocześnie służą do pomiaru prądu:
+woltomierz mierzy spadek napięcia na rezystorze, a~prąd oblicza się
+z~prawa Ohma (\SI{1}{\volt} na rezystorze odpowiada
+\SI{10}{\micro\ampere}). Prąd emisji $\Ie$ podawany w~\rozdzref{ch:badania}
+jest prądem w~obwodzie targetu, obliczonym z~napięcia na $\RT$.
+Niepewność pomiaru prądu wynika z~klasy woltomierza i~tolerancji
+rezystora, a~niepewność napięć z~dokładności nastaw zasilaczy.
+
+Charakterystyki emisji mierzono przy stałym napięciu $\UT$
+(\SI{2000}{\volt} w~sesji bez magnesu, \SI{1500}{\volt} w~sesji
+z~magnesem), zwiększając $\UB$ co \SI{100}{\volt} w~zakresie
+\SIrange{500}{1700}{\volt}. Z~charakterystyki $\Ie(\UB)$ odczytuje się
+napięcie progowe emisji i~największy prąd. Widma rejestrowano przy
+$\UT = \SI{4}{\kilo\volt}$ ($\UB = \SI{1}{\kilo\volt}$) oraz
+$\UT = \SI{10}{\kilo\volt}$.
+
+\section{Obserwacja wiązki i~analiza zdjęć ekranu}
+\label{sec:analiza-zdjec}
+
+Kształt wiązki obserwowano na ekranie luminescencyjnym, czyli warstwie
+luminoforu umieszczonej w~miejscu próbki (\pref{sec:wiazka}). Ekran
+fotografowano kamerą z~automatyczną ekspozycją przy kolejnych
+napięciach $\UB$ z~serii pomiarowej.
+
+Luminescencja ekranu ma barwę niebieską, a~tło (podświetlenie,
+żarnik) -- pomarańczowo-czerwoną. Dla każdego piksela obliczono
+nadmiar składowej niebieskiej
+\begin{equation}
+  \Delta = \max\bigl(0,\; C_\mathrm{n} - \max(C_\mathrm{c}, C_\mathrm{z})\bigr),
+  \label{eq:nadmiar-niebieskiego}
+\end{equation}
+gdzie $C_\mathrm{c}$, $C_\mathrm{z}$, $C_\mathrm{n}$ to składowe
+czerwona, zielona i~niebieska koloru (0--255). Za obszar plamki uznano
+piksele z~$\Delta > 40$. Na tej podstawie obliczono dwie wielkości:
+\begin{itemize}
+  \item jasność świecenia $L = \frac{1}{N}\sum \Delta$, czyli sumę nadmiaru
+        niebieskiego podzieloną przez liczbę pikseli kadru $N$ (w~jednostkach
+        umownych, j.u.),
+  \item pole plamki, czyli udział pikseli plamki w~kadrze [\%].
+\end{itemize}
+Związek jasności z~prądem oceniano współczynnikiem korelacji Pearsona
+$r_\mathrm{P}$. Ze względu na automatyczną ekspozycję i~różne
+kadrowanie w~poszczególnych sesjach wartości bezwzględne nie są wprost
+porównywalne między sesjami; porównuje się trendy i~wielkości względne.
+
+\section{Rejestracja widm promieniowania X}
+\label{sec:rejestracja-widm}
+
+Do rejestracji widm użyto spektrometru rentgenowskiego KETEK AXAS-D
+(KETEK GmbH, Monachium), skierowanego na obszar próbki, na który pada
+wiązka. Impulsy z~detektora przetwarzał cyfrowy procesor impulsów
+KETEK DPP2 obsługiwany programem ProSpect, który zapisuje widmo jako
+liczbę zliczeń w~\num{8192} kanałach. Ustawienia akwizycji podano
+w~\pref{sec:widma-warunki}. Skalę energii korygowano liniowo na
+podstawie położeń linii o~jednoznacznej identyfikacji, a~widma
+analizowano jakościowo, przypisując piki pierwiastkom
+(\pref{sec:spektrometria}).
+
+\section{Bezpieczeństwo pracy}
+
+Podczas pomiarów występują dwa zagrożenia: wysokie napięcie
+i~promieniowanie X. Zasilacze wysokiego napięcia mają ograniczenie
+prądu, a~obwody zawierają rezystory ograniczające. Przy napięciach
+przyspieszających do \SI{10}{\kilo\volt} promieniowanie X jest miękkie
+i~pochłaniane przez metalowe ścianki komory. Promieniowanie może
+wydostawać się tylko przez okna komory, dlatego podczas pracy źródła
+zachowuje się odległość od okien i~ogranicza czas przebywania w~ich
+pobliżu.

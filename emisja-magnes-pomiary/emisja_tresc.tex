@@ -1,5 +1,8 @@
 % =====================================================================
 %  Emisja polowa: sesja z magnesem vs. sesje bez magnesu
+%  17.11.2026: U -> \UB, intensywność I -> jasność L, e -> \Delta, r -> r_P,
+%  sesje nazywane „bez magnesu”/„z magnesem” (nie B/M: B = bramka),
+%  bez nazw plików roboczych; metoda analizy zdjęć przeniesiona do rozdz. 4.
 %  Fragment do wstawienia w rozdział 5 (\input{...}).
 %  Wymaga: graphicx, subcaption, pgfplots (compat>=1.17), booktabs, siunitx
 %  Ścieżki: figures/ (zdjęcia), dane/ (CSV z pomiarów i analizy obrazu)
@@ -17,19 +20,18 @@
 \subsection{Przebieg pomiarów}
 
 Porównano dwie sesje pomiarowe, w~których przy stałym napięciu $\UT$
-zwiększano napięcie $U$ co \SI{100}{V} i~rejestrowano prąd emisji
-$I_e$ oraz zdjęcie ekranu luminescencyjnego:
+zwiększano napięcie $\UB$ co \SI{100}{V} i~rejestrowano prąd emisji
+$\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
 \begin{itemize}
-  \item \textbf{Sesja B} (\sesjaB) -- $\UT=\SI{2000}{V}$,
-        $U=\SIrange{500}{1500}{V}$, prąd w~zakresie
-        \SIrange{2}{22}{\micro A};
-        zdjęcia dla $U=\SIrange{700}{1100}{V}$ (arkusz \emph{Book1},
-        seria~1). Przed tą sesją źródło zostało odgazowane przez
-        wygrzanie w~temperaturze ok. \SI{200}{\celsius}.
-  \item \textbf{Sesja M} (\sesjaM) -- $\UT=\SI{1500}{V}$,
-        $U=\SIrange{500}{1700}{V}$, prąd w~zakresie
-        \SIrange{14}{200}{\micro A}; zdjęcia dla
-        $U=\SIrange{500}{1600}{V}$ (arkusz \emph{magnez\_emisja}). Źródło nie było przed tą sesją
+  \item \textbf{sesja bez magnesu} -- $\UT=\SI{2000}{V}$,
+        $\UB=\SIrange{500}{1500}{V}$, prąd w~zakresie
+        \SIrange{2}{22}{\micro A}, zdjęcia dla
+        $\UB=\SIrange{700}{1100}{V}$; przed tą sesją źródło odgazowano
+        przez wygrzanie w~temperaturze ok. \SI{200}{\celsius},
+  \item \textbf{sesja z~magnesem} -- $\UT=\SI{1500}{V}$,
+        $\UB=\SIrange{500}{1700}{V}$, prąd w~zakresie
+        \SIrange{14}{200}{\micro A}, zdjęcia dla
+        $\UB=\SIrange{500}{1600}{V}$; źródło nie było przed tą sesją
         ponownie odgazowane.
 \end{itemize}
 Dodatkowo wykorzystano serię~2 bez magnesu (10~zdjęć z~odczytami prądu
@@ -42,7 +44,7 @@ ekranu z~prądem. Wyniki zebrano w~tab.~\ref{tab:emisja-iv}.
   \label{tab:emisja-iv}
   \begin{tabular}{@{}r r r@{}}
     \toprule
-    $U$ [V] & $I_e$ \sesjaB\ [µA] & $I_e$ \sesjaM\ [µA] \\
+    $\UB$ [V] & $\Ie$ \sesjaB\ [µA] & $\Ie$ \sesjaM\ [µA] \\
     \midrule
      500 & 0    & 14 \\
      600 & 0    & 16 \\
@@ -65,27 +67,26 @@ ekranu z~prądem. Wyniki zebrano w~tab.~\ref{tab:emisja-iv}.
 
 \subsection{Charakterystyki prądowo-napięciowe}
 
-Charakterystyki $I_e(U)$ przedstawiono na rys.~\ref{fig:emisja-iv}.
-W~sesji~B prąd pojawia się skokowo przy \SI{800}{V} i~rośnie niemal
+Charakterystyki $\Ie(\UB)$ przedstawiono na rys.~\ref{fig:emisja-iv}.
+W~sesji bez magnesu prąd pojawia się skokowo przy \SI{800}{V} i~rośnie niemal
 liniowo do \SI{1400}{V}; punkt \SI{1500}{V} (\SI{22}{\micro A}, podwojenie
 prądu) odbiega od trendu i~może wskazywać na początek wyładowania
-lub niestabilności emisji. W~sesji~M dla $U\leq\SI{700}{V}$ płynie
+lub niestabilności emisji. W~sesji z~magnesem dla $\UB\leq\SI{700}{V}$ płynie
 stały prąd ok. \SI{15}{\micro A}, który należy traktować jako prąd
 upływu (tło), następnie prąd rośnie wykładniczo do \SI{180}{\micro A}
 przy \SI{1200}{V}, po czym nasyca się na poziomie
-\SIrange{190}{200}{\micro A}. Przy tym samym napięciu $U$ prąd w~sesji~M
-jest ok. 10--20 razy większy niż w~sesji~B (np. \SI{69}{\micro A} wobec
+\SIrange{190}{200}{\micro A}. Przy tym samym napięciu $\UB$ prąd w~sesji
+z~magnesem jest ok. 10--20 razy większy niż bez magnesu (np. \SI{69}{\micro A} wobec
 \SI{4}{\micro A} przy \SI{1000}{V}), mimo niższego $\UT$.
 
 \subsection{Wpływ warunków źródła na wyniki}
 
-Sesje nie różnią się wyłącznie obecnością magnesu. Przed sesją~B
-źródło odgazowano przez wygrzanie w~temperaturze ok.
-\SI{200}{\celsius}, natomiast przed sesją~M nie powtórzono tej
+Sesje nie różnią się wyłącznie obecnością magnesu. Przed sesją bez
+magnesu źródło odgazowano, a~przed sesją z~magnesem nie powtórzono tej
 procedury. Gazy zaadsorbowane na powierzchni emitera i~elementów
 źródła zmieniają pracę wyjścia emitera i~mogą być desorbowane pod
-wpływem wiązki, lokalnie zwiększając ciśnienie. Prawdopodobnie
-dlatego w~sesji~M obserwuje się:
+wpływem wiązki, lokalnie zwiększając ciśnienie (\pref{sec:emisja}).
+Prawdopodobnie dlatego w~sesji z~magnesem obserwuje się:
 \begin{itemize}
   \item stały prąd ok. \SI{15}{\micro A} już przy \SI{500}{V}, przed
         właściwym progiem emisji (upływ lub prąd jonowy),
@@ -93,7 +94,7 @@ dlatego w~sesji~M obserwuje się:
   \item rozległą, rozmytą poświatę wokół plamki, która może być
         częściowo świeceniem gazu resztkowego.
 \end{itemize}
-Wyższy prąd w~sesji~M może wynikać z~dwóch przyczyn, których na
+Wyższy prąd w~sesji z~magnesem może wynikać z~dwóch przyczyn, których na
 podstawie tych pomiarów nie da się rozdzielić: ogniskowania wiązki
 przez magnes (więcej elektronów trafia w~target zamiast w~elektrody
 i~ścianki źródła) oraz innego stanu powierzchni emitera i~ciśnienia
@@ -106,7 +107,7 @@ i~skupienia plamki.
   \begin{tikzpicture}
     \begin{semilogyaxis}[
       width=0.85\textwidth, height=7cm,
-      xlabel={napięcie $U$ [V]}, ylabel={prąd emisji $I_e$ [µA]},
+      xlabel={napięcie $\UB$ [V]}, ylabel={prąd emisji $\Ie$ [µA]},
       xmin=450, xmax=1750, ymin=1, ymax=500, xtick distance=200,
       grid=major, grid style={gray!25},
       legend pos=south east, legend cell align=left,
@@ -122,52 +123,33 @@ i~skupienia plamki.
     \end{semilogyaxis}
   \end{tikzpicture}
   \caption{Charakterystyki prądowo-napięciowe emisji w~obu sesjach
-    (skala logarytmiczna; punkty z~$I_e=0$ pominięto)}
+    (skala logarytmiczna; punkty z~$\Ie=0$ pominięto)}
   \label{fig:emisja-iv}
 \end{figure}
 
 
-\subsection{Metoda analizy zdjęć}
+\subsection{Jasność ekranu a~prąd emisji}
 
-Luminescencja ekranu ma barwę niebieską, a~tło (podświetlenie,
-żarnik) -- pomarańczowo-czerwoną. Dla każdego piksela wyznaczono
-\emph{nadmiar niebieskiego}
-\begin{equation}
-  e = \max\bigl(0,\; B - \max(R,G)\bigr),
-  \label{eq:nadmiar-niebieskiego}
-\end{equation}
-gdzie $R,G,B$ to składowe koloru (0--255). Za obszar plamki uznano
-piksele z~$e>40$. Na tej podstawie obliczono dwie wielkości:
-\begin{itemize}
-  \item \textbf{intensywność} $I = \frac{1}{N}\sum e$ (j.u.) -- suma
-        nadmiaru niebieskiego znormalizowana do liczby pikseli kadru $N$,
-  \item \textbf{pole plamki} -- udział pikseli plamki w~kadrze [\%].
-\end{itemize}
-Zdjęcia wykonano kamerą z~automatyczną ekspozycją i~przy różnym
-kadrowaniu w~każdej sesji, dlatego wartości bezwzględne nie są wprost
-porównywalne między sesjami -- porównuje się trendy i~wielkości względne.
-
-\subsection{Intensywność świecenia a~prąd emisji}
-
-Na rys.~\ref{fig:emisja-I} zestawiono intensywność świecenia z~prądem
-emisji w~funkcji napięcia. W~sesji~B jasność ekranu rośnie razem
-z~prądem (korelacja $r=0{,}99$ dla \SIrange{800}{1100}{V}). W~sesji~M
-korelacja wynosi $r=0{,}95$ dla \SIrange{800}{1200}{V}, a~powyżej
+Jasność świecenia ekranu $L$ wyznaczono ze zdjęć metodą opisaną
+w~\pref{sec:analiza-zdjec}. Na rys.~\ref{fig:emisja-I} zestawiono ją
+z~prądem emisji w~funkcji napięcia. W~sesji bez magnesu jasność ekranu
+rośnie razem z~prądem ($r_\mathrm{P}=0{,}99$ dla \SIrange{800}{1100}{V}).
+W~sesji z~magnesem $r_\mathrm{P}=0{,}95$ dla \SIrange{800}{1200}{V}, a~powyżej
 \SI{1200}{V} zarówno prąd, jak i~jasność przestają rosnąć -- nasycenie
 prądu jest więc rzeczywiste, a~nie wynika tylko z~prześwietlenia
-kamery. Warto zauważyć, że w~sesji~M słaba plamka jest widoczna już
+kamery. W~sesji z~magnesem słaba plamka jest widoczna już
 przy \SIrange{600}{700}{V}, gdy mierzony prąd nie odbiega jeszcze od
 poziomu upływu -- magnes skupia niewielki prąd emisji na małym
 obszarze ekranu, przez co staje się on widoczny wcześniej niż bez
 magnesu (próg \SI{800}{V}). Dla serii~2 \sesjaB\ korelacja jasności
-z~odczytem prądu wynosi $r=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
+z~odczytem prądu wynosi $r_\mathrm{P}=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
 
 \begin{figure}[htbp]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
       width=0.8\textwidth, height=6.5cm,
-      xlabel={napięcie $U$ [V]}, ylabel={intensywność $I$ [j.u.]},
+      xlabel={napięcie $\UB$ [V]}, ylabel={jasność $L$ [j.u.]},
       xmin=450, xmax=1650, ymin=0, ymax=3.5, xtick distance=200,
       grid=major, grid style={gray!25},
       legend pos=north west, legend cell align=left,
@@ -185,12 +167,12 @@ z~odczytem prądu wynosi $r=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
       width=0.8\textwidth, height=6.5cm,
       xmin=450, xmax=1650, ymin=0, ymax=220,
       axis y line*=right, axis x line=none,
-      ylabel={$I_e$ \sesjaM\ [µA]},
+      ylabel={$\Ie$ \sesjaM\ [µA]},
     ]
       \addplot[blue!70!black, dashed, mark=o, thick] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
     \end{axis}
   \end{tikzpicture}
-  \caption{Intensywność świecenia ekranu (oś lewa) i~prąd emisji
+  \caption{Jasność świecenia ekranu (oś lewa) i~prąd emisji
     w~sesji z~magnesem (oś prawa) w~funkcji napięcia}
   \label{fig:emisja-I}
 \end{figure}
@@ -202,8 +184,8 @@ z~odczytem prądu wynosi $r=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
       width=0.65\textwidth, height=5.5cm,
       xtick={30,50,100,200,400}, xticklabels={30,50,100,200,400},
       log ticks with fixed point,
-      xlabel={prąd emisji $I_e$ [µA] (seria 2, \sesjaB)},
-      ylabel={intensywność $I$ [j.u.]},
+      xlabel={prąd emisji $\Ie$ [µA] (seria 2, \sesjaB)},
+      ylabel={jasność $L$ [j.u.]},
       grid=major, grid style={gray!25},
       legend pos=north west, legend cell align=left,
     ]
@@ -212,10 +194,10 @@ z~odczytem prądu wynosi $r=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
               restrict expr to domain={\thisrow{I}}{0.01:100}]{\datadir/s2.csv};
       \addlegendentry{pomiar}
       \addplot[domain=30:420, samples=20, black, dashed] {exp(-6.886)*x^1.371};
-      \addlegendentry{$I\propto I_e^{1{,}37}$}
+      \addlegendentry{$L\propto \Ie^{1{,}37}$}
     \end{loglogaxis}
   \end{tikzpicture}
-  \caption{Intensywność świecenia a~odczyt prądu w~serii~2 \sesjaB}
+  \caption{Jasność świecenia a~odczyt prądu w~serii~2 \sesjaB}
   \label{fig:emisja-IvsIe}
 \end{figure}
 
@@ -230,7 +212,7 @@ zestawiono na rys.~\ref{fig:emisja-sbs}, a~parametry plamki w~tab.~\ref{tab:emis
   \item \textbf{Z~magnesem} świeci zwarty, wydłużony obszar w~części okna,
         otoczony rozległą niebieską poświatą z~promienistymi smugami.
 \end{itemize}
-Obraz z~sesji~M jest zgodny z~działaniem magnesu jako soczewki
+Obraz z~sesji z~magnesem jest zgodny z~działaniem magnesu jako soczewki
 ogniskującej: wiązka zostaje ściśnięta do mniejszego obszaru, zamiast
 oświetlać całe okno, dzięki czemu plamka jest widoczna już przy
 mniejszym prądzie. Poświata i~smugi mogą pochodzić częściowo
@@ -246,14 +228,14 @@ w~mikrometrach.
   \label{tab:emisja}
   \begin{tabular}{@{}lccc@{}}
     \toprule
-    Parametr & M (\sesjaM) & B (\sesjaB) & seria 2 (\sesjaB) \\
+    Parametr & \sesjaM & \sesjaB & seria 2 (\sesjaB) \\
     \midrule
     Odgazowanie źródła & nie & tak (\SI{200}{\celsius}) & -- \\
     Napięcie $\UT$ & \SI{1500}{V} & \SI{2000}{V} & -- \\
     Próg emisji (prąd) & \SI{800}{V} & \SI{800}{V} & -- \\
     Pierwsza widoczna plamka & \SI{600}{V} & \SI{800}{V} & -- \\
     Prąd maksymalny & \SI{200}{\micro A} & \SI{22}{\micro A} & \SI{400}{\micro A} \\
-    Maks. intensywność $I$ [j.u.] & 3,19 & 1,67 & 2,89 \\
+    Maks. jasność $L$ [j.u.] & 3,19 & 1,67 & 2,89 \\
     Maks. pole plamki [\% kadru] & 3,98 & 2,07 & 3,91 \\
     \bottomrule
   \end{tabular}
@@ -321,7 +303,7 @@ w~mikrometrach.
         \SI{200}{\micro A} powyżej \SI{1200}{V}, co potwierdza również
         przestający rosnąć obraz plamki.
   \item Jasność ekranu silnie koreluje z~prądem emisji
-        ($r=0{,}95$--$0{,}99$) i~może służyć jako jego względna miara.
+        ($r_\mathrm{P}=0{,}95$--$0{,}99$) i~może służyć jako jego względna miara.
   \item Bezpośrednie porównanie wartości prądów między sesjami jest
         ograniczone: źródło było odgazowane tylko przed sesją bez magnesu,
         sesje różnią się napięciem $\UT$ (\SI{2000}{V} vs

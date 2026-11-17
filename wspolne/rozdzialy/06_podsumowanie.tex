@@ -1,4 +1,55 @@
 % Rozdział 6 — Podsumowanie i wnioski (budżet: 1,5 str.)
+% 17.11.2026 (przegląd spójności): wersja robocza złożona wyłącznie z wyników
+% i ograniczeń opisanych już w rozdz. 3–5; do akceptacji autora.
 \chapter{Podsumowanie i~wnioski}
 \label{ch:podsumowanie}
-\TODO{realizacja celów, wkład własny, kierunki dalszych prac}
+
+W~pracy zaprojektowano, wykonano i~zbadano prototyp miniaturowego
+analizatora EDS w~technologii MEMS. Struktura składa się z~emitera
+krzemowego z~ostrzem z~kompozytu CNT-PVP, bramki i~targetu
+z~otworami, rozdzielonych szkłem borokrzemowym o~grubości
+\SI{1}{\milli\metre} i~połączonych bondingiem anodowym w~atmosferze,
+oraz z~magnesu ogniskującego NdFeB pod emiterem (\rozdzref{ch:projekt}).
+Zestawiono stanowisko z~komorą próżniową, dwoma obwodami wysokiego
+napięcia i~spektrometrem rentgenowskim (\rozdzref{ch:stanowisko}).
+
+Najważniejsze wyniki badań (\rozdzref{ch:badania}):
+\begin{itemize}
+  \item emiter CNT wytwarza wiązkę elektronów przy napięciu ekstrakcyjnym
+        powyżej ok. \SI{800}{\volt}; uzyskano prąd do \SI{22}{\micro\ampere}
+        w~sesji bez magnesu i~do \SI{200}{\micro\ampere} w~sesji z~magnesem,
+  \item z~magnesem wiązka tworzy na ekranie zwartą plamkę zamiast oświetlać
+        całe okno, co potwierdza ogniskujące działanie pola magnetycznego;
+        wpływu magnesu na prąd nie dało się oddzielić od stanu emitera,
+        ponieważ odgazowano go tylko przed jedną sesją,
+  \item wiązka wzbudza w~próbce promieniowanie charakterystyczne: przy
+        $\UT = \SI{4}{\kilo\volt}$ zarejestrowano linie Mg, Al i~Si~\Ka,
+        a~przy \SI{10}{\kilo\volt} zidentyfikowano pierwiastki czterech
+        próbek (m.in. Cu, Pb, Au, Cr, Mn, Fe) po liniach K, L i~M,
+  \item częstość zliczeń w~liniach charakterystycznych zmieniała się
+        w~czasie pomiaru o~kilka do kilkunastu procent.
+\end{itemize}
+
+Cele pracy zrealizowano w~zakresie jakościowym. Ograniczeniami
+prototypu są: brak hermetyczności, nieznane parametry magnesu, brak
+skali na zdjęciach ekranu (średnicy plamki nie wyznaczono), brak
+rejestracji prądu emisji podczas pomiarów widm oraz czas martwy
+przekraczający \SI{50}{\percent} w~części pomiarów, który powoduje
+powstawanie pików sumacyjnych. Linia tlenu nie była rejestrowana,
+ponieważ zakres poniżej ok.~\SI{0.65}{\kilo\electronvolt} leży poza
+czułością toru pomiarowego.
+
+Wyniki wskazują, że struktura MEMS z~zimną katodą CNT może być źródłem
+elektronów w~kompaktowym analizatorze EDS. Do zastosowania w~misji
+kosmicznej potrzebne są: hermetyzacja przez bonding anodowy w~próżni
+z~mikropompą albo praca w~naturalnej próżni ciała bez atmosfery,
+napięcie przyspieszające \SIrange{10}{18}{\kilo\volt} do wzbudzania
+linii K pierwiastków skałotwórczych łącznie z~żelazem, detektor
+z~cienkim oknem do rejestracji tlenu oraz stabilizacja prądu wiązki
+w~pętli sprzężenia zwrotnego.
+
+W~dalszych pracach należy wykonać bonding w~próżni, zmierzyć indukcję
+magnesu i~średnicę plamki ze wzorcem skali, rejestrować prąd emisji
+podczas pomiarów widm, ograniczyć prąd wiązki tak, aby czas martwy nie
+przekraczał ok.~\SI{30}{\percent}, oraz przeprowadzić analizę ilościową
+z~użyciem wzorców.
