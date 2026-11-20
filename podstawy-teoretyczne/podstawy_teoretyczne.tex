@@ -13,16 +13,19 @@
 \chapter{Podstawy teoretyczne i~technologiczne}
 \label{ch:podstawy}
 
-W~rozdziale opisano technologię wykonania struktur źródła elektronów,
-zjawiska fizyczne wykorzystywane w~analizatorze (emisję polową,
-przyspieszanie i~ogniskowanie wiązki, powstawanie promieniowania X)
-oraz zasady pomiaru widma metodą EDS.
+Realizacja celu pracy (\pref{sec:cel}) wymaga połączenia technologii
+mikrosystemów z~fizyką emisji elektronów i~spektroskopią rentgenowską.
+W~rozdziale opisano kolejno technologię wykonania struktur źródła
+elektronów, zjawiska fizyczne wykorzystywane w~analizatorze (emisję
+polową, przyspieszanie i~ogniskowanie wiązki, powstawanie
+promieniowania X), zasady pomiaru widma metodą EDS oraz wymagania
+dotyczące próżni i~warunków pracy przyrządu.
 
 % =====================================================================
 \section{Technologia wykonania struktur MEMS}
 \label{sec:technologia}
 
-\subsection{Materiały}
+\subsection{Materiały i~obróbka krzemu}
 
 Podstawowymi materiałami struktury są krzem monokrystaliczny i~szkło
 borokrzemowe. Stosuje się płytki krzemowe o~orientacji (100), ponieważ
@@ -39,9 +42,8 @@ Zawiera ono jony sodu Na$^+$, które są niezbędne w~procesie bondingu
 anodowego (p.~\ref{subsec:bonding}). Szkło służy też jako izolator
 między elektrodami pracującymi przy różnych potencjałach.
 
-\subsection{Utlenianie termiczne krzemu}
-
-Warstwę tlenku krzemu SiO$_2$ wytwarza się przez utlenianie płytki
+Kształtowanie elementów krzemowych zaczyna się od wytworzenia warstwy
+maskującej. Warstwę tlenku krzemu SiO$_2$ wytwarza się przez utlenianie płytki
 w~piecu w~temperaturze \SIrange{900}{1200}{\celsius}, w~atmosferze
 suchego tlenu lub pary wodnej (utlenianie mokre, szybsze). Wzrost
 warstwy opisuje model Deala--Grove'a. Na każdy nanometr tlenku zużywa
@@ -50,10 +52,8 @@ maski podczas trawienia oraz izolatora elektrycznego. W~roztworach KOH
 lepszą maską jest azotek krzemu Si$_3$N$_4$, który praktycznie się
 w~nich nie trawi.
 
-\subsection{Fotolitografia}
-
-Fotolitografia przenosi wzór z~maski na powierzchnię płytki. Proces
-obejmuje:
+Wzór elementów przenosi się z~maski na powierzchnię płytki metodą
+fotolitografii, która obejmuje:
 \begin{enumerate}
   \item nałożenie warstwy fotorezystu metodą wirowania,
   \item wstępne wygrzanie w~celu odparowania rozpuszczalnika,
@@ -67,11 +67,10 @@ obejmuje:
 W~strukturach źródła fotolitografia wyznacza położenie i~wymiary wnęk
 i~otworów w~elektrodach.
 
-\subsection{Trawienie anizotropowe krzemu w~KOH}
-\label{subsec:koh}
-
-Wodny roztwór wodorotlenku potasu (typowo \SIrange{30}{40}{\percent},
-\SIrange{70}{85}{\celsius}) trawi krzem z~szybkością zależną od
+\label{subsec:koh}%
+Odsłonięty krzem trawi się następnie w~wodnym roztworze wodorotlenku
+potasu KOH (typowo \SIrange{30}{40}{\percent},
+\SIrange{70}{85}{\celsius}), którego szybkość trawienia zależy od
 orientacji krystalograficznej. Płaszczyzny (100) trawią się z~szybkością
 rzędu \SI{1}{\micro\metre\per\minute}, a~płaszczyzny \{111\} wielokrotnie
 wolniej (stosunek rzędu 100:1 i~więcej). W~efekcie w~płytce (100) powstają
@@ -86,9 +85,7 @@ węglowych (p.~\ref{subsec:cnt}).
 Zamiast KOH można stosować TMAH (wodorotlenek tetrametyloamoniowy), który
 nie wprowadza jonów potasu, ale trawi wolniej.
 
-\subsection{Inne metody trawienia}
-
-Trawienie izotropowe (np. krzemu w~mieszaninie HF/HNO$_3$/CH$_3$COOH,
+Poza trawieniem anizotropowym stosuje się trawienie izotropowe (np. krzemu w~mieszaninie HF/HNO$_3$/CH$_3$COOH,
 szkła w~kwasie fluorowodorowym HF) przebiega jednakowo we wszystkich
 kierunkach i~daje zaokrąglone kształty.
 Trawienie suche, w~tym głębokie trawienie reaktywne jonowe DRIE (proces
@@ -97,7 +94,7 @@ kryształu, ale wymaga drogiej aparatury. Trawienie w~KOH jest tanie
 i~wystarczające dla geometrii stosowanych w~źródle, dlatego jest
 podstawową metodą kształtowania krzemu w~tej pracy.
 
-\subsection{Formowanie emitera CNT}
+\subsection{Emiter CNT i~bonding anodowy}
 \label{subsec:cnt}
 
 W~źródłach MEMS opracowanych na Politechnice Wrocławskiej emiter ma
@@ -110,10 +107,9 @@ Emiter musi wytrzymać temperaturę i~pole elektryczne występujące
 podczas bondingu anodowego. Sposób formowania ostrza w~prototypie
 opisano w~\pref{sec:nanoszenie-cnt}.
 
-\subsection{Bonding anodowy}
-\label{subsec:bonding}
-
-Bonding anodowy łączy krzem ze szkłem zawierającym jony alkaliczne.
+\label{subsec:bonding}%
+Elementy krzemowe i~szklane łączy się bondingiem anodowym, w~którym
+krzem wiąże się ze szkłem zawierającym jony alkaliczne.
 Metodę opisali po raz pierwszy Wallis i~Pomerantz~\cite{wallis1969anodic}.
 Płaskie i~czyste powierzchnie krzemu i~szkła dociska się do siebie,
 podgrzewa do ok. \SIrange{300}{450}{\celsius} i~przykłada napięcie rzędu
@@ -124,9 +120,8 @@ ujemnym jonów tlenu. Silne pole elektrostatyczne dociska powierzchnie
 do kontaktu na poziomie atomowym i~powstają wiązania Si--O--Si. Złącze
 jest wytrzymałe mechanicznie i~szczelne.
 
-\paragraph{Bonding w~próżni (rozwiązanie docelowe).}
-Aby wnętrze struktury było zamknięte w~próżni, ostatnie połączenie
-wykonuje się w~komorze próżniowej, przy ciśnieniu rzędu
+W~rozwiązaniu docelowym wnętrze struktury powinno być zamknięte
+w~próżni. W~tym celu ostatnie połączenie wykonuje się w~komorze próżniowej, przy ciśnieniu rzędu
 \SI{1e-5}{\milli\bar} lub niższym~\cite{urbanski2026phd}. Proces ten
 jest trudniejszy niż bonding w~atmosferze. W~próżni nie ma przewodzenia
 ciepła przez gaz, więc łączone elementy nagrzewają się słabiej niż płyta
@@ -147,7 +142,7 @@ przyrządu.
 \section{Emisja elektronów}
 \label{sec:emisja}
 
-\subsection{Praca wyjścia i~mechanizmy emisji}
+\subsection{Mechanizmy emisji i~równanie Fowlera--Nordheima}
 
 Elektrony przewodnictwa w~metalu lub półprzewodniku są utrzymywane
 w~materiale przez barierę potencjału. Minimalną energię potrzebną do
@@ -176,8 +171,6 @@ sposoby:
 W~zastosowaniach kosmicznych i~w~strukturach MEMS korzystna jest emisja
 polowa: katoda nie wymaga grzania, pracuje w~temperaturze otoczenia,
 a~prąd emisji można szybko zmieniać napięciem~\cite{parmee2015cntxray}.
-
-\subsection{Emisja polowa i~równanie Fowlera--Nordheima}
 
 Zależność gęstości prądu emisji polowej od natężenia pola $F$ na
 powierzchni emitera podali Fowler i~Nordheim~\cite{fowler1928emission}.
@@ -235,8 +228,6 @@ pojawiły się na początku XXI wieku
 \cite{yue2002cntxray,heo2012miniature,parmee2015cntxray}. Katody CNT są
 też rozważane w~układach napędu kosmicznego~\cite{huo2020cntspace}.
 
-\subsection{Wywołanie emisji w~badanym układzie}
-
 W~badanym układzie emisję wywołuje napięcie $U_\mathrm{B}$ przyłożone
 między emiter (E) a~bramkę (B), czyli elektrodę ekstrakcyjną
 z~otworem. Poniżej pewnego napięcia progowego prąd emisji jest
@@ -245,9 +236,7 @@ z~\eqref{eq:fn}. Część elektronów trafia w~bramkę, a~część przechodzi
 przez otwór i~jest przyspieszana w~stronę targetu (T) napięciem
 $U_\mathrm{T}$. Sposób pomiaru prądów opisano w~\rozdzref{ch:stanowisko}.
 
-\subsection{Degradacja i~niestabilność emisji}
-
-Prąd emisji polowej jest wrażliwy na stan powierzchni emitera.
+Prąd emisji polowej, zwłaszcza z~nanorurek, jest wrażliwy na stan powierzchni emitera.
 Cząsteczki gazu zaadsorbowane na wierzchołku zmieniają lokalną pracę
 wyjścia, co powoduje fluktuacje prądu. Elektrony jonizują gaz resztkowy,
 a~powstałe jony dodatnie są przyspieszane w~stronę emitera i~bombardują
@@ -261,7 +250,7 @@ w~\pref{sec:emisja-magnes}.
 \section{Przyspieszanie i~ogniskowanie wiązki elektronów}
 \label{sec:wiazka}
 
-\subsection{Energia i~prędkość elektronu}
+\subsection{Energia elektronów i~napięcia w~układzie}
 
 Elektron przyspieszany różnicą potencjałów $U$ uzyskuje energię
 kinetyczną
@@ -272,9 +261,8 @@ czyli np. \SI{10}{\kilo\electronvolt} przy \SI{10}{\kilo\volt}. Prędkość
 elektronu wynosi $v=\sqrt{2eU/m_\mathrm{e}}$, co dla \SI{10}{\kilo\volt} daje
 ok. \SI{5.9e7}{\metre\per\second}.
 
-\subsection{Napięcia w~układzie}
-
-W~układzie występują dwa napięcia o~różnych funkcjach:
+Energię elektronów i~prąd wiązki ustalają w~układzie dwa napięcia
+o~różnych funkcjach:
 \begin{itemize}
   \item \textbf{napięcie ekstrakcyjne} $U_\mathrm{B}$ (emiter--bramka)
         -- decyduje o~natężeniu pola na emiterze, a~więc o~prądzie emisji,
@@ -300,7 +288,7 @@ wyjścia, a~obwód bramki musi być wtedy odniesiony do potencjału emitera.
 W~badaniach prototypu zastosowano pierwszy sposób, z~dodatnim napięciem
 $U_\mathrm{T}$ doprowadzonym do targetu (\rozdzref{ch:stanowisko}).
 
-\subsection{Ruch elektronu w~polu magnetycznym}
+\subsection{Ogniskowanie i~obserwacja wiązki}
 
 Na elektron poruszający się w~polu elektrycznym $\vec{E}$ i~magnetycznym
 $\vec{B}$ działa siła Lorentza
@@ -320,10 +308,8 @@ rzędu \SI{0.1}{\tesla} i~składowej poprzecznej energii rzędu
 \SI{10}{\electronvolt} promień Larmora wynosi ok.
 \SI{0.1}{\milli\metre}.
 
-\subsection{Ogniskowanie magnetyczne}
-
-Pole magnetyczne o~symetrii osiowej działa na wiązkę elektronów jak
-soczewka skupiająca. W~przybliżeniu cienkiej soczewki jej ogniskową
+Pole magnetyczne o~symetrii osiowej działa więc na wiązkę elektronów
+jak soczewka skupiająca. W~przybliżeniu cienkiej soczewki jej ogniskową
 opisuje wzór Buscha
 \begin{equation}
   \frac{1}{f} = \frac{e}{8 m_\mathrm{e} U}\int B_z^2(z)\,\mathrm{d}z,
@@ -337,8 +323,6 @@ podążają wzdłuż jego linii pola, co poprawia skupienie i~jednorodność
 wiązki w~porównaniu z~samym ogniskowaniem
 elektrostatycznym~\cite{urbanski2026phd,grzebyk2017magnetic}.
 
-\subsection{Ogniskowanie elektrostatyczne}
-
 Wiązkę można też ogniskować polem elektrycznym elektrod o~odpowiednio
 ukształtowanych otworach (soczewki elektrostatyczne, np. pojedyncza
 soczewka Einzela). W~strukturach MEMS elektrody takie wykonuje się
@@ -347,9 +331,8 @@ a~ich ustawienie względem siebie musi być bardzo dokładne. W~pracy
 \cite{urbanski2026phd} samo ogniskowanie elektrostatyczne okazało się
 niewystarczające, co uzasadnia użycie magnesu.
 
-\subsection{Obserwacja wiązki na ekranie luminescencyjnym}
-
-Kształt i~położenie wiązki obserwuje się na ekranie pokrytym luminoforem,
+Skuteczność ogniskowania ocenia się, obserwując kształt i~położenie
+wiązki na ekranie pokrytym luminoforem,
 który świeci w~miejscu padania elektronów. Jasność świecenia rośnie
 z~gęstością prądu, dlatego zdjęcie ekranu pokazuje rozkład gęstości
 prądu w~przekroju wiązki. Metoda ta jest jakościowa: jasność zależy też
@@ -360,7 +343,7 @@ aparatu.
 \section{Powstawanie promieniowania X}
 \label{sec:rtg}
 
-\subsection{Oddziaływanie elektronów z~materią}
+\subsection{Oddziaływanie elektronów z~materią i~promieniowanie hamowania}
 
 Elektron wnikający w~materiał ulega rozpraszaniu sprężystemu (na
 jądrach, zmiana kierunku bez straty energii) i~niesprężystemu (na
@@ -381,10 +364,9 @@ i~ok. \SI{0.3}{\micro\metre} przy \SI{4}{\kilo\electronvolt}.
 Analiza EDS dotyczy więc warstwy przypowierzchniowej próbki o~grubości
 rzędu mikrometrów.
 
-\subsection{Promieniowanie hamowania}
-
-Elektron hamowany w~polu elektrycznym jądra traci część energii, która
-jest emitowana jako foton. Ponieważ strata energii w~pojedynczym
+Źródłem widma ciągłego jest promieniowanie hamowania: elektron
+hamowany w~polu elektrycznym jądra traci część energii, która jest
+emitowana jako foton. Ponieważ strata energii w~pojedynczym
 zdarzeniu może mieć dowolną wartość od zera do całej energii elektronu,
 widmo promieniowania hamowania (\emph{bremsstrahlung}) jest ciągłe.
 Kształt widma opisuje w~przybliżeniu wzór Kramersa
@@ -434,7 +416,7 @@ rys.~\ref{fig:kramers}.
   \label{fig:kramers}
 \end{figure}
 
-\subsection{Jonizacja powłok wewnętrznych}
+\subsection{Promieniowanie charakterystyczne}
 \label{subsec:jonizacja}
 
 Elektron wiązki może wybić elektron z~wewnętrznej powłoki atomu (K, L,
@@ -462,8 +444,6 @@ skałotwórcze łącznie z~żelazem wymagają energii ok.
 \SIrange{15}{20}{\kilo\electronvolt}, co uzasadnia docelowe napięcie
 przyspieszające rzędu \SIrange{10}{18}{\kilo\volt}.
 
-\subsection{Relaksacja atomu i~emisja fotonu promieniowania X}
-
 Po jonizacji powłoki wewnętrznej atom znajduje się w~stanie wzbudzonym.
 Lukę zapełnia elektron z~wyższej powłoki, a~nadmiar energii, równy
 różnicy energii wiązania obu powłok, zostaje wypromieniowany jako foton
@@ -480,8 +460,6 @@ fluorescencji $\omega$, rosnąca z~liczbą atomową: dla powłoki K krzemu
 wynosi ok.~\num{0.05}, a~dla żelaza ok.~\num{0.35}. Lekkie pierwiastki
 emitują więc mniej fotonów na jedną jonizację i~dają w~widmie słabsze
 linie~\cite{goldstein2018sem,beckhoff2006xrf}.
-
-\subsection{Nazewnictwo linii i~prawo Moseleya}
 
 Linie oznacza się literą powłoki, na której powstała luka, oraz
 indeksem określającym, skąd pochodzi elektron zapełniający:
@@ -521,10 +499,8 @@ zastosowano dotychczas do spektrometrii XRF~\cite{urbanski2026xrf}.
 W~tej pracy wiązka elektronów pada bezpośrednio na próbkę, czyli
 przyrząd działa jak analizator EDS.
 
-\subsection{Target transmisyjny i~odbiciowy}
-\label{subsec:target}
-
-W~źródle rentgenowskim MEMS wiązka elektronów pada na target
+\label{subsec:target}%
+W~źródle rentgenowskim MEMS stosowanym do XRF wiązka elektronów pada na target
 transmisyjny: cienką warstwę metalu na membranie, przez którą
 promieniowanie wychodzi wzdłuż osi wiązki~\cite{urbanski2023target,urbanski2024monochromatic}.
 W~analizatorze EDS opisanym w~tej pracy membrany nie ma, a~wiązka
@@ -534,7 +510,7 @@ elektronów pada bezpośrednio na badaną próbkę (\pref{sec:koncepcja}).
 \section{Pomiar widma metodą EDS}
 \label{sec:spektrometria}
 
-\subsection{Półprzewodnikowy detektor promieniowania X}
+\subsection{Detektor i~tor akwizycji}
 
 Foton promieniowania X pochłonięty w~krysztale półprzewodnika wytwarza
 pary elektron--dziura. Średnia energia na wytworzenie jednej pary
@@ -559,14 +535,20 @@ Stosowane typy detektorów:
 Typu detektora w~spektrometrze użytym do pomiarów nie ustalono, dlatego
 zasadę działania opisano ogólnie.
 
-\subsection{Tor akwizycji}
-
 Ładunek z~detektora jest zamieniany na impuls napięciowy przez
 przedwzmacniacz ładunkowy. Układ kształtujący (obecnie cyfrowy procesor
 impulsów) filtruje sygnał i~mierzy amplitudę każdego impulsu.
 Analizator wielokanałowy (MCA) przypisuje impuls do kanału odpowiadającego
 jego amplitudzie i~zlicza impulsy w~kanałach. Wynikiem jest histogram
 liczby zliczeń w~funkcji energii, czyli widmo.
+
+Oprócz spektroskopii z~dyspersją energii (EDS) stosuje się spektroskopię
+z~dyspersją długości fali (WDS), w~której promieniowanie jest
+rozszczepiane przez odbicie od kryształu analizatora (warunek Bragga).
+WDS ma rozdzielczość rzędu \SI{10}{\electronvolt}, ale wymaga ruchomego
+goniometru, rejestruje naraz jedną linię i~jest duży. EDS rejestruje całe
+widmo jednocześnie w~małym detektorze bez części ruchomych, dlatego
+nadaje się do miniaturowego przyrządu kosmicznego~\cite{goldstein2018sem}.
 
 \subsection{Analiza widma}
 
@@ -588,27 +570,13 @@ pozorne lub zniekształcenia:
         uchwyt, ścianki komory), w~które trafiają elektrony rozproszone.
 \end{itemize}
 
-\subsection{EDS a~WDS}
-
-Oprócz spektroskopii z~dyspersją energii (EDS) stosuje się spektroskopię
-z~dyspersją długości fali (WDS), w~której promieniowanie jest
-rozszczepiane przez odbicie od kryształu analizatora (warunek Bragga).
-WDS ma rozdzielczość rzędu \SI{10}{\electronvolt}, ale wymaga ruchomego
-goniometru, rejestruje naraz jedną linię i~jest duży. EDS rejestruje całe
-widmo jednocześnie w~małym detektorze bez części ruchomych, dlatego
-nadaje się do miniaturowego przyrządu kosmicznego~\cite{goldstein2018sem}.
-
-\subsection{Analiza ilościowa}
-
-Skład ilościowy wyznacza się z~natężeń linii, porównując je z~natężeniami
+Analiza ilościowa jest bardziej wymagająca. Skład wyznacza się z~natężeń linii, porównując je z~natężeniami
 zmierzonymi dla wzorców o~znanym składzie. Wymaga to poprawek na liczbę
 atomową, absorpcję i~fluorescencję wtórną w~próbce (poprawki ZAF) oraz
 płaskiej, wypolerowanej powierzchni próbki i~stabilnego prądu wiązki.
 W~tej pracy prąd wiązki i~geometria pomiaru nie były na tyle stabilne
 i~znane, aby prowadzić analizę ilościową, dlatego ograniczono się do
 analizy jakościowej.
-
-\subsection{Niepewność pomiaru}
 
 Zliczenia fotonów podlegają rozkładowi Poissona, więc niepewność liczby
 zliczeń $N$ w~piku wynosi $\sqrt{N}$, a~niepewność względna $1/\sqrt{N}$.
@@ -620,8 +588,6 @@ napięć z~dokładności zasilaczy.
 % =====================================================================
 \section{Próżnia i~warunki pracy przyrządu}
 \label{sec:uzupelnienia}
-
-\subsection{Próżnia}
 
 Elektrony muszą przebyć drogę od emitera do próbki bez zderzeń
 z~cząsteczkami gazu. Średnia droga swobodna cząsteczki powietrza
@@ -640,10 +606,8 @@ elektronów wywołuje desorpcję gazów ze ścianek (desorpcja stymulowana
 elektronami), więc sama hermetyzacja nie wystarcza do utrzymania próżni
 \cite{grzebyk2014micropump,grzebyk2017pumps,urbanski2026phd}.
 
-\subsection{Warunki pracy w~misji kosmicznej}
-\label{subsec:warunki}
-
-Naturalna próżnia na powierzchni Księżyca (rzędu \SI{1e-10}{\pascal})
+\label{subsec:warunki}%
+W~misji kosmicznej rolę komory może pełnić otoczenie. Naturalna próżnia na powierzchni Księżyca (rzędu \SI{1e-10}{\pascal})
 i~planetoid wystarcza do propagacji wiązki elektronów. Na Marsie ciśnienie atmosfery CO$_2$
 wynosi ok. \SI{600}{\pascal}, więc wiązka elektronów musiałaby przejść
 przez cienkie okno lub krótki odcinek gazu. Rozwiązania tego typu
@@ -655,9 +619,7 @@ ograniczone budżetem misji. Przyrządy stosowane dotąd w~misjach
 (APXS, PIXL) wzbudzają próbkę cząstkami alfa lub promieniowaniem~X
 (\rozdzref{ch:wstep}).
 
-\subsection{Zasilanie i~sterowanie}
-
-Źródło wymaga dwóch napięć: ekstrakcyjnego (rzędu \SI{1}{\kilo\volt})
+Niezależnie od warunków otoczenia źródło wymaga dwóch napięć: ekstrakcyjnego (rzędu \SI{1}{\kilo\volt})
 i~przyspieszającego (docelowo \SIrange{10}{18}{\kilo\volt}). W~przyrządach
 przenośnych i~kosmicznych wysokie napięcie uzyskuje się z~przetwornicy
 z~transformatorem podwyższającym i~powielaczem napięcia
@@ -666,3 +628,8 @@ wykładniczo z~napięciem i~zależy od stanu powierzchni emitera,
 w~docelowym przyrządzie potrzebna jest pętla sprzężenia zwrotnego, która
 mierzy prąd wiązki i~koryguje napięcie ekstrakcyjne. Utrzymuje to stałą
 częstość zliczeń w~widmie i~chroni emiter przed przeciążeniem.
+
+Przedstawione procesy technologiczne i~zjawiska fizyczne stanowią
+podstawę konstrukcji prototypu. Jego projekt oraz kolejne etapy
+wytwarzania, od płytek krzemu i~szkła do zmontowanej struktury,
+opisano w~\rozdzref{ch:projekt}.
