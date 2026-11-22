@@ -121,7 +121,34 @@ anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym. Emiter ma wymiary
 \qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre}; w~jego części środkowej, od strony bramki, wytrawiono
 wnękę, na której dnie znajduje się ostrze CNT (\pref{sec:przebieg}).
-Bramka ma grubość \SI{440}{\micro\metre}.
+Bramka ma grubość \SI{440}{\micro\metre} i~wymiary
+\qtyproduct[product-units=single]{12 x 15}{\milli\metre}, przy czym
+wymiar \SI{15}{\milli\metre} obejmuje wypustkę, do której dołącza się
+kontakt elektryczny. W~środku bramki wytrawiono kwadratowy otwór o~boku
+\SI{2}{\milli\metre}, przez który przechodzi wiązka
+(\rysref{fig:bramka-wymiary}).
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}[x=0.32cm, y=0.32cm, font=\small,
+      wym/.style={{Stealth[length=2mm]}-{Stealth[length=2mm]}}]
+    \fill[gray!35] (0,0) rectangle (12,12);
+    \fill[gray!35] (0,12) rectangle (2.5,15);
+    \draw (0,0) -- (12,0) -- (12,12) -- (2.5,12) -- (2.5,15) -- (0,15) -- cycle;
+    \fill[white] (5,5) rectangle (7,7);
+    \draw (5,5) rectangle (7,7);
+    \draw[gray, thin] (0,15) -- (-2.6,15) (0,0) -- (-2.6,0)
+      (12,12) -- (14.6,12) (12,0) -- (14.6,0)
+      (5,5) -- (5,-2.6) (7,5) -- (7,-2.6);
+    \draw[wym] (-2,0) -- (-2,15) node[midway, left] {\SI{15}{\milli\metre}};
+    \draw[wym] (14,0) -- (14,12) node[midway, right] {\SI{12}{\milli\metre}};
+    \draw[wym] (5,-2) -- (7,-2) node[midway, below] {\SI{2}{\milli\metre}};
+    \node[font=\footnotesize, align=center] at (1.25,16.2) {kontakt};
+  \end{tikzpicture}
+  \caption{Bramka (B) w~rzucie z~góry, z~otworem na wiązkę i~wypustką
+    kontaktową (schemat poglądowy, bez zachowania skali) \opracowanieWlasne}
+  \label{fig:bramka-wymiary}
+\end{figure}
 \TODO{T4: typ i~rezystywność płytek Si}
 
 Jako dystansownik między emiterem a~bramką zastosowano szkło
@@ -138,7 +165,6 @@ wierzchołek leży ok.~\SI{70}{\micro\metre} poniżej górnej powierzchni
 emitera, a~odległość wierzchołek--bramka wynosi ok.~$d + \SI{70}{\micro\metre}$.
 Ostrze nie skraca więc odległości od bramki, lecz skupia pole na
 wierzchołku i~wyprowadza go ponad dno wnęki.
-\TODO{T7: średnica apertury bramki}
 
 Drugim zadaniem szkła jest izolacja emitera od bramki. W~próżni
 ograniczeniem jest przede wszystkim przeskok wzdłuż powierzchni szkła
@@ -284,9 +310,7 @@ przekładkę, która zmniejszała dystans między łączonymi elementami.
 \TODO{T19: napięcie i~czas bondingu, czy wszystkie połączenia były trwałe}
 
 Po bondingu pod emiterem zamocowano magnes NdFeB (\rysref{fig:proces}).
-Gotowy prototyp ma wymiary w~rzucie
-\qtyproduct[product-units=single]{12 x 15}{\milli\metre}. Jego wysokość
-łącznie z~magnesem wynosi ok.~\SI{4.1}{\milli\metre}: emiter
+Wysokość gotowego prototypu łącznie z~magnesem wynosi ok.~\SI{4.1}{\milli\metre}: emiter
 \SI{670}{\micro\metre}, szkło dystansowe \SI{1}{\milli\metre}, bramka
 \SI{440}{\micro\metre} i~magnes \SI{2}{\milli\metre}
 (\tabref{tab:elementy-struktury}).
