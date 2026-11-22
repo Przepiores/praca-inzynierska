@@ -23,7 +23,11 @@
 \input{rozdzialy/02_podstawy}        % 9. wprowadzenie teoretyczne
 \input{rozdzialy/03_projekt}         % 10. prace własne
 \input{rozdzialy/04_stanowisko}
-\input{rozdzialy/05_badania}
+\ifdefined\wersjaPrezentacja
+  \input{rozdzialy/05_badania_prezentacja} % rozdz. 5 bez interpretacji (main-prezentacja.tex)
+\else
+  \input{rozdzialy/05_badania}
+\fi
 \input{rozdzialy/06_podsumowanie}    % 11. podsumowanie
 
 % ---------------- Literatura i dodatki
