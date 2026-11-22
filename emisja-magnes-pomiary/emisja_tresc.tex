@@ -131,8 +131,8 @@ i~skupienia plamki.
 \subsection{Jasność ekranu a~prąd emisji}
 
 Jasność świecenia ekranu $L$ wyznaczono ze zdjęć metodą opisaną
-w~\pref{sec:analiza-zdjec}. Na rys.~\ref{fig:emisja-I} zestawiono ją
-z~prądem emisji w~funkcji napięcia. W~sesji bez magnesu jasność ekranu
+w~\pref{sec:analiza-zdjec}. Jej zależność od napięcia przedstawiono
+na rys.~\ref{fig:emisja-I}, a~prąd emisji w~tab.~\ref{tab:emisja-iv}. W~sesji bez magnesu jasność ekranu
 rośnie razem z~prądem ($r_\mathrm{P}=0{,}99$ dla \SIrange{800}{1100}{V}).
 W~sesji z~magnesem $r_\mathrm{P}=0{,}95$ dla \SIrange{800}{1200}{V}, a~powyżej
 \SI{1200}{V} zarówno prąd, jak i~jasność przestają rosnąć -- nasycenie
@@ -154,26 +154,14 @@ z~odczytem prądu wynosi $r_\mathrm{P}=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
       grid=major, grid style={gray!25},
       legend pos=north west, legend cell align=left,
       every axis plot/.append style={thick, mark size=2pt},
-      axis y line*=left,
     ]
       \addplot[blue!70!black, mark=*] table[x=U,y=I,col sep=comma]{\datadir/mg.csv};
       \addlegendentry{jasność, \sesjaM}
       \addplot[red!60!black, mark=triangle*] table[x=U,y=I,col sep=comma]{\datadir/s1.csv};
       \addlegendentry{jasność, \sesjaB}
-      \addlegendimage{blue!70!black, dashed, mark=o}
-      \addlegendentry{prąd, \sesjaM\ (oś prawa)}
-    \end{axis}
-    \begin{axis}[
-      width=0.8\textwidth, height=6.5cm,
-      xmin=450, xmax=1650, ymin=0, ymax=220,
-      axis y line*=right, axis x line=none,
-      ylabel={$\Ie$ \sesjaM\ [µA]},
-    ]
-      \addplot[blue!70!black, dashed, mark=o, thick] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
     \end{axis}
   \end{tikzpicture}
-  \caption{Jasność świecenia ekranu (oś lewa) i~prąd emisji
-    w~sesji z~magnesem (oś prawa) w~funkcji napięcia}
+  \caption{Jasność świecenia ekranu w~funkcji napięcia w~obu sesjach}
   \label{fig:emisja-I}
 \end{figure}
 
