@@ -23,8 +23,16 @@
 \input{rozdzialy/02_podstawy}        % 9. wprowadzenie teoretyczne
 \input{rozdzialy/03_projekt}         % 10. prace własne
 \input{rozdzialy/04_stanowisko}
-\input{rozdzialy/05_badania}
-\input{rozdzialy/06_podsumowanie}    % 11. podsumowanie
+\ifdefined\wersjaPrezentacja
+  \input{rozdzialy/05_badania_prezentacja} % rozdz. 5 bez interpretacji (main-prezentacja.tex)
+\else
+  \input{rozdzialy/05_badania}
+\fi
+\ifdefined\wersjaPrezentacja
+  \chapter{Podsumowanie i~wnioski}\label{ch:podsumowanie} % pusty w wersji „prezentacja”
+\else
+  \input{rozdzialy/06_podsumowanie}    % 11. podsumowanie
+\fi
 
 % ---------------- Literatura i dodatki
 \printbibliography[title={Literatura}]   % 12. (mwrep dodaje do spisu treści)

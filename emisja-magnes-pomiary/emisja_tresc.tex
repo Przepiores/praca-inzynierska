@@ -24,18 +24,18 @@ zwiększano napięcie $\UB$ co \SI{100}{V} i~rejestrowano prąd emisji
 $\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
 \begin{itemize}
   \item \textbf{sesja bez magnesu} -- $\UT=\SI{2000}{V}$,
-        $\UB=\SIrange{500}{1500}{V}$, prąd w~zakresie
-        \SIrange{2}{22}{\micro A}, zdjęcia dla
-        $\UB=\SIrange{700}{1100}{V}$; przed tą sesją źródło odgazowano
+        $\UB$ od \SI{500}{V} do \SI{1500}{V}, prąd od \SI{2}{\micro A}
+        do \SI{22}{\micro A}, zdjęcia dla $\UB$ od \SI{700}{V}
+        do \SI{1100}{V}; przed tą sesją źródło odgazowano
         przez wygrzanie w~temperaturze ok. \SI{200}{\celsius},
   \item \textbf{sesja z~magnesem} -- $\UT=\SI{1500}{V}$,
-        $\UB=\SIrange{500}{1700}{V}$, prąd w~zakresie
-        \SIrange{14}{200}{\micro A}, zdjęcia dla
-        $\UB=\SIrange{500}{1600}{V}$; źródło nie było przed tą sesją
+        $\UB$ od \SI{500}{V} do \SI{1700}{V}, prąd od \SI{14}{\micro A}
+        do \SI{200}{\micro A}, zdjęcia dla $\UB$ od \SI{500}{V}
+        do \SI{1600}{V}; źródło nie było przed tą sesją
         ponownie odgazowane.
 \end{itemize}
-Dodatkowo wykorzystano serię~2 bez magnesu (10~zdjęć z~odczytami prądu
-\SIrange{1}{400}{\micro A}), która posłużyła do sprawdzenia związku jasności
+Dodatkowo wykorzystano serię~2 bez magnesu (odczyty prądu od \SI{1}{\micro A}
+do \SI{400}{\micro A}), która posłużyła do sprawdzenia związku jasności
 ekranu z~prądem. Wyniki zebrano w~tab.~\ref{tab:emisja-iv}.
 
 \begin{table}[htbp]
@@ -51,14 +51,14 @@ ekranu z~prądem. Wyniki zebrano w~tab.~\ref{tab:emisja-iv}.
      700 & 0    & 14 \\
      800 & 2    & 28 \\
      900 & 3,1  & 45 \\
-    1000 & 4    & 69 \\
-    1100 & 6    & 118 \\
-    1200 & 8    & 180 \\
-    1300 & 9    & 190 \\
-    1400 & 11,2 & 190 \\
-    1500 & 22   & 193 \\
-    1600 & --   & 200 \\
-    1700 & --   & 200 \\
+    1\,000 & 4    & 69 \\
+    1\,100 & 6    & 118 \\
+    1\,200 & 8    & 180 \\
+    1\,300 & 9    & 190 \\
+    1\,400 & 11,2 & 190 \\
+    1\,500 & 22   & 193 \\
+    1\,600 & --   & 200 \\
+    1\,700 & --   & 200 \\
     \midrule
     $\UT$ & \SI{2000}{V} & \SI{1500}{V} \\
     \bottomrule
@@ -128,11 +128,17 @@ i~skupienia plamki.
 \end{figure}
 
 
+\section{Obserwacja wiązki na ekranie luminescencyjnym}
+\label{sec:emisja-ekran}
+
+Wpływ magnesu na kształt wiązki oceniono na podstawie zdjęć ekranu
+luminescencyjnego wykonanych w~sesjach opisanych w~\pref{sec:emisja-magnes}.
+
 \subsection{Jasność ekranu a~prąd emisji}
 
 Jasność świecenia ekranu $L$ wyznaczono ze zdjęć metodą opisaną
-w~\pref{sec:analiza-zdjec}. Na rys.~\ref{fig:emisja-I} zestawiono ją
-z~prądem emisji w~funkcji napięcia. W~sesji bez magnesu jasność ekranu
+w~\pref{sec:analiza-zdjec}. Jej zależność od napięcia przedstawiono
+na rys.~\ref{fig:emisja-I}, a~prąd emisji w~tab.~\ref{tab:emisja-iv}. W~sesji bez magnesu jasność ekranu
 rośnie razem z~prądem ($r_\mathrm{P}=0{,}99$ dla \SIrange{800}{1100}{V}).
 W~sesji z~magnesem $r_\mathrm{P}=0{,}95$ dla \SIrange{800}{1200}{V}, a~powyżej
 \SI{1200}{V} zarówno prąd, jak i~jasność przestają rosnąć -- nasycenie
@@ -141,7 +147,7 @@ kamery. W~sesji z~magnesem słaba plamka jest widoczna już
 przy \SIrange{600}{700}{V}, gdy mierzony prąd nie odbiega jeszcze od
 poziomu upływu -- magnes skupia niewielki prąd emisji na małym
 obszarze ekranu, przez co staje się on widoczny wcześniej niż bez
-magnesu (próg \SI{800}{V}). Dla serii~2 \sesjaB\ korelacja jasności
+magnesu (próg \SI{800}{V}). Dla serii~2 \sesjaM\ korelacja jasności
 z~odczytem prądu wynosi $r_\mathrm{P}=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
 
 \begin{figure}[htbp]
@@ -154,26 +160,14 @@ z~odczytem prądu wynosi $r_\mathrm{P}=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
       grid=major, grid style={gray!25},
       legend pos=north west, legend cell align=left,
       every axis plot/.append style={thick, mark size=2pt},
-      axis y line*=left,
     ]
       \addplot[blue!70!black, mark=*] table[x=U,y=I,col sep=comma]{\datadir/mg.csv};
       \addlegendentry{jasność, \sesjaM}
       \addplot[red!60!black, mark=triangle*] table[x=U,y=I,col sep=comma]{\datadir/s1.csv};
       \addlegendentry{jasność, \sesjaB}
-      \addlegendimage{blue!70!black, dashed, mark=o}
-      \addlegendentry{prąd, \sesjaM\ (oś prawa)}
-    \end{axis}
-    \begin{axis}[
-      width=0.8\textwidth, height=6.5cm,
-      xmin=450, xmax=1650, ymin=0, ymax=220,
-      axis y line*=right, axis x line=none,
-      ylabel={$\Ie$ \sesjaM\ [µA]},
-    ]
-      \addplot[blue!70!black, dashed, mark=o, thick] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
     \end{axis}
   \end{tikzpicture}
-  \caption{Jasność świecenia ekranu (oś lewa) i~prąd emisji
-    w~sesji z~magnesem (oś prawa) w~funkcji napięcia}
+  \caption{Jasność świecenia ekranu w~funkcji napięcia w~obu sesjach}
   \label{fig:emisja-I}
 \end{figure}
 
@@ -184,7 +178,7 @@ z~odczytem prądu wynosi $r_\mathrm{P}=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
       width=0.65\textwidth, height=5.5cm,
       xtick={30,50,100,200,400}, xticklabels={30,50,100,200,400},
       log ticks with fixed point,
-      xlabel={prąd emisji $\Ie$ [µA] (seria 2, \sesjaB)},
+      xlabel={prąd emisji $\Ie$ [µA] (seria 2, \sesjaM)},
       ylabel={jasność $L$ [j.u.]},
       grid=major, grid style={gray!25},
       legend pos=north west, legend cell align=left,
@@ -197,7 +191,7 @@ z~odczytem prądu wynosi $r_\mathrm{P}=0{,}98$ (rys.~\ref{fig:emisja-IvsIe}).
       \addlegendentry{$L\propto \Ie^{1{,}37}$}
     \end{loglogaxis}
   \end{tikzpicture}
-  \caption{Jasność świecenia a~odczyt prądu w~serii~2 \sesjaB}
+  \caption{Jasność świecenia a~odczyt prądu w~serii~2 \sesjaM}
   \label{fig:emisja-IvsIe}
 \end{figure}
 
@@ -228,12 +222,11 @@ w~mikrometrach.
   \label{tab:emisja}
   \begin{tabular}{@{}lccc@{}}
     \toprule
-    Parametr & \sesjaM & \sesjaB & seria 2 (\sesjaB) \\
+    Parametr & \sesjaM & \sesjaB & seria 2 (\sesjaM) \\
     \midrule
-    Odgazowanie źródła & nie & tak (\SI{200}{\celsius}) & -- \\
-    Napięcie $\UT$ & \SI{1500}{V} & \SI{2000}{V} & -- \\
-    Próg emisji (prąd) & \SI{800}{V} & \SI{800}{V} & -- \\
-    Pierwsza widoczna plamka & \SI{600}{V} & \SI{800}{V} & -- \\
+    Odgazowanie źródła & nie & tak (\SI{200}{\celsius}) & tak (\SI{200}{\celsius}) \\
+    Napięcie $\UT$ & \SI{1500}{V} & \SI{2000}{V} & \SI{2000}{V} \\
+    Pierwsza widoczna plamka & \SI{600}{V} & \SI{800}{V} & \SI{700}{V} \\
     Prąd maksymalny & \SI{200}{\micro A} & \SI{22}{\micro A} & \SI{400}{\micro A} \\
     Maks. jasność $L$ [j.u.] & 3,19 & 1,67 & 2,89 \\
     Maks. pole plamki [\% kadru] & 3,98 & 2,07 & 3,91 \\
@@ -285,7 +278,7 @@ w~mikrometrach.
   \begin{subfigure}[t]{0.32\textwidth}\centering
     \includegraphics[width=\linewidth]{\figdir/s1_pelny.jpg}\caption{\sesjaB, \SI{1100}{V}}\end{subfigure}\hfill
   \begin{subfigure}[t]{0.32\textwidth}\centering
-    \includegraphics[width=\linewidth]{\figdir/s2_pelny.jpg}\caption{\sesjaB, seria 2}\end{subfigure}
+    \includegraphics[width=\linewidth]{\figdir/s2_pelny.jpg}\caption{\sesjaM, seria 2}\end{subfigure}
   \caption{Pełne kadry przy maksymalnej emisji w~każdej serii}
   \label{fig:emisja-pelne}
 \end{figure}
@@ -295,7 +288,7 @@ w~mikrometrach.
 \begin{enumerate}
   \item W~obu sesjach próg emisji wynosi ok. \SI{800}{V}.
   \item Z~magnesem plamka jest zwarta i~widoczna już przy
-        \SI{600}{V}--\SI{700}{V}, mimo że prąd nie odbiega jeszcze od
+        \SIrange{600}{700}{V}, mimo że prąd nie odbiega jeszcze od
         poziomu upływu; bez magnesu świeci szeroko całe okno dopiero od
         \SI{800}{V}. Wskazuje to na ogniskujące działanie pola
         magnetycznego.
@@ -306,8 +299,7 @@ w~mikrometrach.
         ($r_\mathrm{P}=0{,}95$--$0{,}99$) i~może służyć jako jego względna miara.
   \item Bezpośrednie porównanie wartości prądów między sesjami jest
         ograniczone: źródło było odgazowane tylko przed sesją bez magnesu,
-        sesje różnią się napięciem $\UT$ (\SI{2000}{V} vs
-        \SI{1500}{V}). Z~magnesem prąd jest 10--20 razy większy, co może
+        sesje różnią się napięciem $\UT$ (\SI{2000}{V} i~\SI{1500}{V}). Z~magnesem prąd jest 10--20 razy większy, co może
         wynikać zarówno z~ogniskowania, jak i~ze stanu źródła. Prąd
         upływu, nasycenie i~poświata w~sesji z~magnesem wynikają
         prawdopodobnie z~braku odgazowania.
