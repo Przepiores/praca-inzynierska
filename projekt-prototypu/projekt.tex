@@ -7,6 +7,9 @@
 %  Zamknięte z treści pracy: T1 (magnes pod emiterem), T2 (różnice wobec
 %  źródła RTG opisane w akapicie), T5 częściowo i T8 (drugie szkło 1 mm,
 %  elektroda skupiająca z Si).
+%  22.11.2026 (kris): elektrodę skupiającą usunięto z pracy (tekst, rys. 3.1,
+%  rys. 3.2, tab. 3.1). Struktura = emiter + szkło 1 mm + bramka (+ magnes);
+%  target (T) = elektroda przyspieszająca z próbką/luminoforem nad strukturą.
 % =====================================================================
 \chapter{Projekt i~wykonanie prototypu}
 \label{ch:projekt}
@@ -33,16 +36,16 @@ Prototyp miał spełniać następujące wymagania:
   \item możliwość późniejszej hermetyzacji struktury.
 \end{itemize}
 
-Strukturę zaprojektowano jako stos płaskich elementów krzemowych
-rozdzielonych szkłem borokrzemowym (\rysref{fig:przekroj-struktury}).
+Strukturę zaprojektowano jako dwa płaskie elementy krzemowe
+rozdzielone szkłem borokrzemowym (\rysref{fig:przekroj-struktury}).
 Licząc od dołu, składa się ona z~emitera (E) z~ostrzem uformowanym
-z~nanorurek węglowych, szkła dystansowego o~grubości \SI{1}{\milli\metre},
-bramki (elektrody ekstrakcyjnej, B), drugiego szkła dystansowego oraz
-elektrody skupiającej z~otworem (T, w~dalszej części pracy nazywanej
-targetem). Każda elektroda krzemowa jest osobnym elementem
-z~własnym kontaktem elektrycznym, a~szkło oddziela je galwanicznie
-i~ustala odległości między nimi. Wiązkę ogniskuje magnes trwały NdFeB
-umieszczony pod emiterem.
+z~nanorurek węglowych, szkła dystansowego o~grubości \SI{1}{\milli\metre}
+oraz bramki (elektrody ekstrakcyjnej, B) z~otworem. Każda elektroda
+krzemowa jest osobnym elementem z~własnym kontaktem elektrycznym,
+a~szkło oddziela je galwanicznie i~ustala odległość między nimi.
+Nad strukturą znajduje się target (T), czyli elektroda przyspieszająca
+będąca nośnikiem próbki lub warstwy luminoforu. Wiązkę ogniskuje magnes
+trwały NdFeB umieszczony pod emiterem.
 
 \begin{figure}[htbp]
   \centering
@@ -50,12 +53,11 @@ umieszczony pod emiterem.
     % kolory
     \colorlet{si}{gray!35}
     \colorlet{gl}{cyan!12}
-    % elektroda skupiająca z otworem
-    \fill[si] (0,4.4) rectangle (3.6,4.9);
-    \fill[si] (4.4,4.4) rectangle (8,4.9);
-    % szkło 2 z otworem
-    \fill[gl] (0,3.4) rectangle (3,4.4);
-    \fill[gl] (5,3.4) rectangle (8,4.4);
+    % target z próbką (poza strukturą)
+    \fill[gray!60] (1.5,4.55) rectangle (6.5,4.85);
+    \draw (1.5,4.55) rectangle (6.5,4.85);
+    \fill[green!45!black!35] (2.6,4.4) rectangle (5.4,4.55);
+    \draw (2.6,4.4) rectangle (5.4,4.55);
     % bramka z aperturą
     \fill[si] (0,2.9) rectangle (3.7,3.4);
     \fill[si] (4.3,2.9) rectangle (8,3.4);
@@ -72,31 +74,32 @@ umieszczony pod emiterem.
     \fill[orange!40] (3.2,0.6) rectangle (4.8,1.1);
     \draw (3.2,0.6) rectangle (4.8,1.1);
     % obrysy
-    \foreach \y in {1.1,2.9,3.4,4.4,4.9} {\draw[gray] (0,\y) -- (8,\y);}
-    \draw (0,1.1) -- (0,4.9) (8,1.1) -- (8,4.9);
-    \draw (3.6,4.4) -- (3.6,4.9) (4.4,4.4) -- (4.4,4.9);
+    \foreach \y in {1.1,2.9,3.4} {\draw[gray] (0,\y) -- (8,\y);}
+    \draw (0,1.1) -- (0,3.4) (8,1.1) -- (8,3.4);
+    \draw (3.7,2.9) -- (3.7,3.4) (4.3,2.9) -- (4.3,3.4);
     % wiązka
     \draw[-{Stealth[length=2.5mm]}, blue!70!black, thick, dashed]
-      (4,2.0) -- (4,5.4);
+      (4,2.0) -- (4,4.38);
     % opisy
-    \foreach \y/\t in {4.65/elektroda skupiająca z~otworem (T),
-                       3.9/szkło borokrzemowe \SI{1}{\milli\metre},
-                       3.15/bramka (B),
+    \foreach \y/\t in {4.7/target (T),
+                       4.2/próbka lub luminofor,
+                       3.15/bramka (B) z~otworem,
                        2.4/szkło borokrzemowe \SI{1}{\milli\metre},
                        1.6/emiter (E) \SI{670}{\micro\metre},
                        0.85/magnes NdFeB}
       {\node[anchor=west] at (8.3,\y) {\t};}
     \node[anchor=east] at (3.0,2.45) {ostrze CNT};
     \draw[gray] (3.02,2.4) -- (3.85,1.7);
-    \node[anchor=west, blue!70!black] at (4.1,3.75) {$e^-$};
+    \node[anchor=west, blue!70!black] at (4.1,3.85) {$e^-$};
+    \draw[gray] (5.4,4.47) -- (8.3,4.2);
     % wymiar
     \draw[{Stealth[length=2mm]}-{Stealth[length=2mm]}] (-0.3,1.9) -- (-0.3,2.9)
       node[midway, left] {$d$};
   \end{tikzpicture}
   \caption{Przekrój struktury prototypu (schemat poglądowy, bez zachowania
     skali): E -- emiter z~wnęką, na której dnie znajduje się
-    ostrze CNT, B -- bramka (elektroda ekstrakcyjna), T -- elektroda skupiająca
-    z~otworem; $d$ -- odległość emiter--bramka
+    ostrze CNT, B -- bramka (elektroda ekstrakcyjna), T -- target z~próbką
+    umieszczony nad strukturą; $d$ -- odległość emiter--bramka
     \opracowanieWlasne}
   \label{fig:przekroj-struktury}
 \end{figure}
@@ -104,9 +107,8 @@ umieszczony pod emiterem.
 W~porównaniu ze źródłem promieniowania rentgenowskiego opisanym
 w~\cite{urbanski2026phd} konstrukcja jest uproszczona: nie ma
 zintegrowanej mikropompy ani targetu transmisyjnego z~membraną krzemową.
-Zamiast membrany górnym elementem struktury jest elektroda skupiająca
-z~otworem, przez który wiązka wychodzi ze struktury i~pada bezpośrednio
-na próbkę (lub warstwę luminoforu).
+Wiązka wychodzi ze struktury przez otwór bramki i~pada bezpośrednio
+na próbkę (lub warstwę luminoforu) na targecie.
 Sposób zasilania elektrod opisano w~\rozdzref{ch:stanowisko}.
 
 % ---------------------------------------------------------------------
@@ -119,7 +121,7 @@ anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym. Emiter ma wymiary
 \qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre}; w~jego części środkowej, od strony bramki, wytrawiono
 wnękę, na której dnie znajduje się ostrze CNT (\pref{sec:przebieg}).
-\TODO{T4: grubość bramki i~elektrody skupiającej; typ i~rezystywność płytek Si}
+\TODO{T4: grubość bramki; typ i~rezystywność płytek Si}
 
 Jako dystansownik między emiterem a~bramką zastosowano szkło
 borokrzemowe o~grubości \SI{1}{\milli\metre}. Grubość szkła wyznacza
@@ -137,15 +139,15 @@ Ostrze nie skraca więc odległości od bramki, lecz skupia pole na
 wierzchołku i~wyprowadza go ponad dno wnęki.
 \TODO{T7: średnica apertury bramki}
 
-Drugim zadaniem szkła jest izolacja elektrod. W~próżni ograniczeniem
-jest przede wszystkim przeskok wzdłuż powierzchni szkła między krawędziami
-sąsiednich elektrod, dlatego grubość dystansownika wyznacza też drogę
-upływu. Między bramką a~targetem występuje różnica potencjałów
-$\UT - \UB$, a~między emiterem a~bramką $\UB$. Przy napięciach
-stosowanych w~badaniach (do \SI{10}{\kilo\volt}) oba szkła o~grubości
-\SI{1}{\milli\metre} zapewniały wystarczającą izolację. Przy napięciach
-wyższych, docelowo do \SI{18}{\kilo\volt}, potrzebne są dodatkowe
-zabezpieczenia, np. zalanie krawędzi struktury żywicą epoksydową, jak
+Drugim zadaniem szkła jest izolacja emitera od bramki. W~próżni
+ograniczeniem jest przede wszystkim przeskok wzdłuż powierzchni szkła
+między krawędziami elektrod, dlatego grubość dystansownika wyznacza też
+drogę upływu. Między emiterem a~bramką występuje napięcie $\UB$, przy
+którym szkło o~grubości \SI{1}{\milli\metre} zapewniało wystarczającą
+izolację. Większą różnicę potencjałów, $\UT - \UB$, rozdziela szczelina
+próżniowa między bramką a~targetem. Przy napięciach wyższych, docelowo
+do \SI{18}{\kilo\volt}, potrzebne są dodatkowe zabezpieczenia,
+np. zalanie krawędzi struktury żywicą epoksydową, jak
 w~\cite{urbanski2026phd}.
 \TODO{T5: typ szkła (Borofloat~33?)}
 
@@ -166,9 +168,7 @@ Wymiary wszystkich elementów zestawiono w~\tabref{tab:elementy-struktury}.
     \midrule
     emiter (E)        & Si (100) + ostrze CNT & \SI{670}{\micro\metre} & źródło elektronów \\
     dystansownik      & szkło borokrzemowe   & \SI{1}{\milli\metre} & izolacja, odległość $d$ \\
-    bramka (B)        & Si (100)             & \TODOtab{T4}           & elektroda ekstrakcyjna \\
-    dystansownik      & szkło borokrzemowe   & \SI{1}{\milli\metre} & izolacja B--T \\
-    elektroda skupiająca (T) & Si (100)      & \TODOtab{T4}           & wyjście wiązki przez otwór \\
+    bramka (B)        & Si (100)             & \TODOtab{T4}           & ekstrakcja, wyjście wiązki \\
     magnes ogniskujący & NdFeB (pod emiterem) & --                  & ogniskowanie wiązki \\
     \bottomrule
   \end{tabular}
@@ -182,8 +182,7 @@ Kolejność czynności prowadzących do gotowej struktury przedstawiono na
 na całych płytkach, a~dopiero po ich pocięciu łączono je w~stos.
 W~emiterze trawieniem w~KOH (\pref{subsec:koh}) wykonano wnękę od strony
 bramki, pozostawiając dno o~grubości \SI{240}{\micro\metre}, na którym
-formowano ostrze CNT. W~bramce i~elektrodzie skupiającej wytrawiono
-otwory na przejście wiązki. Ostrze CNT formowano przed bondingiem
+formowano ostrze CNT. W~bramce wytrawiono otwór na przejście wiązki. Ostrze CNT formowano przed bondingiem
 anodowym.
 \TODO{T9--T14: maski (liczba, rozkład na płytce), warstwa maskująca, parametry trawienia KOH, kontrola wymiarów}
 
@@ -199,13 +198,13 @@ anodowym.
     % tła torów
     \fill[blue!4, rounded corners=6pt] (-3.0,0.75) rectangle (3.0,-7.75);
     \fill[cyan!5, rounded corners=6pt] (3.6,0.75) rectangle (9.6,-4.9);
-    \node[font=\small\bfseries, text=blue!45!black] at (0,0.45) {elementy krzemowe (E, B, T)};
+    \node[font=\small\bfseries, text=blue!45!black] at (0,0.45) {elementy krzemowe (E, B)};
     \node[font=\small\bfseries, text=cyan!35!black] at (6.6,0.45) {dystansowniki szklane};
     % tor krzemowy
     \node[krok=blue] (s1) at (0,-0.4) {płytki Si (100), mycie};
     \node[krok=blue] (s2) at (0,-1.6) {wytworzenie warstwy maskującej};
     \node[krok=blue] (s3) at (0,-2.8) {fotolitografia,\\otwarcie okien};
-    \node[krok=blue] (s4) at (0,-4.1) {trawienie w~KOH: wnęka w~E,\\otwory w~B i~T};
+    \node[krok=blue] (s4) at (0,-4.1) {trawienie w~KOH: wnęka w~E,\\otwór w~B};
     \node[krok=blue] (s5) at (0,-5.45) {usunięcie maski,\\cięcie płytki};
     \node[krok=orange] (s6) at (0,-6.9) {formowanie ostrza CNT\\na dnie wnęki emitera\\(płyta grzejna \SI{240}{\celsius})};
     % tor szklany
@@ -215,7 +214,7 @@ anodowym.
     \node[krok=cyan] (g4) at (6.6,-4.1) {czyszczenie przed bondingiem};
     % łączenie
     \node[krok=teal, text width=78mm] (b) at (3.3,-8.75)
-      {bonding anodowy stosu E--szkło--B--szkło--T\\w~atmosferze, \SI{450}{\celsius}};
+      {bonding anodowy E--szkło--B\\w~atmosferze, \SI{450}{\celsius}};
     \node[krok=gray, text width=78mm] (m) at (3.3,-9.95) {montaż magnesu NdFeB};
     % strzałki
     \foreach \a/\b in {s1/s2,s2/s3,s3/s4,s4/s5,s5/s6,g1/g2,g2/g3,g3/g4,b/m}
@@ -274,10 +273,10 @@ zwiększa lokalne natężenie pola na jego wierzchołku (\pref{sec:materialy}).
 Elementy połączono bondingiem anodowym w~atmosferze. Płytę grzejną
 nagrzewano do \SI{450}{\celsius}, czyli do górnej granicy typowego
 zakresu temperatur procesu (\pref{subsec:bonding}). Płyta była
-jednocześnie uziemioną elektrodą, a~kolejne warstwy stosu znajdowały
-się coraz dalej od niej, więc ich temperatura była niższa niż
-temperatura płyty. Wysoka temperatura płyty zapewniała, że także
-najwyżej położone połączenia osiągały temperaturę wystarczającą do
+jednocześnie uziemioną elektrodą, a~połączenie szkła z~bramką
+znajdowało się dalej od niej niż połączenie z~emiterem, więc jego
+temperatura była niższa niż temperatura płyty. Wysoka temperatura płyty
+zapewniała, że także to połączenie osiągało temperaturę wystarczającą do
 przewodnictwa jonowego szkła. Między elementy wprowadzono dodatkowo
 przekładkę, która zmniejszała dystans między łączonymi elementami.
 \TODO{T18: kolejność łączenia warstw, sposób justowania otworów względem ostrza; czym była przekładka i~gdzie leżała}
