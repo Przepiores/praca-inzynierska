@@ -28,7 +28,11 @@
 \else
   \input{rozdzialy/05_badania}
 \fi
-\input{rozdzialy/06_podsumowanie}    % 11. podsumowanie
+\ifdefined\wersjaPrezentacja
+  \chapter{Podsumowanie i~wnioski}\label{ch:podsumowanie} % pusty w wersji „prezentacja”
+\else
+  \input{rozdzialy/06_podsumowanie}    % 11. podsumowanie
+\fi
 
 % ---------------- Literatura i dodatki
 \printbibliography[title={Literatura}]   % 12. (mwrep dodaje do spisu treści)
