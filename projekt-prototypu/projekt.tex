@@ -116,8 +116,9 @@ Elektrody wykonano z~płytek krzemu monokrystalicznego o~orientacji
 (100), ponieważ kształt otworów uzyskuje się trawieniem
 anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym. Emiter ma wymiary
-\qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre}; w~jego części środkowej, od strony bramki, wytrawiono
-wnękę o~wymiarach \qtyproduct[product-units=single]{5 x 5}{\milli\metre},
+\qtyproduct[product-units=single]{14 x 14}{\milli\metre}, wypustkę kontaktową o~długości
+\SI{3}{\milli\metre} i~grubość \SI{670}{\micro\metre}; w~jego części środkowej, od strony bramki, wytrawiono
+wnękę o~wymiarach \qtyproduct[product-units=single]{6 x 6}{\milli\metre},
 na której dnie znajduje się ostrze CNT (\pref{sec:przebieg}).
 Bramka ma grubość \SI{440}{\micro\metre} i~wymiary
 \qtyproduct[product-units=single]{12 x 15}{\milli\metre}, przy czym
@@ -134,17 +135,21 @@ i~bramki przedstawiono na \rysref{fig:bramka-wymiary}.
     % a) emiter
     \begin{scope}
       \fill[gray!35] (0,0) rectangle (14,14);
-      \draw (0,0) rectangle (14,14);
-      \fill[gray!15] (4.5,4.5) rectangle (9.5,9.5);
-      \draw (4.5,4.5) rectangle (9.5,9.5);
+      \fill[gray!35] (11.5,14) rectangle (14,17);
+      \draw (0,0) -- (14,0) -- (14,17) -- (11.5,17) -- (11.5,14) -- (0,14) -- cycle;
+      \fill[gray!15] (4,4) rectangle (10,10);
+      \draw (4,4) rectangle (10,10);
       \fill[black] (7,7) circle (0.35);
-      \node[font=\footnotesize] at (7,10.6) {wnęka};
+      \node[font=\footnotesize] at (7,11.1) {wnęka};
+      \node[font=\footnotesize] at (12.75,18.2) {kontakt};
       \draw[gray, thin] (0,0) -- (-2.6,0) (0,14) -- (-2.6,14)
         (0,0) -- (0,-2.6) (14,0) -- (14,-2.6)
-        (4.5,4.5) -- (4.5,-2.6) (9.5,4.5) -- (9.5,-2.6);
+        (11.5,17) -- (8.4,17) (11.5,14) -- (8.4,14)
+        (4,4) -- (4,-2.6) (10,4) -- (10,-2.6);
       \draw[wym] (-2,0) -- (-2,14) node[midway, left] {\SI{14}{\milli\metre}};
       \draw[wym] (0,-4.4) -- (14,-4.4) node[midway, below] {\SI{14}{\milli\metre}};
-      \draw[wym] (4.5,-2) -- (9.5,-2) node[midway, below] {\SI{5}{\milli\metre}};
+      \draw[wym] (9,14) -- (9,17) node[midway, left] {\SI{3}{\milli\metre}};
+      \draw[wym] (4,-2) -- (10,-2) node[midway, below] {\SI{6}{\milli\metre}};
       \node[font=\small] at (7,-7.6) {a)};
     \end{scope}
     % b) bramka
@@ -167,7 +172,7 @@ i~bramki przedstawiono na \rysref{fig:bramka-wymiary}.
     \end{scope}
   \end{tikzpicture}
   \caption{Wymiary elektrod w~rzucie z~góry: a)~emiter (E) z~wnęką, na
-    której dnie znajduje się ostrze CNT, b)~bramka (B) z~otworem na wiązkę
+    której dnie znajduje się ostrze CNT, i~wypustką kontaktową, b)~bramka (B) z~otworem na wiązkę
     i~wypustką kontaktową (schemat poglądowy, bez zachowania skali)}
   \label{fig:bramka-wymiary}
 \end{figure}
