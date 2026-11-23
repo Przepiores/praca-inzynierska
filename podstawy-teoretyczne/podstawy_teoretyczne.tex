@@ -22,12 +22,12 @@ oraz zasady pomiaru widma metodą EDS.
 \section{Technologia wykonania struktur MEMS}
 \label{sec:technologia}
 
-\subsection{Materiały}
+\subsection{Materiały i~utlenianie termiczne krzemu}
 
 Podstawowymi materiałami struktury są krzem monokrystaliczny i~szkło
 borokrzemowe. Stosuje się płytki krzemowe o~orientacji (100), ponieważ
 w~procesie trawienia anizotropowego ściany wnęk i~otworów tworzą się
-wtedy wzdłuż płaszczyzn \{111\} pod przewidywalnym kątem.
+wtedy wzdłuż płaszczyzn (111) pod przewidywalnym kątem.
 Krzem jest jednocześnie materiałem konstrukcyjnym i~przewodzącym,
 dlatego wytworzone z~niego elementy mogą pełnić rolę elektrod.
 
@@ -39,8 +39,6 @@ Zawiera ono jony sodu Na$^+$, które są niezbędne w~procesie bondingu
 anodowego (p.~\ref{subsec:bonding}). Szkło służy też jako izolator
 między elektrodami pracującymi przy różnych potencjałach.
 
-\subsection{Utlenianie termiczne krzemu}
-
 Warstwę tlenku krzemu SiO$_2$ wytwarza się przez utlenianie płytki
 w~piecu w~temperaturze \SIrange{900}{1200}{\celsius}, w~atmosferze
 suchego tlenu lub pary wodnej (utlenianie mokre, szybsze). Wzrost
@@ -50,7 +48,7 @@ maski podczas trawienia oraz izolatora elektrycznego. W~roztworach KOH
 lepszą maską jest azotek krzemu Si$_3$N$_4$, który praktycznie się
 w~nich nie trawi.
 
-\subsection{Fotolitografia}
+\subsection{Fotolitografia i~trawienie krzemu}
 
 Fotolitografia przenosi wzór z~maski na powierzchnię płytki. Proces
 obejmuje:
@@ -67,16 +65,15 @@ obejmuje:
 W~strukturach źródła fotolitografia wyznacza położenie i~wymiary wnęk
 i~otworów w~elektrodach.
 
-\subsection{Trawienie anizotropowe krzemu w~KOH}
 \label{subsec:koh}
 
 Wodny roztwór wodorotlenku potasu (typowo \SIrange{30}{40}{\percent},
 \SIrange{70}{85}{\celsius}) trawi krzem z~szybkością zależną od
 orientacji krystalograficznej. Płaszczyzny (100) trawią się z~szybkością
-rzędu \SI{1}{\micro\metre\per\minute}, a~płaszczyzny \{111\} wielokrotnie
+rzędu \SI{1}{\micro\metre\per\minute}, a~płaszczyzny (111) wielokrotnie
 wolniej (stosunek rzędu 100:1 i~więcej). W~efekcie w~płytce (100) powstają
 wnęki o~ścianach nachylonych pod kątem \ang{54.74} do powierzchni,
-ograniczone płaszczyznami \{111\}.
+ograniczone płaszczyznami (111).
 
 Właściwość ta jest wykorzystywana do wytwarzania wnęk o~zadanej
 głębokości (trawienie przerywa się po określonym czasie) oraz otworów
@@ -85,8 +82,6 @@ emitera nie jest kształtowane w~krzemie, lecz formowane z~nanorurek
 węglowych (p.~\ref{subsec:cnt}).
 Zamiast KOH można stosować TMAH (wodorotlenek tetrametyloamoniowy), który
 nie wprowadza jonów potasu, ale trawi wolniej.
-
-\subsection{Inne metody trawienia}
 
 Trawienie izotropowe (np. krzemu w~mieszaninie HF/HNO$_3$/CH$_3$COOH,
 szkła w~kwasie fluorowodorowym HF) przebiega jednakowo we wszystkich
@@ -97,7 +92,7 @@ kryształu, ale wymaga drogiej aparatury. Trawienie w~KOH jest tanie
 i~wystarczające dla geometrii stosowanych w~źródle, dlatego jest
 podstawową metodą kształtowania krzemu w~tej pracy.
 
-\subsection{Formowanie emitera CNT}
+\subsection{Formowanie emitera CNT i~bonding anodowy}
 \label{subsec:cnt}
 
 W~źródłach MEMS opracowanych na Politechnice Wrocławskiej emiter ma
@@ -110,7 +105,6 @@ Emiter musi wytrzymać temperaturę i~pole elektryczne występujące
 podczas bondingu anodowego. Sposób formowania ostrza w~prototypie
 opisano w~\pref{sec:nanoszenie-cnt}.
 
-\subsection{Bonding anodowy}
 \label{subsec:bonding}
 
 Bonding anodowy łączy krzem ze szkłem zawierającym jony alkaliczne.
@@ -147,7 +141,7 @@ przyrządu.
 \section{Emisja elektronów}
 \label{sec:emisja}
 
-\subsection{Praca wyjścia i~mechanizmy emisji}
+\subsection{Mechanizmy emisji i~emitery z~nanorurek węglowych}
 
 Elektrony przewodnictwa w~metalu lub półprzewodniku są utrzymywane
 w~materiale przez barierę potencjału. Minimalną energię potrzebną do
@@ -177,8 +171,6 @@ W~zastosowaniach kosmicznych i~w~strukturach MEMS korzystna jest emisja
 polowa: katoda nie wymaga grzania, pracuje w~temperaturze otoczenia,
 a~prąd emisji można szybko zmieniać napięciem~\cite{parmee2015cntxray}.
 
-\subsection{Emisja polowa i~równanie Fowlera--Nordheima}
-
 Zależność gęstości prądu emisji polowej od natężenia pola $F$ na
 powierzchni emitera podali Fowler i~Nordheim~\cite{fowler1928emission}.
 W~uproszczonej postaci:
@@ -204,17 +196,44 @@ proporcjonalny do $h/r$. Dla nanorurek węglowych $\beta$ osiąga wartości
 rzędu setek do tysięcy.
 
 Po podstawieniu $F=\beta U/d$ do~\eqref{eq:fn} i~przemnożeniu przez
-efektywną powierzchnię emisji otrzymuje się zależność prądu od napięcia,
-którą zapisuje się w~postaci liniowej:
-\begin{equation}
-  \ln\frac{I}{U^2} = \ln C - \frac{b\,\varphi^{3/2}\,d}{\beta}\cdot\frac{1}{U}.
-\end{equation}
-Wykres $\ln(I/U^2)$ w~funkcji $1/U$ (wykres F--N) jest dla emisji
-polowej linią prostą. Służy to do sprawdzenia, czy mierzony prąd jest
-prądem emisji polowej, a~z~nachylenia prostej przy znanym $\varphi$
-można wyznaczyć $\beta$.
+efektywną powierzchnię emisji otrzymuje się zależność prądu emisji od
+napięcia. Prąd jest pomijalnie mały do napięcia progowego, a~powyżej
+niego rośnie wykładniczo (rys.~\ref{fig:fn}a). Po przedstawieniu tej
+samej zależności w~układzie $\ln(I/U^2)$ w~funkcji $1/U$ (wykres F--N)
+otrzymuje się linię prostą o~nachyleniu $-b\,\varphi^{3/2}d/\beta$
+(rys.~\ref{fig:fn}b). Prostoliniowy przebieg wykresu F--N służy do
+sprawdzenia, czy mierzony prąd jest prądem emisji polowej, a~z~nachylenia
+prostej przy znanym $\varphi$ można wyznaczyć $\beta$.
 
-\subsection{Nanorurki węglowe jako emitery}
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[name=iu,
+        width=0.47\linewidth, height=0.40\linewidth,
+        xmin=0.6, xmax=1.6, ymin=0, ymax=1.05,
+        xlabel={$U$ [\si{\kilo\volt}]}, ylabel={$I$ [j.u.]},
+        ytick=\empty, axis lines=left,
+        title={a)}, title style={at={(0,1)}, anchor=south west, font=\small}]
+      \addplot[thick, blue!70!black, domain=0.6:1.6, samples=150]
+        {x^2*exp(-15/x)/(2.56*exp(-15/1.6))};
+    \end{axis}
+    \begin{axis}[at={($(iu.east)+(1.3cm,0)$)}, anchor=west,
+        width=0.47\linewidth, height=0.40\linewidth,
+        xmin=0.6, xmax=1.7, ymin=-26.5, ymax=-8,
+        xlabel={$1/U$ [\si{\per\kilo\volt}]}, ylabel={$\ln(I/U^2)$ [j.u.]},
+        ytick=\empty, axis lines=left,
+        title={b)}, title style={at={(0,1)}, anchor=south west, font=\small}]
+      \addplot[thick, red!70!black, domain=0.625:1.667, samples=2] {-15*x};
+      \draw[gray] (axis cs:0.9,-13.5) -- (axis cs:1.2,-13.5) -- (axis cs:1.2,-18);
+      \node[font=\footnotesize, anchor=west, align=left] at (axis cs:1.22,-15.2)
+        {nachylenie\\$-b\,\varphi^{3/2}d/\beta$};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Charakterystyka emisji polowej według równania Fowlera--Nordheima:
+    a)~prąd emisji w~funkcji napięcia, b)~ta sama zależność we współrzędnych
+    F--N}
+  \label{fig:fn}
+\end{figure}
 
 Nanorurki węglowe (CNT) to zwinięte warstwy grafenu o~średnicy od ok.
 \SI{1}{\nano\metre} (jednościenne) do kilkudziesięciu nanometrów
@@ -235,7 +254,7 @@ pojawiły się na początku XXI wieku
 \cite{yue2002cntxray,heo2012miniature,parmee2015cntxray}. Katody CNT są
 też rozważane w~układach napędu kosmicznego~\cite{huo2020cntspace}.
 
-\subsection{Wywołanie emisji w~badanym układzie}
+\subsection{Wywołanie emisji w~badanym układzie i~jej stabilność}
 
 W~badanym układzie emisję wywołuje napięcie $U_\mathrm{B}$ przyłożone
 między emiter (E) a~bramkę (B), czyli elektrodę ekstrakcyjną
@@ -244,8 +263,6 @@ niemierzalny. Powyżej progu prąd rośnie wykładniczo zgodnie
 z~\eqref{eq:fn}. Część elektronów trafia w~bramkę, a~część przechodzi
 przez otwór i~jest przyspieszana w~stronę targetu (T) napięciem
 $U_\mathrm{T}$. Sposób pomiaru prądów opisano w~\rozdzref{ch:stanowisko}.
-
-\subsection{Degradacja i~niestabilność emisji}
 
 Prąd emisji polowej jest wrażliwy na stan powierzchni emitera.
 Cząsteczki gazu zaadsorbowane na wierzchołku zmieniają lokalną pracę
@@ -261,7 +278,7 @@ w~\pref{sec:emisja-magnes}.
 \section{Przyspieszanie i~ogniskowanie wiązki elektronów}
 \label{sec:wiazka}
 
-\subsection{Energia i~prędkość elektronu}
+\subsection{Energia elektronów i~napięcia w~układzie}
 
 Elektron przyspieszany różnicą potencjałów $U$ uzyskuje energię
 kinetyczną
@@ -271,8 +288,6 @@ kinetyczną
 czyli np. \SI{10}{\kilo\electronvolt} przy \SI{10}{\kilo\volt}. Prędkość
 elektronu wynosi $v=\sqrt{2eU/m_\mathrm{e}}$, co dla \SI{10}{\kilo\volt} daje
 ok. \SI{5.9e7}{\metre\per\second}.
-
-\subsection{Napięcia w~układzie}
 
 W~układzie występują dwa napięcia o~różnych funkcjach:
 \begin{itemize}
@@ -300,7 +315,7 @@ wyjścia, a~obwód bramki musi być wtedy odniesiony do potencjału emitera.
 W~badaniach prototypu zastosowano pierwszy sposób, z~dodatnim napięciem
 $U_\mathrm{T}$ doprowadzonym do targetu (\rozdzref{ch:stanowisko}).
 
-\subsection{Ruch elektronu w~polu magnetycznym}
+\subsection{Ruch elektronu i~ogniskowanie w~polu magnetycznym}
 
 Na elektron poruszający się w~polu elektrycznym $\vec{E}$ i~magnetycznym
 $\vec{B}$ działa siła Lorentza
@@ -320,8 +335,6 @@ rzędu \SI{0.1}{\tesla} i~składowej poprzecznej energii rzędu
 \SI{10}{\electronvolt} promień Larmora wynosi ok.
 \SI{0.1}{\milli\metre}.
 
-\subsection{Ogniskowanie magnetyczne}
-
 Pole magnetyczne o~symetrii osiowej działa na wiązkę elektronów jak
 soczewka skupiająca. W~przybliżeniu cienkiej soczewki jej ogniskową
 opisuje wzór Buscha
@@ -337,7 +350,7 @@ podążają wzdłuż jego linii pola, co poprawia skupienie i~jednorodność
 wiązki w~porównaniu z~samym ogniskowaniem
 elektrostatycznym~\cite{urbanski2026phd,grzebyk2017magnetic}.
 
-\subsection{Ogniskowanie elektrostatyczne}
+\subsection{Ogniskowanie elektrostatyczne i~obserwacja wiązki}
 
 Wiązkę można też ogniskować polem elektrycznym elektrod o~odpowiednio
 ukształtowanych otworach (soczewki elektrostatyczne, np. pojedyncza
@@ -346,8 +359,6 @@ z~krzemu, ale ich wymiary i~odległości są ograniczone grubością płytek,
 a~ich ustawienie względem siebie musi być bardzo dokładne. W~pracy
 \cite{urbanski2026phd} samo ogniskowanie elektrostatyczne okazało się
 niewystarczające, co uzasadnia użycie magnesu.
-
-\subsection{Obserwacja wiązki na ekranie luminescencyjnym}
 
 Kształt i~położenie wiązki obserwuje się na ekranie pokrytym luminoforem,
 który świeci w~miejscu padania elektronów. Jasność świecenia rośnie
@@ -360,7 +371,7 @@ aparatu.
 \section{Powstawanie promieniowania X}
 \label{sec:rtg}
 
-\subsection{Oddziaływanie elektronów z~materią}
+\subsection{Oddziaływanie elektronów z~materią i~promieniowanie hamowania}
 
 Elektron wnikający w~materiał ulega rozpraszaniu sprężystemu (na
 jądrach, zmiana kierunku bez straty energii) i~niesprężystemu (na
@@ -380,8 +391,6 @@ wynosi ok. \SI{1.5}{\micro\metre} przy \SI{10}{\kilo\electronvolt}
 i~ok. \SI{0.3}{\micro\metre} przy \SI{4}{\kilo\electronvolt}.
 Analiza EDS dotyczy więc warstwy przypowierzchniowej próbki o~grubości
 rzędu mikrometrów.
-
-\subsection{Promieniowanie hamowania}
 
 Elektron hamowany w~polu elektrycznym jądra traci część energii, która
 jest emitowana jako foton. Ponieważ strata energii w~pojedynczym
@@ -430,7 +439,7 @@ rys.~\ref{fig:kramers}.
     widmo kończy się na granicy Duane'a--Hunta
     $E_\mathrm{max}=eU$. Na widmo ciągłe nakładają się linie
     charakterystyczne, a~przy małych energiach jest ono osłabiane przez
-    absorpcję w~próbce i~oknie detektora \opracowanieWlasne}
+    absorpcję w~próbce i~oknie detektora}
   \label{fig:kramers}
 \end{figure}
 
@@ -457,12 +466,12 @@ i~cięższych pierwiastków nie da się wzbudzić. Przy \SI{10}{\kilo\electronvo
 dobrze wzbudzane są linie K pierwiastków do ok. tytanu, a~linie K żelaza
 ($U_0\approx1{,}4$) i~miedzi ($U_0\approx1{,}1$) już słabo. Metale
 przejściowe i~pierwiastki ciężkie rozpoznaje się wtedy głównie po liniach
-L i~M (np. Cu L$\alpha$ \SI{0.930}{\kilo\electronvolt}). Główne pierwiastki
-skałotwórcze łącznie z~żelazem wymagają energii ok.
-\SIrange{15}{20}{\kilo\electronvolt}, co uzasadnia docelowe napięcie
-przyspieszające rzędu \SIrange{10}{18}{\kilo\volt}.
+L i~M (np. Cu L$\alpha$ \SI{0.930}{\kilo\electronvolt}). Skuteczne
+wzbudzenie linii K głównych pierwiastków skałotwórczych łącznie
+z~żelazem ($U_0 \geq 2$) wymaga energii ok.~\SI{15}{\kilo\electronvolt},
+co uzasadnia docelowe napięcie przyspieszające do ok.~\SI{18}{\kilo\volt}.
 
-\subsection{Relaksacja atomu i~emisja fotonu promieniowania X}
+\subsection{Relaksacja atomu, nazewnictwo linii i~prawo Moseleya}
 
 Po jonizacji powłoki wewnętrznej atom znajduje się w~stanie wzbudzonym.
 Lukę zapełnia elektron z~wyższej powłoki, a~nadmiar energii, równy
@@ -480,8 +489,6 @@ fluorescencji $\omega$, rosnąca z~liczbą atomową: dla powłoki K krzemu
 wynosi ok.~\num{0.05}, a~dla żelaza ok.~\num{0.35}. Lekkie pierwiastki
 emitują więc mniej fotonów na jedną jonizację i~dają w~widmie słabsze
 linie~\cite{goldstein2018sem,beckhoff2006xrf}.
-
-\subsection{Nazewnictwo linii i~prawo Moseleya}
 
 Linie oznacza się literą powłoki, na której powstała luka, oraz
 indeksem określającym, skąd pochodzi elektron zapełniający:
@@ -539,7 +546,7 @@ elektronów pada bezpośrednio na badaną próbkę (\pref{sec:koncepcja}).
 Foton promieniowania X pochłonięty w~krysztale półprzewodnika wytwarza
 pary elektron--dziura. Średnia energia na wytworzenie jednej pary
 w~krzemie wynosi $\varepsilon\approx\SI{3.6}{\electronvolt}$, więc foton
-o~energii \SI{6}{\kilo\electronvolt} wytwarza ok. 1600 par. Pole
+o~energii \SI{6}{\kilo\electronvolt} wytwarza ok.~\num{1600} par. Pole
 elektryczne w~detektorze rozdziela nośniki, zanim zdążą zrekombinować,
 i~zbiera je na elektrodach. Zebrany ładunek jest proporcjonalny do
 energii fotonu~\cite{urbanski2023detection}.
@@ -559,7 +566,7 @@ Stosowane typy detektorów:
 Typu detektora w~spektrometrze użytym do pomiarów nie ustalono, dlatego
 zasadę działania opisano ogólnie.
 
-\subsection{Tor akwizycji}
+\subsection{Tor akwizycji i~analiza widma}
 
 Ładunek z~detektora jest zamieniany na impuls napięciowy przez
 przedwzmacniacz ładunkowy. Układ kształtujący (obecnie cyfrowy procesor
@@ -567,8 +574,6 @@ impulsów) filtruje sygnał i~mierzy amplitudę każdego impulsu.
 Analizator wielokanałowy (MCA) przypisuje impuls do kanału odpowiadającego
 jego amplitudzie i~zlicza impulsy w~kanałach. Wynikiem jest histogram
 liczby zliczeń w~funkcji energii, czyli widmo.
-
-\subsection{Analiza widma}
 
 Analiza jakościowa polega na przypisaniu pikom pierwiastków na
 podstawie energii linii. Należy uwzględnić zjawiska, które dają piki
@@ -588,8 +593,6 @@ pozorne lub zniekształcenia:
         uchwyt, ścianki komory), w~które trafiają elektrony rozproszone.
 \end{itemize}
 
-\subsection{EDS a~WDS}
-
 Oprócz spektroskopii z~dyspersją energii (EDS) stosuje się spektroskopię
 z~dyspersją długości fali (WDS), w~której promieniowanie jest
 rozszczepiane przez odbicie od kryształu analizatora (warunek Bragga).
@@ -598,7 +601,7 @@ goniometru, rejestruje naraz jedną linię i~jest duży. EDS rejestruje całe
 widmo jednocześnie w~małym detektorze bez części ruchomych, dlatego
 nadaje się do miniaturowego przyrządu kosmicznego~\cite{goldstein2018sem}.
 
-\subsection{Analiza ilościowa}
+\subsection{Analiza ilościowa i~niepewność pomiaru}
 
 Skład ilościowy wyznacza się z~natężeń linii, porównując je z~natężeniami
 zmierzonymi dla wzorców o~znanym składzie. Wymaga to poprawek na liczbę
@@ -607,8 +610,6 @@ płaskiej, wypolerowanej powierzchni próbki i~stabilnego prądu wiązki.
 W~tej pracy prąd wiązki i~geometria pomiaru nie były na tyle stabilne
 i~znane, aby prowadzić analizę ilościową, dlatego ograniczono się do
 analizy jakościowej.
-
-\subsection{Niepewność pomiaru}
 
 Zliczenia fotonów podlegają rozkładowi Poissona, więc niepewność liczby
 zliczeń $N$ w~piku wynosi $\sqrt{N}$, a~niepewność względna $1/\sqrt{N}$.

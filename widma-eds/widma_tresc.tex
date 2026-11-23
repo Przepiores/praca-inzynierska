@@ -20,7 +20,7 @@ akwizycji zestawiono w~\tabref{tab:widma-parametry}.
     Napięcie przyspieszające $\UT$ & \SI{4000}{\volt} \\
     Napięcie ekstrakcyjne $\UB$ & \SI{1000}{\volt} \\
     Czas kształtowania (\angielski{peaking time}) & \SI{0.5}{\micro\second} \\
-    Liczba kanałów, szerokość kanału & 8192, \SI{10}{\electronvolt} \\
+    Liczba kanałów, szerokość kanału & \num{8192}, \SI{10}{\electronvolt} \\
     Czas rzeczywisty / czas życia & \SI{210.7}{\second} / \SI{100.1}{\second} \\
     Częstość zliczeń wejściowa / wyjściowa & ok.~475~kcps / ok.~225~kcps \\
     Czas martwy & \SIrange{52}{54}{\percent} \\\bottomrule
@@ -31,7 +31,7 @@ Widmo zbierano w~trybie ciągłym z~kumulacją, a~stan pomiaru zapisano
 w~ośmiu chwilach pośrednich. Badaną próbką była płytka aluminiowa, a~pomiar
 wykonano z~magnesem ogniskującym umieszczonym na emiterze. Ciśnienie
 w~komorze nie przekraczało \SI{1e-5}{\milli\bar}.
-\TODO{prąd emisji $\Ie$ podczas pomiaru, jeśli zapisano}
+Prąd emisji podczas pomiaru wynosił $\Ie \approx \SI{100}{\micro\ampere}$.
 
 \subsection{Identyfikacja linii}
 \label{sec:widma-linie}
@@ -42,7 +42,7 @@ położeń linii Mg~\Ka, Al~\Ka{} i~Si~\Ka{} (\pref{sec:widma-probki}).
 
 \rysunek[0.95\linewidth]{widma-eds/widmo_eds_4kV.pdf}{Widmo EDS zarejestrowane
   przy $\UT=\SI{4}{\kilo\volt}$ i~$\UB=\SI{1}{\kilo\volt}$, czas życia \SI{100}{\second};
-  w~powiększeniu zakres pików sumacyjnych \opracowanieWlasne}{fig:widmo-4kV}
+  w~powiększeniu zakres pików sumacyjnych}{fig:widmo-4kV}
 
 W~widmie występują trzy linie charakterystyczne lekkich pierwiastków
 (\tabref{tab:widma-linie}). Najsilniejsza jest linia Al~\Ka{} (ok.~$1{,}33\cdot10^{6}$
@@ -85,13 +85,13 @@ Przebieg częstości zliczeń w~czasie pomiaru przedstawiono na \rysref{fig:widm
 Częstości wejściowa i~wyjściowa pozostają stałe w~granicach \SI{\pm2}{\percent},
 natomiast średnia częstość zliczeń w~kanale Al~\Ka{} maleje w~ciągu \SI{200}{\second}
 z~ok.~$15{,}0\cdot10^{3}$ do $13{,}3\cdot10^{3}$~\si{\per\second}, tj.~o~ok.~\SI{11}{\percent}.
-Spadek ten może wynikać ze zmian prądu emisji (podrozdz.~\ref{sec:emisja-magnes}), jednak
+Spadek ten może wynikać ze zmian prądu emisji (\pref{sec:emisja-magnes}), jednak
 przy stałej częstości wejściowej bliskiej nasycenia toru akwizycji nie można
-tego rozstrzygnąć bez pomiaru $\Ie$.
+tego rozstrzygnąć bez zapisu przebiegu $\Ie$ w~czasie pomiaru.
 
 \rysunek[0.9\linewidth]{widma-eds/stabilnosc_zliczen.pdf}{Częstość zliczeń wejściowa (ICR),
   wyjściowa (OCR) i~średnia częstość w~kanale Al~\Ka{} w~czasie rejestracji widma
-  \opracowanieWlasne}{fig:widma-stabilnosc}
+}{fig:widma-stabilnosc}
 
 Uzyskane widmo potwierdza, że wiązka elektronów z~emitera CNT wzbudza
 w~próbce charakterystyczne promieniowanie X, a~linia Al~\Ka{} wskazana

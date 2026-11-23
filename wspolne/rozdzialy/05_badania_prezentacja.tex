@@ -1,0 +1,316 @@
+% Rozdział 5 — WERSJA „PREZENTACJA” (main-prezentacja.tex), 22.11.2026 (kris):
+% same wyniki z parametrami pomiarów, bez interpretacji, z pustym
+% podrozdziałem „Wnioski”. Pełna wersja: rozdzialy/05_badania.tex.
+% Dane i rysunki te same co w emisja_tresc.tex, widma_tresc.tex
+% i widma_materialy_tresc.tex — przy zmianach danych poprawić oba pliki.
+\chapter{Badania eksperymentalne}
+\label{ch:badania}
+
+\renewcommand{\figdir}{../emisja-magnes-pomiary/figures}
+\renewcommand{\datadir}{../emisja-magnes-pomiary/dane}
+\providecommand{\sesjaM}{z~magnesem}
+\providecommand{\sesjaB}{bez magnesu}
+\pgfplotsset{/pgf/number format/use comma, /pgf/number format/1000 sep={}}
+
+W~rozdziale przedstawiono wyniki pomiarów emisji polowej prototypu
+z~magnesem ogniskującym i~bez niego oraz widma promieniowania X
+zarejestrowane dla próbek o~różnym składzie. Stanowisko i~metody opisano
+w~\rozdzref{ch:stanowisko}.
+
+\section{Wpływ magnesu ogniskującego na emisję polową}
+\label{sec:emisja-magnes}
+
+\subsection{Przebieg pomiarów}
+
+Wykonano dwie sesje pomiarowe, w~których przy stałym napięciu $\UT$
+zwiększano napięcie $\UB$ co \SI{100}{V} i~rejestrowano prąd emisji
+$\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
+\begin{itemize}
+  \item \textbf{sesja bez magnesu} -- $\UT=\SI{2000}{V}$,
+        $\UB$ od \SI{500}{V} do \SI{1500}{V}, zdjęcia dla $\UB$ od
+        \SI{700}{V} do \SI{1100}{V}; przed sesją źródło odgazowano
+        przez wygrzanie w~temperaturze ok. \SI{200}{\celsius},
+  \item \textbf{sesja z~magnesem} -- $\UT=\SI{1500}{V}$,
+        $\UB$ od \SI{500}{V} do \SI{1700}{V}, zdjęcia dla $\UB$ od
+        \SI{500}{V} do \SI{1600}{V}; bez ponownego odgazowania źródła.
+\end{itemize}
+Dodatkowo wykonano serię~2 bez magnesu z~odczytami prądu od
+\SI{1}{\micro A} do \SI{400}{\micro A}. Ciśnienie w~komorze nie
+przekraczało \SI{1e-5}{\milli\bar}. Zmierzone prądy zestawiono
+w~tab.~\ref{tab:emisja-iv}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Prąd emisji w~funkcji napięcia w~obu sesjach}
+  \label{tab:emisja-iv}
+  \begin{tabular}{@{}r r r@{}}
+    \toprule
+    $\UB$ [V] & $\Ie$ \sesjaB\ [µA] & $\Ie$ \sesjaM\ [µA] \\
+    \midrule
+     500 & 0    & 14 \\
+     600 & 0    & 16 \\
+     700 & 0    & 14 \\
+     800 & 2    & 28 \\
+     900 & 3,1  & 45 \\
+    1\,000 & 4    & 69 \\
+    1\,100 & 6    & 118 \\
+    1\,200 & 8    & 180 \\
+    1\,300 & 9    & 190 \\
+    1\,400 & 11,2 & 190 \\
+    1\,500 & 22   & 193 \\
+    1\,600 & --   & 200 \\
+    1\,700 & --   & 200 \\
+    \midrule
+    $\UT$ & \SI{2000}{V} & \SI{1500}{V} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Charakterystyki prądowo-napięciowe}
+
+Charakterystyki $\Ie(\UB)$ obu sesji przedstawiono na rys.~\ref{fig:emisja-iv}.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{semilogyaxis}[
+      width=0.85\textwidth, height=7cm,
+      xlabel={napięcie $\UB$ [V]}, ylabel={prąd emisji $\Ie$ [µA]},
+      xmin=450, xmax=1750, ymin=1, ymax=500, xtick distance=200,
+      grid=major, grid style={gray!25},
+      legend pos=south east, legend cell align=left,
+      every axis plot/.append style={thick, mark size=2pt},
+      unbounded coords=jump,
+    ]
+      \addplot[red!60!black, mark=triangle*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_bez.csv};
+      \addlegendentry{\sesjaB\ ($\UT=\SI{2000}{V}$)}
+      \addplot[blue!70!black, mark=*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
+      \addlegendentry{\sesjaM\ ($\UT=\SI{1500}{V}$)}
+    \end{semilogyaxis}
+  \end{tikzpicture}
+  \caption{Prąd emisji w~funkcji napięcia $\UB$: \sesjaB\ przy
+    $\UT=\SI{2000}{V}$, \sesjaM\ przy $\UT=\SI{1500}{V}$
+    (skala logarytmiczna; punkty z~$\Ie=0$ pominięto)}
+  \label{fig:emisja-iv}
+\end{figure}
+
+\section{Obserwacja wiązki na ekranie luminescencyjnym}
+\label{sec:emisja-ekran}
+
+Wpływ magnesu na kształt wiązki oceniono na podstawie zdjęć ekranu
+luminescencyjnego wykonanych w~sesjach opisanych w~\pref{sec:emisja-magnes}.
+
+\subsection{Jasność ekranu}
+
+Jasność świecenia ekranu $L$ wyznaczono ze zdjęć metodą opisaną
+w~\pref{sec:analiza-zdjec}. Jej zależność od napięcia $\UB$ w~obu
+sesjach przedstawiono na rys.~\ref{fig:emisja-I}, a~zależność od
+odczytu prądu w~serii~2 na rys.~\ref{fig:emisja-IvsIe}.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=0.8\textwidth, height=6.5cm,
+      xlabel={napięcie $\UB$ [V]}, ylabel={jasność $L$ [j.u.]},
+      xmin=450, xmax=1650, ymin=0, ymax=3.5, xtick distance=200,
+      grid=major, grid style={gray!25},
+      legend pos=north west, legend cell align=left,
+      every axis plot/.append style={thick, mark size=2pt},
+    ]
+      \addplot[blue!70!black, mark=*] table[x=U,y=I,col sep=comma]{\datadir/mg.csv};
+      \addlegendentry{\sesjaM\ ($\UT=\SI{1500}{V}$)}
+      \addplot[red!60!black, mark=triangle*] table[x=U,y=I,col sep=comma]{\datadir/s1.csv};
+      \addlegendentry{\sesjaB\ ($\UT=\SI{2000}{V}$)}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Jasność świecenia ekranu w~funkcji napięcia $\UB$:
+    \sesjaM\ przy $\UT=\SI{1500}{V}$, \sesjaB\ przy $\UT=\SI{2000}{V}$}
+  \label{fig:emisja-I}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{loglogaxis}[
+      width=0.65\textwidth, height=5.5cm,
+      xtick={30,50,100,200,400}, xticklabels={30,50,100,200,400},
+      log ticks with fixed point,
+      xlabel={prąd emisji $\Ie$ [µA]},
+      ylabel={jasność $L$ [j.u.]},
+      grid=major, grid style={gray!25},
+    ]
+      \addplot[only marks, mark=square*, orange!85!black]
+        table[x=etykieta, y=I, col sep=comma,
+              restrict expr to domain={\thisrow{I}}{0.01:100}]{\datadir/s2.csv};
+    \end{loglogaxis}
+  \end{tikzpicture}
+  \caption{Jasność świecenia ekranu w~funkcji odczytu prądu emisji,
+    seria~2 \sesjaM}
+  \label{fig:emisja-IvsIe}
+\end{figure}
+
+\subsection{Obraz plamki}
+
+Zdjęcia ekranu z~obu sesji przy napięciach $\UB$ od \SI{800}{V} do
+\SI{1100}{V} zestawiono na rys.~\ref{fig:emisja-sbs}, zdjęcia z~sesji
+z~magnesem przy \SI{700}{V}, \SI{1400}{V} i~\SI{1600}{V} na
+rys.~\ref{fig:emisja-mg-skrajne}, a~pełne kadry na
+rys.~\ref{fig:emisja-pelne}. Parametry emisji i~plamki podano
+w~tab.~\ref{tab:emisja}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Parametry emisji i~plamki w~obu sesjach}
+  \label{tab:emisja}
+  \begin{tabular}{@{}lccc@{}}
+    \toprule
+    Parametr & \sesjaM & \sesjaB & seria 2 (\sesjaM) \\
+    \midrule
+    Odgazowanie źródła & nie & tak (\SI{200}{\celsius}) & tak (\SI{200}{\celsius}) \\
+    Napięcie $\UT$ & \SI{1500}{V} & \SI{2000}{V} & \SI{2000}{V} \\
+    Pierwsza widoczna plamka & \SI{600}{V} & \SI{800}{V} & \SI{700}{V} \\
+    Prąd maksymalny & \SI{200}{\micro A} & \SI{22}{\micro A} & \SI{400}{\micro A} \\
+    Maks. jasność $L$ [j.u.] & 3,19 & 1,67 & 2,89 \\
+    Maks. pole plamki [\% kadru] & 3,98 & 2,07 & 3,91 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\newcommand{\sbs}[2]{%
+  \begin{subfigure}[t]{0.28\textwidth}\centering
+    \includegraphics[width=\linewidth]{\figdir/#1}\caption{#2}
+  \end{subfigure}}
+
+\begin{figure}[p]
+  \centering
+  \makebox[0.28\textwidth]{\textbf{\sesjaM}}\hspace{1.5em}\makebox[0.28\textwidth]{\textbf{\sesjaB}}\par\medskip
+  \sbs{mg_03.jpg}{\SI{800}{V}, \SI{28}{\micro A}}\hspace{1.5em}
+  \sbs{s1_02.jpg}{\SI{800}{V}, \SI{2}{\micro A}}\par\medskip
+  \sbs{mg_04.jpg}{\SI{900}{V}, \SI{45}{\micro A}}\hspace{1.5em}
+  \sbs{s1_03.jpg}{\SI{900}{V}, \SI{3,1}{\micro A}}\par\medskip
+  \sbs{mg_05.jpg}{\SI{1000}{V}, \SI{69}{\micro A}}\hspace{1.5em}
+  \sbs{s1_04.jpg}{\SI{1000}{V}, \SI{4}{\micro A}}\par\medskip
+  \sbs{mg_06.jpg}{\SI{1100}{V}, \SI{118}{\micro A}}\hspace{1.5em}
+  \sbs{s1_05.jpg}{\SI{1100}{V}, \SI{6}{\micro A}}
+  \caption{Zbliżenia okna ekranu \sesjaM\ ($\UT=\SI{1500}{V}$, lewa kolumna)
+    i~\sesjaB\ ($\UT=\SI{2000}{V}$, prawa kolumna) przy tych samych
+    napięciach $\UB$; podpisy: $\UB$, $\Ie$}
+  \label{fig:emisja-sbs}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.28\textwidth}\centering
+    \includegraphics[width=\linewidth]{\figdir/mg_02.jpg}\caption{\SI{700}{V}}\end{subfigure}\hspace{1.5em}
+  \begin{subfigure}[t]{0.28\textwidth}\centering
+    \includegraphics[width=\linewidth]{\figdir/mg_09.jpg}\caption{\SI{1400}{V}}\end{subfigure}\hspace{1.5em}
+  \begin{subfigure}[t]{0.28\textwidth}\centering
+    \includegraphics[width=\linewidth]{\figdir/mg_11.jpg}\caption{\SI{1600}{V}}\end{subfigure}
+  \caption{Ekran w~sesji \sesjaM\ ($\UT=\SI{1500}{V}$) przy
+    $\UB = \SI{700}{V}$, \SI{1400}{V} i~\SI{1600}{V}}
+  \label{fig:emisja-mg-skrajne}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \begin{subfigure}[t]{0.32\textwidth}\centering
+    \includegraphics[width=\linewidth]{\figdir/mg_pelny.jpg}\caption{\sesjaM, \SI{1400}{V}}\end{subfigure}\hfill
+  \begin{subfigure}[t]{0.32\textwidth}\centering
+    \includegraphics[width=\linewidth]{\figdir/s1_pelny.jpg}\caption{\sesjaB, \SI{1100}{V}}\end{subfigure}\hfill
+  \begin{subfigure}[t]{0.32\textwidth}\centering
+    \includegraphics[width=\linewidth]{\figdir/s2_pelny.jpg}\caption{\sesjaM, seria 2}\end{subfigure}
+  \caption{Pełne kadry ekranu przy największym prądzie w~każdej serii}
+  \label{fig:emisja-pelne}
+\end{figure}
+
+\subsection{Wnioski}
+
+\vspace{6\baselineskip}
+
+\section{Widma EDS próbek}
+\label{sec:widma}
+
+\subsection{Widmo próbki aluminiowej przy $\UT = \SI{4}{\kilo\volt}$}
+\label{sec:widma-warunki}\label{sec:widma-linie}\label{sec:widma-stabilnosc}
+
+Widmo zarejestrowano 12.06.2026 dla płytki aluminiowej, z~magnesem
+ogniskującym na emiterze, przy prądzie emisji $\Ie \approx
+\SI{100}{\micro\ampere}$ i~ciśnieniu nie większym niż
+\SI{1e-5}{\milli\bar}, spektrometrem opisanym
+w~\pref{sec:rejestracja-widm}. Parametry pomiaru zestawiono
+w~\tabref{tab:widma-parametry}, widmo przedstawiono na
+\rysref{fig:widmo-4kV}, zidentyfikowane linie w~\tabref{tab:widma-linie},
+a~przebieg częstości zliczeń w~czasie pomiaru na \rysref{fig:widma-stabilnosc}.
+
+\begin{table}[htbp]\centering
+  \caption{Parametry rejestracji widma EDS}\label{tab:widma-parametry}
+  \begin{tabular}{@{}ll@{}}\toprule
+    Parametr & Wartość \\\midrule
+    Napięcie przyspieszające $\UT$ & \SI{4000}{\volt} \\
+    Napięcie ekstrakcyjne $\UB$ & \SI{1000}{\volt} \\
+    Prąd emisji $\Ie$ & ok.~\SI{100}{\micro\ampere} \\
+    Czas kształtowania (\angielski{peaking time}) & \SI{0.5}{\micro\second} \\
+    Liczba kanałów, szerokość kanału & \num{8192}, \SI{10}{\electronvolt} \\
+    Czas rzeczywisty / czas życia & \SI{210.7}{\second} / \SI{100.1}{\second} \\
+    Częstość zliczeń wejściowa / wyjściowa & ok.~475~kcps / ok.~225~kcps \\
+    Czas martwy & \SIrange{52}{54}{\percent} \\\bottomrule
+  \end{tabular}
+\end{table}
+
+\rysunek[0.95\linewidth]{widma-eds/widmo_eds_4kV.pdf}{Widmo EDS płytki
+  aluminiowej przy $\UT=\SI{4}{\kilo\volt}$ i~$\UB=\SI{1}{\kilo\volt}$,
+  czas życia \SI{100}{\second}}{fig:widmo-4kV}
+
+\begin{table}[htbp]\centering
+  \caption{Linie zidentyfikowane w~widmie z~\rysref{fig:widmo-4kV}}\label{tab:widma-linie}
+  \begin{tabular}{@{}S[table-format=1.2]lS[table-format=1.3]@{}}\toprule
+    {$E$ piku [\si{\kilo\electronvolt}]} & Linia & {$E$ tabel. [\si{\kilo\electronvolt}]} \\\midrule
+    1.26 & Mg~\Ka & 1.254 \\
+    1.48 & Al~\Ka & 1.487 \\
+    1.74 & Si~\Ka & 1.740 \\
+    2.98 & Al~\Ka{} + Al~\Ka & 2.974 \\
+    3.22 & Al~\Ka{} + Si~\Ka & 3.227 \\
+    3.46 & Si~\Ka{} + Si~\Ka & 3.480 \\\bottomrule
+  \end{tabular}
+\end{table}
+
+\rysunek[0.9\linewidth]{widma-eds/stabilnosc_zliczen.pdf}{Częstość zliczeń
+  wejściowa (ICR), wyjściowa (OCR) i~średnia częstość w~kanale Al~\Ka{}
+  w~czasie rejestracji widma przy $\UT=\SI{4}{\kilo\volt}$
+}{fig:widma-stabilnosc}
+
+\subsection{Widma próbek o~różnym składzie przy $\UT = \SI{10}{\kilo\volt}$}
+\label{sec:widma-probki}\label{sec:widma-tlen}
+
+Widma zarejestrowano 13.11.2026 przy $\UT=\SI{10}{\kilo\volt}$ dla
+czterech próbek: A~(miedź o~nieznanym składzie), B~(ołów), C~(złoto,
+chrom i~miedź) i~D~(aluminium). Dla próbek A--C wykonano po 6--10 serii
+o~czasie życia \SIrange{40}{250}{\second}, które zsumowano; dla
+próbki~D wykorzystano serię o~czasie martwym \SI{20}{\percent}. Skalę
+energii skorygowano liniowo na podstawie położeń linii Al~\Ka,
+Pb~M$\alpha$, Cr~\Ka, Fe~\Ka{} i~Cu~\Ka. Widma przedstawiono na
+\rysref{fig:widma-probki}, a~zidentyfikowane linie w~\tabref{tab:widma-probki}.
+
+\rysunek[0.95\linewidth]{widma-eds/widma_materialy.pdf}{Widma EDS próbek A, B i~C
+  przy $\UT=\SI{10}{\kilo\volt}$ (13.11.2026, skala logarytmiczna, zliczenia
+  na sekundę czasu życia)}{fig:widma-probki}
+
+\begin{table}[htbp]\centering\small
+  \caption{Linie zidentyfikowane w~widmach z~13.11.2026}\label{tab:widma-probki}
+  \begin{tabular}{@{}lll@{}}\toprule
+    Próbka & Pierwiastek & Linie i~energie po korekcji [\si{\kilo\electronvolt}] \\\midrule
+    A & Cu       & L$\alpha$ 0,92; \Ka{} 8,04; \Kb{} 8,90 \\
+      & Te       & L$\alpha$ 3,76; L$\beta_1$ 4,04; L$\beta_2$ 4,30; L$\gamma_1$ 4,57 \\
+      & P        & \Ka{} 2,01 \\
+      & S, Cl, K & \Ka{} 2,30; 2,62; 3,32 \\
+      & Si, Al   & \Ka{} 1,73; 1,48 \\\midrule
+    B & Pb       & M$\zeta$ 1,83; M$\alpha$ 2,35; M$\gamma$ 2,65 \\\midrule
+    C & Au       & M$\zeta$ 1,66; M$\alpha\beta$ 2,13; M$\gamma$ 2,41 \\
+      & Cr       & \Ka{} 5,42; \Kb{} 5,95 \\
+      & Cu       & L$\alpha$ 0,93; \Ka{} 8,04 \\\midrule
+    D & Al       & \Ka{} 1,48 \\
+      & Mn, Fe   & \Ka{} 5,91; 6,40 \\
+      & --       & pik sumacyjny 2,98 \\\bottomrule
+  \end{tabular}
+\end{table}
