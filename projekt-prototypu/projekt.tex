@@ -117,33 +117,58 @@ Elektrody wykonano z~płytek krzemu monokrystalicznego o~orientacji
 anizotropowym (\pref{subsec:koh}), a~krzem jest jednocześnie materiałem
 konstrukcyjnym i~przewodzącym. Emiter ma wymiary
 \qtyproduct[product-units=single]{14 x 14}{\milli\metre} i~grubość \SI{670}{\micro\metre}; w~jego części środkowej, od strony bramki, wytrawiono
-wnękę, na której dnie znajduje się ostrze CNT (\pref{sec:przebieg}).
+wnękę o~wymiarach \qtyproduct[product-units=single]{5 x 5}{\milli\metre},
+na której dnie znajduje się ostrze CNT (\pref{sec:przebieg}).
 Bramka ma grubość \SI{440}{\micro\metre} i~wymiary
 \qtyproduct[product-units=single]{12 x 15}{\milli\metre}, przy czym
-wymiar \SI{15}{\milli\metre} obejmuje wypustkę, do której dołącza się
-kontakt elektryczny. W~środku bramki wytrawiono kwadratowy otwór o~boku
-\SI{2}{\milli\metre}, przez który przechodzi wiązka
-(\rysref{fig:bramka-wymiary}).
+wymiar \SI{15}{\milli\metre} obejmuje wypustkę o~długości
+\SI{3}{\milli\metre}, do której dołącza się kontakt elektryczny.
+W~środku bramki wytrawiono kwadratowy otwór o~boku
+\SI{2}{\milli\metre}, przez który przechodzi wiązka. Wymiary emitera
+i~bramki przedstawiono na \rysref{fig:bramka-wymiary}.
 
 \begin{figure}[htbp]
   \centering
-  \begin{tikzpicture}[x=0.32cm, y=0.32cm, font=\small,
+  \begin{tikzpicture}[x=0.30cm, y=0.30cm, font=\small,
       wym/.style={{Stealth[length=2mm]}-{Stealth[length=2mm]}}]
-    \fill[gray!35] (0,0) rectangle (12,12);
-    \fill[gray!35] (0,12) rectangle (2.5,15);
-    \draw (0,0) -- (12,0) -- (12,12) -- (2.5,12) -- (2.5,15) -- (0,15) -- cycle;
-    \fill[white] (5,5) rectangle (7,7);
-    \draw (5,5) rectangle (7,7);
-    \draw[gray, thin] (0,15) -- (-2.6,15) (0,0) -- (-2.6,0)
-      (12,12) -- (14.6,12) (12,0) -- (14.6,0)
-      (5,5) -- (5,-2.6) (7,5) -- (7,-2.6);
-    \draw[wym] (-2,0) -- (-2,15) node[midway, left] {\SI{15}{\milli\metre}};
-    \draw[wym] (14,0) -- (14,12) node[midway, right] {\SI{12}{\milli\metre}};
-    \draw[wym] (5,-2) -- (7,-2) node[midway, below] {\SI{2}{\milli\metre}};
-    \node[font=\footnotesize, align=center] at (1.25,16.2) {kontakt};
+    % a) emiter
+    \begin{scope}
+      \fill[gray!35] (0,0) rectangle (14,14);
+      \draw (0,0) rectangle (14,14);
+      \fill[gray!15] (4.5,4.5) rectangle (9.5,9.5);
+      \draw (4.5,4.5) rectangle (9.5,9.5);
+      \fill[black] (7,7) circle (0.35);
+      \node[font=\footnotesize] at (7,10.6) {wnęka};
+      \draw[gray, thin] (0,0) -- (-2.6,0) (0,14) -- (-2.6,14)
+        (0,0) -- (0,-2.6) (14,0) -- (14,-2.6)
+        (4.5,4.5) -- (4.5,-2.6) (9.5,4.5) -- (9.5,-2.6);
+      \draw[wym] (-2,0) -- (-2,14) node[midway, left] {\SI{14}{\milli\metre}};
+      \draw[wym] (0,-4.4) -- (14,-4.4) node[midway, below] {\SI{14}{\milli\metre}};
+      \draw[wym] (4.5,-2) -- (9.5,-2) node[midway, below] {\SI{5}{\milli\metre}};
+      \node[font=\small] at (7,-7.6) {a)};
+    \end{scope}
+    % b) bramka
+    \begin{scope}[xshift=7.2cm]
+      \fill[gray!35] (0,0) rectangle (12,12);
+      \fill[gray!35] (0,12) rectangle (2.5,15);
+      \draw (0,0) -- (12,0) -- (12,12) -- (2.5,12) -- (2.5,15) -- (0,15) -- cycle;
+      \fill[white] (5,5) rectangle (7,7);
+      \draw (5,5) rectangle (7,7);
+      \draw[gray, thin] (0,15) -- (-2.6,15) (0,0) -- (-2.6,0)
+        (12,12) -- (14.6,12) (12,0) -- (14.6,0)
+        (2.5,15) -- (5.6,15) (2.5,12) -- (5.6,12)
+        (5,5) -- (5,-2.6) (7,5) -- (7,-2.6);
+      \draw[wym] (-2,0) -- (-2,15) node[midway, left] {\SI{15}{\milli\metre}};
+      \draw[wym] (14,0) -- (14,12) node[midway, right] {\SI{12}{\milli\metre}};
+      \draw[wym] (5,12) -- (5,15) node[midway, right] {\SI{3}{\milli\metre}};
+      \draw[wym] (5,-2) -- (7,-2) node[midway, below] {\SI{2}{\milli\metre}};
+      \node[font=\footnotesize, align=center] at (1.25,16.2) {kontakt};
+      \node[font=\small] at (6,-7.6) {b)};
+    \end{scope}
   \end{tikzpicture}
-  \caption{Bramka (B) w~rzucie z~góry, z~otworem na wiązkę i~wypustką
-    kontaktową (schemat poglądowy, bez zachowania skali)}
+  \caption{Wymiary elektrod w~rzucie z~góry: a)~emiter (E) z~wnęką, na
+    której dnie znajduje się ostrze CNT, b)~bramka (B) z~otworem na wiązkę
+    i~wypustką kontaktową (schemat poglądowy, bez zachowania skali)}
   \label{fig:bramka-wymiary}
 \end{figure}
 \TODO{T4: typ i~rezystywność płytek Si}
