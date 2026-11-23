@@ -152,8 +152,21 @@
 % ---------------------------------------------------------------------
 \usepackage{csquotes}
 \usepackage[backend=biber, style=ieee, sorting=none, maxnames=3, minnames=1,
-            doi=true, url=false, isbn=false]{biblatex}
+            doi=false, url=false, isbn=false]{biblatex}
 \addbibresource{bibliografia.bib}
+% bez kropek w pozycjach: brak kropki na końcu pozycji, przecinek zamiast
+% kropki między blokami (np. tytuł książki, wydawca); „nr” bez kropki
+% (ściągnięcie). Skróty „t.”, „s.”, „wyd.” i inicjały zostają z kropką.
+\renewcommand*{\finentrypunct}{}
+\renewcommand*{\newblockpunct}{\addcomma\space}
+\usepackage{regexpatch}
+\makeatletter
+\def\pwr@bez@kropek#1{\xpatchbibdriver*{#1}
+  {\setunit{\adddot\addspace}}{\setunit{\addcomma\addspace}}{}{}}
+\forcsvlist{\pwr@bez@kropek}{article,book,inbook,incollection,
+  inproceedings,online,patent,report,thesis,misc,manual,collection}
+\makeatother
+\DefineBibliographyStrings{polish}{number={nr}, issue={nr}}
 
 % ---------------------------------------------------------------------
 %  Hiperłącza (na końcu preambuły)

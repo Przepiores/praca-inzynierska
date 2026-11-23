@@ -31,12 +31,13 @@ Golden Standard (pkt 11) dopuszcza **PN-ISO 690 lub IEEE**, numerowany wykaz w k
 
 ```latex
 \usepackage[backend=biber, style=ieee, sorting=none, maxnames=3, minnames=1,
-            doi=true, url=false, isbn=false]{biblatex}
+            doi=false, url=false, isbn=false]{biblatex}
 \addbibresource{bibliografia.bib}   % kopia/łącze do wspolne/bibliografia.bib
 ...
 \printbibliography[title={Literatura}]
 ```
 
+- Wykaz bez DOI i bez kropek w pozycjach (kris, 23.11): `doi=false`, `\finentrypunct` pusty, przecinek zamiast kropki między blokami, „nr” bez kropki; skróty (t., s., wyd., i in.) i inicjały z kropką. Ustawienia w `szablon/preambula.tex`. DOI w `.bib` zostają (do weryfikacji źródeł).
 - Numeracja w kolejności pierwszego cytowania (`sorting=none`), w tekście `[1]`, `[2–4]`.
 - `\cite{a,b,c}` dla kilku źródeł naraz, cytowanie przed kropką: „…emisji polowej [3].”
 - Alternatywa, gdyby promotor zażądał PN-ISO 690: `style=iso-numeric` (pakiet `biblatex-iso690`); `.bib` nie wymaga zmian.
