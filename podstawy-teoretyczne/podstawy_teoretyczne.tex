@@ -196,15 +196,44 @@ proporcjonalny do $h/r$. Dla nanorurek węglowych $\beta$ osiąga wartości
 rzędu setek do tysięcy.
 
 Po podstawieniu $F=\beta U/d$ do~\eqref{eq:fn} i~przemnożeniu przez
-efektywną powierzchnię emisji otrzymuje się zależność prądu od napięcia,
-którą zapisuje się w~postaci liniowej:
-\begin{equation}
-  \ln\frac{I}{U^2} = \ln C - \frac{b\,\varphi^{3/2}\,d}{\beta}\cdot\frac{1}{U}.
-\end{equation}
-Wykres $\ln(I/U^2)$ w~funkcji $1/U$ (wykres F--N) jest dla emisji
-polowej linią prostą. Służy to do sprawdzenia, czy mierzony prąd jest
-prądem emisji polowej, a~z~nachylenia prostej przy znanym $\varphi$
-można wyznaczyć $\beta$.
+efektywną powierzchnię emisji otrzymuje się zależność prądu emisji od
+napięcia. Prąd jest pomijalnie mały do napięcia progowego, a~powyżej
+niego rośnie wykładniczo (rys.~\ref{fig:fn}a). Po przedstawieniu tej
+samej zależności w~układzie $\ln(I/U^2)$ w~funkcji $1/U$ (wykres F--N)
+otrzymuje się linię prostą o~nachyleniu $-b\,\varphi^{3/2}d/\beta$
+(rys.~\ref{fig:fn}b). Prostoliniowy przebieg wykresu F--N służy do
+sprawdzenia, czy mierzony prąd jest prądem emisji polowej, a~z~nachylenia
+prostej przy znanym $\varphi$ można wyznaczyć $\beta$.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[name=iu,
+        width=0.47\linewidth, height=0.40\linewidth,
+        xmin=0.6, xmax=1.6, ymin=0, ymax=1.05,
+        xlabel={$U$ [\si{\kilo\volt}]}, ylabel={$I$ [j.u.]},
+        ytick=\empty, axis lines=left,
+        title={a)}, title style={at={(0,1)}, anchor=south west, font=\small}]
+      \addplot[thick, blue!70!black, domain=0.6:1.6, samples=150]
+        {x^2*exp(-15/x)/(2.56*exp(-15/1.6))};
+    \end{axis}
+    \begin{axis}[at={($(iu.east)+(1.3cm,0)$)}, anchor=west,
+        width=0.47\linewidth, height=0.40\linewidth,
+        xmin=0.6, xmax=1.7, ymin=-26.5, ymax=-8,
+        xlabel={$1/U$ [\si{\per\kilo\volt}]}, ylabel={$\ln(I/U^2)$ [j.u.]},
+        ytick=\empty, axis lines=left,
+        title={b)}, title style={at={(0,1)}, anchor=south west, font=\small}]
+      \addplot[thick, red!70!black, domain=0.625:1.667, samples=2] {-15*x};
+      \draw[gray] (axis cs:0.9,-13.5) -- (axis cs:1.2,-13.5) -- (axis cs:1.2,-18);
+      \node[font=\footnotesize, anchor=west, align=left] at (axis cs:1.22,-15.2)
+        {nachylenie\\$-b\,\varphi^{3/2}d/\beta$};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Charakterystyka emisji polowej według równania Fowlera--Nordheima:
+    a)~prąd emisji w~funkcji napięcia, b)~ta sama zależność we współrzędnych
+    F--N \opracowanieWlasne}
+  \label{fig:fn}
+\end{figure}
 
 Nanorurki węglowe (CNT) to zwinięte warstwy grafenu o~średnicy od ok.
 \SI{1}{\nano\metre} (jednościenne) do kilkudziesięciu nanometrów
