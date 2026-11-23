@@ -71,7 +71,10 @@ for g, (y, lt) in Y.items():
                header=f'E_keV;zliczenia (suma: {", ".join(os.path.basename(f) for f in G[g])}; live {lt:.1f} s)', comments='')
 
 # ------------------------------- wykresy -------------------------------
-plt.rcParams.update({'font.family': 'DejaVu Serif', 'font.size': 9, 'axes.formatter.use_locale': False})
+# czcionka bezszeryfowa (uwagi z prezentacji 23.11): TeX Gyre Heros, jak \sffamily na rysunkach TikZ
+plt.rcParams.update({'font.family': ['TeX Gyre Heros', 'DejaVu Sans'], 'font.size': 9, 'axes.formatter.use_locale': False,
+                     'mathtext.fontset': 'custom', 'mathtext.rm': 'TeX Gyre Heros', 'mathtext.it': 'TeX Gyre Heros:italic',
+                     'mathtext.bf': 'TeX Gyre Heros:bold', 'mathtext.sf': 'TeX Gyre Heros', 'pdf.fonttype': 42})
 C = '#1f5fa8'; R = '#c0392b'; GR = '#7f7f7f'
 comma = tk.FuncFormatter(lambda v, p: f'{v:g}'.replace('.', ','))
 def pw10(ax):

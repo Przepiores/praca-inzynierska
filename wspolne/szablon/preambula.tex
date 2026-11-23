@@ -35,12 +35,17 @@
 \setmonofont{TeX Gyre Cursor}[Scale=MatchLowercase]
 \usepackage{microtype}
 \usepackage{indentfirst}   % wcięcie także pierwszego akapitu (typografia polska)
+% polyglossia przy każdym przełączeniu języka wyłącza wcięcie pierwszego
+% akapitu (opcja „indentfirst” języka domyślnie false) i nadpisuje
+% indentfirst — wymuszenie wcięcia po tytułach (uwagi z prezentacji 23.11).
+\makeatletter\let\nofrench@indent\french@indent \@afterindenttrue\makeatother
 
 % ---------------------------------------------------------------------
 %  Układ strony
 % ---------------------------------------------------------------------
-% Marginesy wg Golden Standard: 25 mm, od strony grzbietu 30 mm.
-\usepackage[a4paper, inner=30mm, outer=25mm, top=25mm, bottom=25mm,
+% Marginesy wg Golden Standard: 25 mm (dopuszczalne 30 mm od grzbietu;
+% kris 23.11: 25 mm także od grzbietu, więcej tekstu na stronie).
+\usepackage[a4paper, inner=25mm, outer=25mm, top=25mm, bottom=25mm,
             headheight=15pt, headsep=6mm, footskip=12mm]{geometry}
 \usepackage{setspace}
 \setstretch{\interlinia}
@@ -69,6 +74,23 @@
 \let\ps@blank\ps@praca
 \makeatother
 
+% Mniejsze odstępy wokół tytułów (kris 23.11: więcej tekstu na stronie).
+% Domyślnie w mwrep: rozdział 56/24 pt, podrozdział 24/10 pt, x.y.z 16/6 pt.
+\makeatletter
+\SetSectionFormatting[breakbefore,wholewidth]{chapter}
+        {20\p@}
+        {\FormatBlockHeading{\LARGE}}
+        {16\p@}
+\SetSectionFormatting{section}
+        {16\p@\@plus4\p@\@minus2\p@}
+        {\FormatHangHeading{\large}}
+        {8\p@\@plus2\p@}
+\SetSectionFormatting{subsection}
+        {12\p@\@plus3\p@\@minus1\p@}
+        {\FormatHangHeading{}}
+        {4\p@\@plus2\p@}
+\makeatother
+
 % Spis treści do poziomu podrozdziału (x.y.z)
 \setcounter{tocdepth}{2}
 \setcounter{secnumdepth}{3}
@@ -95,6 +117,7 @@
   per-mode              = symbol,
   inter-unit-product    = \ensuremath{{}\cdot{}},
   separate-uncertainty  = true,
+  quantity-product      = \nobreakspace, % pełna (niełamliwa) spacja przed jednostką
 }
 % Wsteczna zgodność: istniejące rozdziały używają \SI, \SIrange, \si, \num
 % (składnia siunitx v2) — działa bez zmian. Nowy tekst: \qty, \qtyrange.
@@ -111,7 +134,10 @@
 \usepackage{array}
 \usepackage{tabularx}
 \usepackage{enumitem}
-\setlist{nosep, leftmargin=*, labelindent=\parindent}
+% Listy: wcięcie punktora jak akapitu, niewielki odstęp przed i po liście
+% (akapit wprowadzający nie „skleja się” z listą), punkty bez odstępów.
+\setlist{topsep=0.35\baselineskip, partopsep=0pt, itemsep=0pt, parsep=0pt,
+         leftmargin=*, labelindent=\parindent}
 \setlist[itemize]{label=\textbullet}  % kropki zamiast półpauz (prośba autora 09.11.2026)
 
 \usepackage{xcolor}
@@ -122,6 +148,32 @@
 \pgfplotsset{compat=1.17,
   /pgf/number format/use comma,
   /pgf/number format/1000 sep={}}
+% Wszystkie rysunki TikZ/pgfplots/circuitikz: czcionka bezszeryfowa
+% (tekst, opisy osi, liczby i symbole w trybie matematycznym).
+% \sansmath (lokalnie, w grupie): litery i cyfry we wzorach z alfabetów
+% bezszeryfowych fontu TeX Gyre Termes Math (U+1D608, U+1D622, U+1D7E2),
+% \mathrm/\mathit -> \mathsfup/\mathsfit. Litery greckie bez zmian
+% (Unicode nie ma zwykłych bezszeryfowych liter greckich).
+\makeatletter
+\newcommand*\sansmath{%
+  \@tempcnta=\z@
+  \loop\ifnum\@tempcnta<26
+    \Umathcode\numexpr`A+\@tempcnta\relax="7 "0 \numexpr"1D608+\@tempcnta\relax
+    \Umathcode\numexpr`a+\@tempcnta\relax="7 "0 \numexpr"1D622+\@tempcnta\relax
+    \ifnum\@tempcnta<10
+      \Umathcode\numexpr`0+\@tempcnta\relax="0 "0 \numexpr"1D7E2+\@tempcnta\relax
+    \fi
+    \advance\@tempcnta\@ne
+  \repeat
+  \renewcommand*\mathrm[1]{{\mathsfup{##1}}}%
+  \renewcommand*\mathit[1]{{\mathsfit{##1}}}%
+  \renewcommand*\mathbf[1]{{\mathsfbfup{##1}}}%
+  \let\symup\symsfup \let\symit\symsfit
+  \renewcommand*\ln{\mathop{\mathsfup{ln}}\nolimits}%
+  \renewcommand*\exp{\mathop{\mathsfup{exp}}\nolimits}}
+\makeatother
+\tikzset{every picture/.append style={execute at begin picture={%
+  \sffamily\sansmath}}}
 
 % Fragmenty-rysunki zapisane jako samodzielne dokumenty (z \documentclass
 % i preambułą, np. uklad-pomiarowy/uklad_pomiarowy_body.tex) wstawia się
@@ -133,7 +185,7 @@
 \captionsetup{labelsep=period, font=small, labelfont=bf, justification=centering,
               singlelinecheck=true, skip=6pt}
 \captionsetup[table]{position=top}
-\captionsetup[sub]{labelformat=parens, labelsep=space, labelfont=normalfont}
+\captionsetup[sub]{labelformat=parens, labelsep=space, labelfont=normalfont, font=small}
 \gappto\captionspolish{%
   \renewcommand{\figurename}{Rys.}%
   \renewcommand{\tablename}{Tab.}%

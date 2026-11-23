@@ -36,6 +36,7 @@ $\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
   \item \textbf{seria z~magnesem przy $\UT=\SI{10}{kV}$} --
         $\UB$ od \SI{600}{V} do \SI{1400}{V}, bez zdjęć ekranu.
 \end{itemize}
+
 Dodatkowo wykonano serię~2 bez magnesu z~odczytami prądu od
 \SI{1}{\micro A} do \SI{400}{\micro A}. Ciśnienie w~komorze nie
 przekraczało \SI{1e-5}{\milli\bar}. Zmierzone prądy zestawiono
@@ -88,7 +89,7 @@ Charakterystyki $\Ie(\UB)$ wszystkich sesji przedstawiono na rys.~\ref{fig:emisj
       \addlegendentry{\sesjaB\ ($\UT=\SI{2000}{V}$)}
       \addplot[blue!70!black, mark=*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
       \addlegendentry{\sesjaM\ ($\UT=\SI{1500}{V}$)}
-      \addplot[green!45!black, mark=diamond*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_10kV.csv};
+      \addplot[black, mark=diamond*, mark size=2.6pt] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_10kV.csv};
       \addlegendentry{\sesjaM\ ($\UT=\SI{10}{kV}$)}
     \end{semilogyaxis}
   \end{tikzpicture}

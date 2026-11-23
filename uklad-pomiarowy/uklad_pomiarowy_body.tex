@@ -51,6 +51,8 @@
 
   % --- Wspólna szyna (emiter) ---
   \draw (8,1.6) -- (8,0) node[circ]{};
+  % uziemienie wspólnego punktu (emiter na potencjale masy)
+  \draw (8,0) -- (8,-0.5) node[ground]{};
   \draw (0,0) -- (8,0);
   % gałąź powrotna zasilacza 2: rezystor R i amperomierz
   \draw (8,0) -- (8.6,0) to[R, l={$R_\mathrm{B}=\SI{100}{\kilo\ohm}$}, *-*] (10.4,0)

@@ -37,6 +37,7 @@ $\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
         $\UB$ od \SI{600}{V} do \SI{1400}{V}, prąd od \SI{4}{\micro A}
         do \SI{127}{\micro A}, bez zdjęć ekranu.
 \end{itemize}
+
 Dodatkowo wykorzystano serię~2 bez magnesu (odczyty prądu od \SI{1}{\micro A}
 do \SI{400}{\micro A}), która posłużyła do sprawdzenia związku jasności
 ekranu z~prądem. Wyniki zebrano w~tab.~\ref{tab:emisja-iv}.
@@ -111,6 +112,7 @@ Prawdopodobnie dlatego w~sesji z~magnesem obserwuje się:
   \item rozległą, rozmytą poświatę wokół plamki, która może być
         częściowo świeceniem gazu resztkowego.
 \end{itemize}
+
 Wyższy prąd w~sesji z~magnesem może wynikać z~dwóch przyczyn, których na
 podstawie tych pomiarów nie da się rozdzielić: ogniskowania wiązki
 przez magnes (więcej elektronów trafia w~target zamiast w~elektrody
@@ -135,7 +137,7 @@ i~skupienia plamki.
       \addlegendentry{\sesjaB\ ($\UT=\SI{2000}{V}$)}
       \addplot[blue!70!black, mark=*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
       \addlegendentry{\sesjaM\ ($\UT=\SI{1500}{V}$)}
-      \addplot[green!45!black, mark=diamond*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_10kV.csv};
+      \addplot[black, mark=diamond*, mark size=2.6pt] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_10kV.csv};
       \addlegendentry{\sesjaM\ ($\UT=\SI{10}{kV}$)}
       \draw[gray, dashed] (axis cs:450,15) -- (axis cs:1750,15)
         node[pos=0.2, below, font=\scriptsize] {upływ ok. \SI{15}{\micro A}};
@@ -225,6 +227,7 @@ zestawiono na rys.~\ref{fig:emisja-sbs}, a~parametry plamki w~tab.~\ref{tab:emis
   \item \textbf{Z~magnesem} świeci zwarty, wydłużony obszar w~części okna,
         otoczony rozległą niebieską poświatą z~promienistymi smugami.
 \end{itemize}
+
 Obraz z~sesji z~magnesem jest zgodny z~działaniem magnesu jako soczewki
 ogniskującej: wiązka zostaje ściśnięta do mniejszego obszaru, zamiast
 oświetlać całe okno, dzięki czemu plamka jest widoczna już przy
