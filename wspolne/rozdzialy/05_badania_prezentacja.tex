@@ -22,7 +22,7 @@ w~\rozdzref{ch:stanowisko}.
 
 \subsection{Przebieg pomiarów}
 
-Wykonano dwie sesje pomiarowe, w~których przy stałym napięciu $\UT$
+Wykonano sesje pomiarowe, w~których przy stałym napięciu $\UT$
 zwiększano napięcie $\UB$ co \SI{100}{V} i~rejestrowano prąd emisji
 $\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
 \begin{itemize}
@@ -32,7 +32,9 @@ $\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
         przez wygrzanie w~temperaturze ok. \SI{200}{\celsius},
   \item \textbf{sesja z~magnesem} -- $\UT=\SI{1500}{V}$,
         $\UB$ od \SI{500}{V} do \SI{1700}{V}, zdjęcia dla $\UB$ od
-        \SI{500}{V} do \SI{1600}{V}; bez ponownego odgazowania źródła.
+        \SI{500}{V} do \SI{1600}{V}; bez ponownego odgazowania źródła,
+  \item \textbf{seria z~magnesem przy $\UT=\SI{10}{kV}$} --
+        $\UB$ od \SI{600}{V} do \SI{1400}{V}, bez zdjęć ekranu.
 \end{itemize}
 Dodatkowo wykonano serię~2 bez magnesu z~odczytami prądu od
 \SI{1}{\micro A} do \SI{400}{\micro A}. Ciśnienie w~komorze nie
@@ -41,34 +43,34 @@ w~tab.~\ref{tab:emisja-iv}.
 
 \begin{table}[htbp]
   \centering
-  \caption{Prąd emisji w~funkcji napięcia w~obu sesjach}
+  \caption{Prąd emisji w~funkcji napięcia $\UB$ w~sesjach pomiarowych}
   \label{tab:emisja-iv}
-  \begin{tabular}{@{}r r r@{}}
+  \begin{tabular}{@{}r r r r@{}}
     \toprule
-    $\UB$ [V] & $\Ie$ \sesjaB\ [µA] & $\Ie$ \sesjaM\ [µA] \\
+    $\UB$ [V] & $\Ie$ \sesjaB\ [µA] & $\Ie$ \sesjaM\ [µA] & $\Ie$ \sesjaM\ [µA] \\
     \midrule
-     500 & 0    & 14 \\
-     600 & 0    & 16 \\
-     700 & 0    & 14 \\
-     800 & 2    & 28 \\
-     900 & 3,1  & 45 \\
-    1\,000 & 4    & 69 \\
-    1\,100 & 6    & 118 \\
-    1\,200 & 8    & 180 \\
-    1\,300 & 9    & 190 \\
-    1\,400 & 11,2 & 190 \\
-    1\,500 & 22   & 193 \\
-    1\,600 & --   & 200 \\
-    1\,700 & --   & 200 \\
+     500 & 0    & 14 & -- \\
+     600 & 0    & 16 & 4 \\
+     700 & 0    & 14 & 18 \\
+     800 & 2    & 28 & 36 \\
+     900 & 3,1  & 45 & 44 \\
+    1\,000 & 4    & 69 & 99 \\
+    1\,100 & 6    & 118 & 127 \\
+    1\,200 & 8    & 180 & 127 \\
+    1\,300 & 9    & 190 & 126 \\
+    1\,400 & 11,2 & 190 & 125 \\
+    1\,500 & 22   & 193 & -- \\
+    1\,600 & --   & 200 & -- \\
+    1\,700 & --   & 200 & -- \\
     \midrule
-    $\UT$ & \SI{2000}{V} & \SI{1500}{V} \\
+    $\UT$ & \SI{2000}{V} & \SI{1500}{V} & \SI{10}{kV} \\
     \bottomrule
   \end{tabular}
 \end{table}
 
 \subsection{Charakterystyki prądowo-napięciowe}
 
-Charakterystyki $\Ie(\UB)$ obu sesji przedstawiono na rys.~\ref{fig:emisja-iv}.
+Charakterystyki $\Ie(\UB)$ wszystkich sesji przedstawiono na rys.~\ref{fig:emisja-iv}.
 
 \begin{figure}[htbp]
   \centering
@@ -86,10 +88,13 @@ Charakterystyki $\Ie(\UB)$ obu sesji przedstawiono na rys.~\ref{fig:emisja-iv}.
       \addlegendentry{\sesjaB\ ($\UT=\SI{2000}{V}$)}
       \addplot[blue!70!black, mark=*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
       \addlegendentry{\sesjaM\ ($\UT=\SI{1500}{V}$)}
+      \addplot[green!45!black, mark=diamond*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_10kV.csv};
+      \addlegendentry{\sesjaM\ ($\UT=\SI{10}{kV}$)}
     \end{semilogyaxis}
   \end{tikzpicture}
   \caption{Prąd emisji w~funkcji napięcia $\UB$: \sesjaB\ przy
     $\UT=\SI{2000}{V}$, \sesjaM\ przy $\UT=\SI{1500}{V}$
+    i~$\UT=\SI{10}{kV}$
     (skala logarytmiczna; punkty z~$\Ie=0$ pominięto)}
   \label{fig:emisja-iv}
 \end{figure}

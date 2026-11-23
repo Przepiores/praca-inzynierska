@@ -19,7 +19,7 @@
 
 \subsection{Przebieg pomiarów}
 
-Porównano dwie sesje pomiarowe, w~których przy stałym napięciu $\UT$
+Porównano sesje pomiarowe, w~których przy stałym napięciu $\UT$
 zwiększano napięcie $\UB$ co \SI{100}{V} i~rejestrowano prąd emisji
 $\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
 \begin{itemize}
@@ -32,7 +32,10 @@ $\Ie$ oraz zdjęcie ekranu luminescencyjnego (\rozdzref{ch:stanowisko}):
         $\UB$ od \SI{500}{V} do \SI{1700}{V}, prąd od \SI{14}{\micro A}
         do \SI{200}{\micro A}, zdjęcia dla $\UB$ od \SI{500}{V}
         do \SI{1600}{V}; źródło nie było przed tą sesją
-        ponownie odgazowane.
+        ponownie odgazowane,
+  \item \textbf{seria z~magnesem przy $\UT=\SI{10}{kV}$} --
+        $\UB$ od \SI{600}{V} do \SI{1400}{V}, prąd od \SI{4}{\micro A}
+        do \SI{127}{\micro A}, bez zdjęć ekranu.
 \end{itemize}
 Dodatkowo wykorzystano serię~2 bez magnesu (odczyty prądu od \SI{1}{\micro A}
 do \SI{400}{\micro A}), która posłużyła do sprawdzenia związku jasności
@@ -40,27 +43,27 @@ ekranu z~prądem. Wyniki zebrano w~tab.~\ref{tab:emisja-iv}.
 
 \begin{table}[htbp]
   \centering
-  \caption{Prąd emisji w~funkcji napięcia w~obu sesjach}
+  \caption{Prąd emisji w~funkcji napięcia $\UB$ w~sesjach pomiarowych}
   \label{tab:emisja-iv}
-  \begin{tabular}{@{}r r r@{}}
+  \begin{tabular}{@{}r r r r@{}}
     \toprule
-    $\UB$ [V] & $\Ie$ \sesjaB\ [µA] & $\Ie$ \sesjaM\ [µA] \\
+    $\UB$ [V] & $\Ie$ \sesjaB\ [µA] & $\Ie$ \sesjaM\ [µA] & $\Ie$ \sesjaM\ [µA] \\
     \midrule
-     500 & 0    & 14 \\
-     600 & 0    & 16 \\
-     700 & 0    & 14 \\
-     800 & 2    & 28 \\
-     900 & 3,1  & 45 \\
-    1\,000 & 4    & 69 \\
-    1\,100 & 6    & 118 \\
-    1\,200 & 8    & 180 \\
-    1\,300 & 9    & 190 \\
-    1\,400 & 11,2 & 190 \\
-    1\,500 & 22   & 193 \\
-    1\,600 & --   & 200 \\
-    1\,700 & --   & 200 \\
+     500 & 0    & 14 & -- \\
+     600 & 0    & 16 & 4 \\
+     700 & 0    & 14 & 18 \\
+     800 & 2    & 28 & 36 \\
+     900 & 3,1  & 45 & 44 \\
+    1\,000 & 4    & 69 & 99 \\
+    1\,100 & 6    & 118 & 127 \\
+    1\,200 & 8    & 180 & 127 \\
+    1\,300 & 9    & 190 & 126 \\
+    1\,400 & 11,2 & 190 & 125 \\
+    1\,500 & 22   & 193 & -- \\
+    1\,600 & --   & 200 & -- \\
+    1\,700 & --   & 200 & -- \\
     \midrule
-    $\UT$ & \SI{2000}{V} & \SI{1500}{V} \\
+    $\UT$ & \SI{2000}{V} & \SI{1500}{V} & \SI{10}{kV} \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -78,6 +81,20 @@ przy \SI{1200}{V}, po czym nasyca się na poziomie
 \SIrange{190}{200}{\micro A}. Przy tym samym napięciu $\UB$ prąd w~sesji
 z~magnesem jest ok. 10--20 razy większy niż bez magnesu (np. \SI{69}{\micro A} wobec
 \SI{4}{\micro A} przy \SI{1000}{V}), mimo niższego $\UT$.
+
+W~serii przy $\UT=\SI{10}{kV}$ prąd \SI{4}{\micro A} płynie już przy
+\SI{600}{V}, bez widocznego prądu upływu, i~rośnie do \SI{99}{\micro A}
+przy \SI{1000}{V}. Przy tym samym $\UB$ jest to ok. 1,4 raza więcej
+niż w~sesji z~magnesem przy $\UT=\SI{1500}{V}$. Niższy próg i~większy
+prąd wskazują, że pole targetu częściowo przenika przez otwór bramki
+(\qtyproduct[product-units=single]{2 x 2}{\milli\metre}, \rysref{fig:bramka-wymiary}) i~zwiększa natężenie pola przy ostrzu emitera, a~więc
+$\Ie$ zależy nie tylko od $\UB$, ale też od $\UT$. Od \SI{1100}{V} prąd
+nasyca się na poziomie \SIrange{125}{127}{\micro A} i~nieznacznie
+maleje, podobnie jak w~sesji przy $\UT=\SI{1500}{V}$, lecz na niższym
+poziomie. Przyczyny nasycenia nie da się wskazać na podstawie tych
+pomiarów; możliwe są ograniczenie emisji przez stan powierzchni CNT
+lub ładunek przestrzenny oraz zjawiska związane z~gazem resztkowym
+(\pref{sec:emisja}).
 
 \subsection{Wpływ warunków źródła na wyniki}
 
@@ -118,11 +135,13 @@ i~skupienia plamki.
       \addlegendentry{\sesjaB\ ($\UT=\SI{2000}{V}$)}
       \addplot[blue!70!black, mark=*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_mag.csv};
       \addlegendentry{\sesjaM\ ($\UT=\SI{1500}{V}$)}
+      \addplot[green!45!black, mark=diamond*] table[x=U,y=I_uA,col sep=comma]{\datadir/iv_10kV.csv};
+      \addlegendentry{\sesjaM\ ($\UT=\SI{10}{kV}$)}
       \draw[gray, dashed] (axis cs:450,15) -- (axis cs:1750,15)
         node[pos=0.2, below, font=\scriptsize] {upływ ok. \SI{15}{\micro A}};
     \end{semilogyaxis}
   \end{tikzpicture}
-  \caption{Charakterystyki prądowo-napięciowe emisji w~obu sesjach
+  \caption{Charakterystyki prądowo-napięciowe emisji w~sesjach pomiarowych
     (skala logarytmiczna; punkty z~$\Ie=0$ pominięto)}
   \label{fig:emisja-iv}
 \end{figure}
@@ -294,7 +313,10 @@ w~mikrometrach.
         magnetycznego.
   \item W~sesji z~magnesem prąd nasyca się przy ok.
         \SI{200}{\micro A} powyżej \SI{1200}{V}, co potwierdza również
-        przestający rosnąć obraz plamki.
+        przestający rosnąć obraz plamki. Przy $\UT=\SI{10}{kV}$ emisja
+        zaczyna się już przy \SI{600}{V}, a~prąd nasyca się przy ok.
+        \SI{127}{\micro A} powyżej \SI{1100}{V}; prąd emisji zależy więc
+        także od napięcia $\UT$.
   \item Jasność ekranu silnie koreluje z~prądem emisji
         ($r_\mathrm{P}=0{,}95$--$0{,}99$) i~może służyć jako jego względna miara.
   \item Bezpośrednie porównanie wartości prądów między sesjami jest
