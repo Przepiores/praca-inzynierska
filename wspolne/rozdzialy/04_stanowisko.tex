@@ -14,18 +14,42 @@ luminescencyjnego i~widm promieniowania X.
 \section{Komora próżniowa i~obwód elektryczny}
 \label{sec:obwod}
 
-Prototyp nie jest hermetyczny (\pref{sec:bonding-montaz}), dlatego
-wszystkie pomiary prowadzono w~komorze próżniowej. Ciśnienie
+\begin{zmiana}
+Struktura prototypu jest otwarta, tak jak w~docelowym przyrządzie
+pracującym w~próżni kosmicznej, dlatego wszystkie pomiary prowadzono
+w~komorze próżniowej. Ciśnienie
 w~komorze podczas pomiarów nie przekraczało \SI{1e-5}{\milli\bar}
 (\SI{1e-3}{\pascal}), co zapewnia propagację wiązki bez zderzeń
-z~cząsteczkami gazu (\pref{sec:uzupelnienia}).
+z~cząsteczkami gazu (\pref{sec:emisja}).
+\end{zmiana}
+\usun{„Prototyp nie jest hermetyczny” (U33)}
+
+\begin{przeniesione}
+W~badanym układzie emisję wywołuje napięcie ekstrakcyjne $\UB$
+przyłożone między emiter (E) a~bramkę (B) z~otworem. Poniżej napięcia
+progowego prąd emisji jest niemierzalny, a~powyżej progu rośnie
+wykładniczo zgodnie z~\eqref{eq:fn}. Część elektronów trafia w~bramkę,
+a~część przechodzi przez otwór i~jest przyspieszana w~stronę targetu (T)
+napięciem przyspieszającym $\UT$, które decyduje o~energii elektronów
+padających na próbkę.
+\end{przeniesione}
+\przen{U15, U17: z~dawnych p.~2.2.4 i~2.3.2}
 
 Schemat obwodu elektrycznego przedstawiono na \rysref{fig:uklad-pomiarowy}.
 Emiter (E) jest wspólnym punktem obu obwodów i~znajduje się na
 potencjale masy. Zasilacz~1 doprowadza do targetu (T) dodatnie napięcie
 przyspieszające $\UT$, a~zasilacz~2 do bramki (B) dodatnie napięcie
-ekstrakcyjne $\UB$. Wybrano wariant z~uziemionym emiterem; wariant
-z~ujemnym napięciem na emiterze omówiono w~\pref{sec:wiazka}.
+ekstrakcyjne $\UB$.
+\begin{przeniesione}
+Target musi mieć potencjał dodatni względem emitera, co można uzyskać
+także, uziemiając target i~polaryzując emiter napięciem $-\UT$. Ten
+wariant jest prostszy w~realizacji: próbka, uchwyt i~komora pozostają
+na potencjale masy, więc między próbką a~detektorem nie występuje pole
+odchylające elektrony ani ryzyko przebicia do detektora. Wymaga on
+jednak zasilacza wysokiego napięcia o~ujemnej polaryzacji wyjścia,
+a~obwód bramki musi być wtedy odniesiony do potencjału emitera.
+\end{przeniesione}
+\przen{U17: warianty polaryzacji z~dawnego p.~2.3.2}
 
 \begin{figure}[htbp]
   \centering
@@ -59,8 +83,18 @@ $\UT = \SI{10}{\kilo\volt}$.
 \section{Obserwacja wiązki i~analiza zdjęć ekranu}
 \label{sec:analiza-zdjec}
 
+\begin{przeniesione}
+Kształt i~położenie wiązki obserwuje się na ekranie pokrytym luminoforem,
+który świeci w~miejscu padania elektronów. Jasność świecenia rośnie
+z~gęstością prądu, dlatego zdjęcie ekranu pokazuje rozkład gęstości
+prądu w~przekroju wiązki. Metoda ta jest jakościowa: jasność zależy też
+od energii elektronów, rodzaju luminoforu, jego degradacji i~ustawień
+aparatu.
+\end{przeniesione}
+\przen{U18: z~dawnego p.~2.3.6}
+
 Kształt wiązki obserwowano na ekranie luminescencyjnym, czyli warstwie
-luminoforu umieszczonej w~miejscu próbki (\pref{sec:wiazka}). Ekran
+luminoforu umieszczonej w~miejscu próbki. Ekran
 fotografowano kamerą z~automatyczną ekspozycją przy kolejnych
 napięciach $\UB$ z~serii pomiarowej.
 
@@ -99,13 +133,4 @@ podstawie położeń linii o~jednoznacznej identyfikacji, a~widma
 analizowano jakościowo, przypisując piki pierwiastkom
 (\pref{sec:spektrometria}).
 
-\section{Bezpieczeństwo pracy}
-
-Podczas pomiarów występują dwa zagrożenia: wysokie napięcie
-i~promieniowanie X. Zasilacze wysokiego napięcia mają ograniczenie
-prądu, a~obwody zawierają rezystory ograniczające. Przy napięciach
-przyspieszających do \SI{10}{\kilo\volt} promieniowanie X jest miękkie
-i~pochłaniane przez metalowe ścianki komory. Promieniowanie może
-wydostawać się tylko przez okna komory, dlatego podczas pracy źródła
-zachowuje się odległość od okien i~ogranicza czas przebywania w~ich
-pobliżu.
+\usun{p.~„Bezpieczeństwo pracy” (U32)}

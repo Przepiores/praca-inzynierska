@@ -32,6 +32,30 @@
 % \DOSPRAWDZENIA{tekst} — fragment do weryfikacji (pomarańczowe tło znaczeniowe)
 \newcommand{\DOSPRAWDZENIA}[1]{\ifwersjaPromotor #1\else\textcolor{orange!80!black}{#1}\fi}
 
+
+% ---------------------------------------------------------------------
+%  Szkic z oznaczonymi zmianami (main-szkic.tex definiuje \wersjaSzkic).
+%  W pozostałych wersjach: \zm i środowiska drukują tekst zwykłym kolorem,
+%  a \usun, \przen, \otwarte nie drukują nic.
+%   \zm{tekst}                    — nowy lub przeredagowany fragment (niebieski)
+%   \begin{zmiana}...\end{zmiana} — to samo dla całych akapitów
+%   \begin{przeniesione}...\end{przeniesione} — tekst przeniesiony z innego
+%                                   miejsca bez zmian treści (fioletowy)
+%   \usun{opis}   — w tym miejscu usunięto fragment (czerwona notka)
+%   \przen{opis}  — notka o przeniesieniu (fioletowa)
+%   \otwarte{opis}— sprawa do ustalenia (pomarańczowa notka)
+% ---------------------------------------------------------------------
+\newif\ifwersjaSzkic
+\ifdefined\wersjaSzkic \wersjaSzkictrue \fi
+\definecolor{kolorZmiana}{RGB}{0,70,190}
+\definecolor{kolorPrzen}{RGB}{130,0,150}
+\DeclareRobustCommand{\zm}[1]{\ifwersjaSzkic{\color{kolorZmiana}#1}\else#1\fi}
+\newenvironment{zmiana}{\ifwersjaSzkic\color{kolorZmiana}\fi}{}
+\newenvironment{przeniesione}{\ifwersjaSzkic\color{kolorPrzen}\fi}{}
+\DeclareRobustCommand{\usun}[1]{\ifwersjaSzkic{\color{red!75!black}\footnotesize\sffamily[usunięto: #1]}\fi}
+\DeclareRobustCommand{\przen}[1]{\ifwersjaSzkic{\color{kolorPrzen}\footnotesize\sffamily[#1]}\fi}
+\DeclareRobustCommand{\otwarte}[1]{\ifwersjaSzkic{\color{orange!85!black}\footnotesize\sffamily[DO USTALENIA: #1]}\fi}
+
 % ---------------------------------------------------------------------
 %  Odwołania (słownik, p. 5.5): małą literą, z tyldą
 % ---------------------------------------------------------------------

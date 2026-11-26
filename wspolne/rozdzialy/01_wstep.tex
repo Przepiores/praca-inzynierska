@@ -22,6 +22,12 @@ określa się skład skał i~gruntu na~powierzchni Księżyca, Marsa czy
 planetoid. Sprowadzanie próbek na~Ziemię jest kosztowne i~możliwe tylko
 w~nielicznych misjach, dlatego analizę wykonuje się na~miejscu,
 przyrządami zamontowanymi na~lądowniku lub łaziku~\cite{gellert2015apxs}.
+\zm{Promieniowanie charakterystyczne próbki można wzbudzić nie tylko
+wysokoenergetycznymi elektronami, lecz także cząstkami naładowanymi
+i~fotonami o~energii wystarczającej do jonizacji powłok wewnętrznych
+atomów. W~misjach kosmicznych wykorzystuje się dotąd głównie
+wzbudzenie promieniowaniem rentgenowskim, czyli metodę XRF
+(\angielski{X-ray Fluorescence}).}
 Spektrometry APXS łazików marsjańskich wzbudzają próbkę cząstkami alfa
 i~promieniowaniem X ze źródła radioizotopowego~\cite{rieder2003apxs},
 a~przyrząd PIXL łazika Perseverance -- promieniowaniem z~miniaturowej
@@ -80,44 +86,39 @@ wysłaniem danych. Zagadnienia te łączą mikrosystemy MEMS z~układami
 pomiarowymi i~przetwarzaniem sygnałów, co odpowiada zakresowi kierunku
 Inteligentna Elektronika.
 
-\section{Cel i~zakres pracy}
+\usun{nagłówek p.~1.1 „Cel i~zakres pracy” – jedyny podrozdział (U4)}
 \label{sec:cel}
-
 Celem pracy jest opracowanie, wykonanie oraz badania prototypu
 miniaturowego analizatora EDS w~technologii MEMS, przeznaczonego
-do~zastosowań kosmicznych. Zakres pracy obejmuje część inżynierską
-i~badawczą.
-
-Część inżynierska:
+do~zastosowań kosmicznych.
+\begin{zmiana}
+Zakres pracy obejmuje:
 \begin{itemize}
-  \item zaprojektowanie elementów źródła elektronów (emitera i~bramki)
-    oraz masek do~procesu technologicznego,
-  \item wykonanie struktur krzemowych i~szklanych, uformowanie ostrza
-    z~kompozytu CNT-PVP na~emiterze i~połączenie elementów bondingiem
-    anodowym,
-  \item zestawienie stanowiska pomiarowego z~komorą próżniową, zasilaniem
-    wysokim napięciem i~spektrometrem rentgenowskim.
+  \item opracowanie koncepcji konstrukcyjnej oraz projektu elementów
+    struktury MEMS, obejmującej emiter elektronów i~elektrodę
+    ekstrakcyjną (bramkę),
+  \item dobór materiałów oraz opracowanie masek i~procesu
+    technologicznego wykonania poszczególnych elementów struktury,
+  \item wykonanie elementów krzemowych i~szklanych, uformowanie emitera
+    z~wykorzystaniem nanorurek węglowych oraz montaż prototypu
+    z~zastosowaniem bondingu anodowego,
+  \item przygotowanie stanowiska badawczego umożliwiającego prowadzenie
+    pomiarów w~warunkach wysokiej próżni z~wykorzystaniem wysokich
+    napięć oraz rejestrację promieniowania rentgenowskiego,
+  \item wyznaczenie charakterystyk prądowo-napięciowych emitera oraz
+    ocenę jego właściwości emisyjnych,
+  \item zbadanie wpływu pola magnetycznego na~rozkład przestrzenny wiązki
+    elektronów na~podstawie obserwacji ekranu luminescencyjnego,
+  \item rejestrację widm promieniowania rentgenowskiego wzbudzanego
+    wiązką elektronów oraz identyfikację występujących w~nich linii
+    charakterystycznych,
+  \item analizę uzyskanych wyników i~ocenę możliwości wykorzystania
+    opracowanego rozwiązania w~miniaturowych analizatorach EDS
+    przeznaczonych do~zastosowań kosmicznych.
 \end{itemize}
 
-Część badawcza:
-\begin{itemize}
-  \item pomiary emisji polowej emitera CNT, czyli zależności prądu emisji
-    od~napięcia,
-  \item ocena wpływu magnesu ogniskującego na~kształt wiązki obserwowanej
-    na~ekranie luminescencyjnym,
-  \item rejestracja widma promieniowania X wzbudzanego wiązką elektronów
-    i~identyfikacja linii charakterystycznych,
-  \item ocena możliwości zastosowania technologii MEMS do~miniaturyzacji
-    analizatorów EDS przeznaczonych do~zastosowań kosmicznych.
-\end{itemize}
-
-% B26: z celów usunięto wpływ geometrii bramki, średnicę wiązki w µm
-% i porównanie liczby fotonów z magnesem i bez, bo brak takich danych.
-% Jeśli autor je dostarczy, przywrócić odpowiednie punkty.
-Badania prowadzono w~komorze próżniowej przy ciśnieniu do
-\SI{1e-5}{\milli\bar}. Elementy połączono
-bondingiem anodowym w~atmosferze, dlatego struktura nie jest hermetyczna.
-Hermetyzacja z~mikropompą, istotna w~docelowym przyrządzie, nie wchodzi
-w~zakres pracy, podobnie jak konstrukcja zasilacza wysokiego napięcia
-i~detektora. Widma rejestrowano przy napięciu przyspieszającym $U_\mathrm{T}$
-w~zakresie \SIrange{4}{10}{\kilo\volt}.
+Konstrukcja zasilaczy wysokiego napięcia i~detektora promieniowania
+nie wchodzi w~zakres pracy.
+\end{zmiana}
+\przen{U5: lista zakresu wg propozycji promotora; „elektroda targetu” pominięta, bo trzecią elektrodę usunięto z~pracy}
+\usun{akapit o~ciśnieniu w~komorze, bondingu w~atmosferze, hermetyzacji i~zakresie $U_\mathrm{T}$ (U6; dane są w~rozdz.~\ref{ch:stanowisko})}
